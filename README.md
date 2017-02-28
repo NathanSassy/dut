@@ -1,3 +1,3 @@
 # Code pour l'IUT
 
-Tout les TPs réalisés pour le DUT Info, regroupé par numéro de module.
+Tous les TPs réalisés pour le DUT Info, regroupés par numéro de module.
