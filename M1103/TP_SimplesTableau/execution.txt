@@ -1,0 +1,377 @@
+
+=== Test de la methode afficherTab ===
+
+Test avec un tableau vide
+Le tableau est null
+
+Test avec un tableau rempli de 5 elements
+5
+2
+89
+-2
+3
+
+=== Fin du test de la methode afficherTab ===
+
+
+=== Test de la methode saisir ===
+
+Test avec un tableau vide
+Le tableau est null
+
+Test avec un tableau a saisir de 5 elements
+Affichage du tab :
+1
+2
+3
+4
+5
+
+=== Fin du test de la methode saisir ===
+
+
+=== Test de la methode afficherTab ===
+
+Test avec un tableau vide
+Le tableau est null
+
+Test avec un tableau de 9 elements et affichage de 3 elements par ligne
+5 2 89 
+-2 3 42 
+9 1 7 
+
+Test avec un tableau de 9 elements et affichage de 1 elements par ligne
+5 
+2 
+89 
+-2 
+3 
+42 
+9 
+1 
+7 
+
+Test avec un tableau de 9 elements et affichage de 0 elements par ligne
+nbLgn doit etre positif
+
+Test avec un tableau de 9 elements et affichage de 4 elements par ligne
+5 2 89 -2 
+3 42 9 1 
+7 
+=== Fin du test de la methode afficherTab ===
+
+
+=== Test de la methode tirerAleatoire ===
+
+Generation de 10 entier, aleatoirement, compris entre -5 et 10 :
+n°0 = -1
+n°1 = 2
+n°2 = 8
+n°3 = 4
+n°4 = 4
+n°5 = 9
+n°6 = 6
+n°7 = 7
+n°8 = 6
+n°9 = 6
+n°10 = -5
+
+=== Fin du test de la methode tirerAleatoire ===
+
+
+=== Test de la methode remplirAleatoire ===
+
+Essai avec un tableau de 10 entiers
+Les valeurs seront comprises entre 0 et 100
+Affichage du tableau : 
+79
+51
+16
+11
+31
+46
+70
+86
+7
+59
+
+=== Fin du test de la methode remplirAleatoire ===
+
+
+=== Test de la methode egalite ===
+
+Test avec un tableau null
+Le tableau est null
+Le tableau est null
+egal : false
+
+Test avec un element non positif
+nbElem doit etre positif
+egal : false
+
+Test avec deux tableaux differents de meme taille
+egal : false
+
+Test avec deux tableaux identiques
+egal : true
+
+=== Fin du test de la methode egalite ===
+
+
+=== Test de la methode copier ===
+
+Test avec un tableau null
+Le tableau est null
+
+Test avec un tableau de 3 elements
+Affichage original: 3, 4, 5
+Affichage copie: 3, 4, 5
+
+=== Fin du test de la methode Copier ===
+
+
+=== Test de la methode decalerGche ===
+
+Test avec un tableau null
+Le tableau est null
+
+Test avec un mauvais indice
+
+Test avec des parametres corrects
+
+
+Initial : 
+0
+1
+2
+3
+4
+5
+6
+
+decale avec indice 4 : 
+0
+1
+2
+3
+5
+6
+6
+
+
+=== Fin du test de la methode decalerGche ===
+
+
+=== Test de la methode echange ===
+
+Initial : 3
+4
+5
+6
+7
+8
+
+Echange des cellules 2 et 3
+Apres echange : 3
+4
+6
+5
+7
+8
+
+
+=== Fin du test de la methode echange ===
+
+
+=== Test de la methode nbOccurrences ===
+
+Test avec un tableau null
+Le tableau est null
+
+Test avec ce tableau :
+1
+2
+3
+3
+3
+4
+2
+4
+5
+5
+6
+
+Nombre de '2' : 2
+Nombre de '3' : 3
+Nombre de '1' : 1
+Nombre de '6' : 1
+
+
+=== Fin du test de la methode nbOccurrences ===
+
+
+=== Test des methodes leMax et leMin ===
+
+Test avec ce tableau :
+-2
+-1
+0
+1
+2
+3
+4
+5
+
+Le minimum : -2
+Le maximum : 5
+
+
+=== Fin du test des methodes leMax et leMin ===
+
+
+=== Test de la methode inverse ===
+
+Test avec ce tableau :
+-2
+-1
+0
+1
+2
+3
+4
+5
+
+L'inverse du tableau :
+5
+4
+3
+2
+1
+0
+-1
+-2
+
+
+=== Fin du test de la methode inverse ===
+
+
+=== Test de la methode melange ===
+
+Test avec ce tableau :
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+On melange le tableau et on l'affiche :
+8
+3
+10
+5
+0
+1
+6
+2
+9
+4
+7
+
+
+=== Fin du test de la methode melange ===
+
+
+=== Test de la methode supprimerUneValeur ===
+
+Test avec ce tableau :
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+On supprime la valeur 7 et on l'affiche :
+0
+1
+2
+3
+4
+5
+6
+8
+9
+10
+
+On supprime la valeur 0 et on l'affiche :
+1
+2
+3
+4
+5
+6
+8
+9
+10
+
+On supprime la valeur 10 et on l'affiche :
+1
+2
+3
+4
+5
+6
+8
+9
+
+
+=== Fin du test de la methode supprimerUneValeur ===
+
+
+=== Test de la methode inclusion ===
+
+Test avec ces tableaux :
+Tab1 :
+0
+1
+2
+3
+4
+5
+
+Tab2 :
+1
+2
+3
+
+Tab3 :
+1
+1
+2
+3
+3
+3
+
+
+Le deuxieme tableau est il inclus dans le premier ?
+Inclus : true
+Le premier tableau est il inclus dans lui-meme ?
+Inclus : true
+Le premier tableau est il inclus dans le deuxieme ?
+Inclus : false
+Le troisieme tableau est il inclus dans le deuxieme ?
+Inclus : true
+
+=== Fin du test de la methode inclusion ===
+
