@@ -3,15 +3,31 @@ package bank;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+* This class allow you to manipulate Bank object
+* @author Antoine Gicquel
+* @version 1.0
+*/
 public class Bank
 {
-	ArrayList<BankAccount>  accounts;
+	/**
+	* accounts contains all the bank accounts
+	*/
+	private ArrayList<BankAccount>  accounts;
 
+
+	/**
+	* Create the bank object containing bank accounts
+	*/
 	public Bank()
 	{
-		accounts = new ArrayList<BankAccount>();
+		this.accounts = new ArrayList<BankAccount>();
 	}
 
+	/**
+	* Adding an account in the bank
+	* @param a the bank account
+	*/
 	public void addAccount(BankAccount a)
 	{
 		if(a == null)
@@ -28,6 +44,10 @@ public class Bank
 		}
 	}
 
+	/**
+	* Getting the total amount of balance of every bank accounts
+	* @return the total amount of balance
+	*/
 	public double getTotalBalance()
 	{
 		double total = 0.0;
@@ -38,6 +58,11 @@ public class Bank
 		return total;
 	}
 
+	/**
+	* Counter of account having a balance bigger than atLeast
+	* @param atLeast the minimum amount
+	* @return the number of account
+	*/
 	public int count(double atLeast)
 	{
 		int counter = 0;
@@ -49,6 +74,11 @@ public class Bank
 		return counter;
 	}
 
+	/**
+	* Finding an account with the number
+	* @param  accountNumber the account number
+	* @return the bank account if exising nor null
+	*/
 	public BankAccount find(int accountNumber)
 	{
 		BankAccount bc = null;
@@ -68,6 +98,10 @@ public class Bank
 		return bc;
 	}
 
+	/**
+	* Getting the bank account containing the biggest amount
+	* @return the biggest bank account
+	*/
 	public BankAccount getMaximum()
 	{
 		BankAccount bc = null;
