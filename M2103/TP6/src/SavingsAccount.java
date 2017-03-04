@@ -25,7 +25,7 @@ public class SavingsAccount extends BankAccount
 	*/
 	public void addInterest()
 	{
-		deposit(getBalance() * interestRate);
+		deposit(getBalance() * (interestRate/100));
 	}
 
 	/**
