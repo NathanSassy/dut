@@ -1,10 +1,21 @@
 package staff;
 
+/**
+* Employee class allows you to manipulate Employee
+*/
 public class Employee extends StaffMember
 {
 	protected String socialSecurityNumber;
 	protected double payRate;
 
+	/**
+	* Constructor of Volunteer
+	* @param eName the name
+	* @param eAddress the address
+	* @param ePhone the phone number
+	* @param socSecNumber Social Security Number
+	* @param rate earning amount by hours
+	*/
 	public Employee(String eName, String eAddress, String ePhone, String socSecNumber, double rate)
 	{
 		super(eName, eAddress, ePhone);
@@ -19,11 +30,19 @@ public class Employee extends StaffMember
 		}
 	}
 
+	/**
+	* Give the pay
+	* @return return the payRate
+	*/
 	public double pay()
 	{
 		return this.payRate;
 	}
 
+	/**
+	* Give some infos on the worker
+	* @return String containing infos
+	*/
 	public String toString()
 	{
 		String ret = super.toString();
