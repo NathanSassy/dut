@@ -51,6 +51,7 @@ public abstract class StaffMember
 	*/
 	public abstract double pay();
 
+	
 	/**
 	* Give some infos on the worker
 	* @return String containing infos

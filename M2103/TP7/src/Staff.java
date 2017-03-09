@@ -56,14 +56,18 @@ public class Staff
 			System.out.println(sm);
 			paye = sm.pay();
 			if(paye == 0)
-			{
 				System.out.println("\nThanks !");
-			}
 			else
-			{
 				System.out.println("\nPaid : " + paye);
-			}
 			System.out.println("\n-----------------------------------");
 		}
+	}
+
+	/**
+	* @return the number of member in staff list
+	*/
+	public int getNumberOfMember()
+	{
+		return staffList.size();
 	}
 }
