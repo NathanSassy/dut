@@ -39,6 +39,7 @@ public class Executive extends Employee
 	*/
 	public double pay()
 	{
+		this.bonus = 0;
 		return (super.pay() + this.bonus);
 	}
 

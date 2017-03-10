@@ -39,6 +39,7 @@ public class Hourly extends Employee
 	*/
 	public double pay()
 	{
+		this.hoursWorked = 0;
 		return (this.hoursWorked * super.pay());
 	}
 
