@@ -18,4 +18,6 @@ M2102 : Introduction aux réseaux
 
 M2103 : Bases de la programmation par objets
 
+M2105 : Introduction aux interfaces homme-machine
+
 M2106 : Programmation et Administration des Bases de Données
