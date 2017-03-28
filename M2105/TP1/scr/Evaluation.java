@@ -30,7 +30,7 @@ public class Evaluation
 		return this.coef;
 	}
 	
-	public void sauvegarderDansFichier(String fichierEcriture)
+	public void sauvegarderNotesFichier(String fichierEcriture)
 	{
 		try
 		{

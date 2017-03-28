@@ -20,11 +20,12 @@ public class Scenario
 		System.out.println(e1);
 		
 		// Notes dans un fichier
-		eva1.sauvegarderDansFichier("noteEva2");
-		eva2.sauvegarderDansFichier("noteEva2");
-		eva3.sauvegarderDansFichier("noteEva2");
+		eva1.sauvegarderNotesFichier("noteEva2");
+		eva2.sauvegarderNotesFichier("noteEva2");
+		eva3.sauvegarderNotesFichier("noteEva2");
 		e2.lectureNoteFichier("noteEva2");
 		e2.setMoyenne();
+		e2.sauvegarderElevesFichier();
 		System.out.println(e2);
 		
 		// Coef nul

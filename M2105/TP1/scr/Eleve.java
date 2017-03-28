@@ -59,8 +59,6 @@ public class Eleve
 	public void lectureNoteFichier(String fichierLecture)
 	{
 		this.notes = new ArrayList<Evaluation>();
-		float coefTotal = 0;
-		float noteTotal = 0;
 		
 		try
 		{
@@ -86,6 +84,20 @@ public class Eleve
 		catch (Exception ex)
 		{
 			System.out.println("Probleme de lecture de fichier");
+			System.out.println(ex.getMessage());
+		}
+	}
+
+	public void sauvegarderElevesFichier()
+	{
+		try
+		{
+			PrintWriter fichier = new PrintWriter(new FileWriter(this.nom + "-" + this.prenom));
+			fichier.println(this.nom + "/" + this.prenom + "/" + this.moyenne);
+			fichier.close();
+		}
+		catch (Exception ex)
+		{
 			System.out.println(ex.getMessage());
 		}
 	}
