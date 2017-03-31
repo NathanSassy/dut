@@ -18,9 +18,21 @@ public class Scenario
 		tabPays [8] = new Pays ("Togo" , 5858673, 56785);
 		tabPays [9] = new Pays ("France" , 64057790 , 643427);
 
-		TriParSelection tps = new TriParSelection(tabPays);
-		tps.trier();
+		//testTriParSelection(tabPays);
+		testTriRapide(tabPays);
 		System.out.println (Arrays.toString(tabPays)) ;
 
+	}
+
+	public static void testTriParSelection(Pays tab[])
+	{
+		TriParSelection tps = new TriParSelection(tab);
+		tps.trier();
+	}
+
+	public static void testTriRapide(Pays tab[])
+	{
+		TriRapide tr = new TriRapide(tab);
+		tr.trier();
 	}
 }

@@ -18,7 +18,8 @@ public class TriRapide implements ITri
     }
 
     /**
-    *
+    * This method allows you to sort the Pays array
+    * by the min habitation number to the max
     */
     public void trier()
     {
@@ -29,9 +30,10 @@ public class TriRapide implements ITri
     }
 
     /**
-    *
-    * @param indL
-    * @param indR
+    * The method is a quicksort that allow you to
+    * sort your Pays array quickly
+    * @param indL first index
+    * @param indR last index
     */
     private void triRapideRec(int indL, int indR)
     {
@@ -48,6 +50,9 @@ public class TriRapide implements ITri
 
     }
 
+    /**
+    * This method split the Pays arrays
+    */
     private int separer(int indL, int indR)
     {
 
@@ -69,6 +74,12 @@ public class TriRapide implements ITri
         return  indL;
     }
 
+    /**
+    * This method allows you to swap
+    * to object in the Pays array
+    * @param i first index
+    * @param j second index
+    */
     private void swap(int i, int j)
     {
 
