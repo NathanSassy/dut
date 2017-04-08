@@ -3,8 +3,17 @@ package utilitaire;
 import java.util.*;
 import java.io.*;
 
+/**
+* Utility class containing static read / write of file methods
+*/
+
 public class RWFile
 {
+	/**
+	* Make an ArrayList of String from a file
+	* @param fileName the file name containing strings
+	* @return the new ArrayList of Strings
+	*/
 	public static ArrayList<String> readFile(String fileName)
 	{
 		ArrayList<String> al = new ArrayList<String>();
@@ -31,6 +40,11 @@ public class RWFile
 		return al;
 	}
 
+	/**
+	* Write String from an ArrayList into a file
+	* @param liste the ArrayList
+	* @param fileName the destination file name
+	*/
 	public static void writeFile(ArrayList<String> liste, String fileName)
 	{
 		if(liste != null && fileName != null)
@@ -53,6 +67,11 @@ public class RWFile
 		}
 	}
 
+	/**
+	* Write infos from an HashMap into a file
+	* @param map the HashMap
+	* @param fileName the destination file name
+	*/
 	public static void writeMap(HashMap<String, Double> map, String fileName)
 	{
 		if(map != null && fileName != null)

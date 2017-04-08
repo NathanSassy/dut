@@ -32,9 +32,9 @@ public class Pays implements Comparable<Pays>
 	public int compareTo(Pays pays)
 	{
 		int ret = -1;
-		if(this.surface == pays.getSurface())
+		if(this.population == pays.getPopulation())
 			ret = 0;
-		else if (this.surface > pays.getSurface())
+		else if (this.population > pays.getPopulation())
 			ret = 1;
 		return ret;
 	}
@@ -86,7 +86,7 @@ public class Pays implements Comparable<Pays>
 	}
 
 	/**
-	* the new population of the country
+	* @param population the new population of the country
 	*/
 	public void setPopulation(double population)
 	{
