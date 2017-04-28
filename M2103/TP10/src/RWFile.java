@@ -78,11 +78,11 @@ public class RWFile
 		{
 			try
 			{
-				PrintWriter fichier = new PrintWriter(new FileWriter(fileName, true));
+				PrintWriter fichier = new PrintWriter(new FileWriter(fileName, false));
 
 				for (Map.Entry<String, Double> m : map.entrySet())
 				{
-				    fichier.println(m.getKey() + " /t" + m.getValue());
+				    fichier.println(m.getKey() + "\t" + m.getValue());
 				}
 
 				fichier.close();

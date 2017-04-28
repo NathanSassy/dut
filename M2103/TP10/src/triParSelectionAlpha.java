@@ -2,17 +2,17 @@ package tri;
 import pays.*;
 
 /**
-* This class allows you to manipulate Pays arrays
+* This class allows you to sort alphabetically the density hashmap 
 */
-public class TriParSelection implements ITri
+public class triParSelectionAlpha
 {
 	private Pays tab[];
 
 	/**
-	* The constructof of TriParSelection
+	* The constructor of triParSelectionAlpha
 	* @param tab the array of Pays
 	*/
-	public TriParSelection(Pays tab[])
+	public triParSelectionAlpha(Pays tab[])
 	{
 		if(tab != null)
 		{
@@ -33,7 +33,7 @@ public class TriParSelection implements ITri
 		{
 			for(int i = debut; i < this.tab.length; i++)
 			{
-				if(tab[i].compareTo(this.tab[pos]) < 0)
+				if(tab[i].getNom().compareToIgnoreCase(this.tab[pos].getNom()) < 0)
 					pos = i;
 			}
 		}

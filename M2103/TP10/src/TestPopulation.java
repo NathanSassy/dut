@@ -43,6 +43,13 @@ public class TestPopulation
 		System.out.println("\n\n*****************************************\n\n");
 		System.out.println("Bilan des temps : " + t1 + t2);
 
+		System.out.println("\n\n*****************************************\n\n");
+		System.out.println("Sauvegarde du HashMap density");
+		population = new Population("../data/worldpop.txt", "../data/worldarea.txt");
+		HashMap<String,Double> densityMap = population.calculateDensity();
+		RWFile.writeMap(densityMap, "worlddensity.txt");
+
+		System.out.println("\n\n*****************************************\n\n");
 	}
 
 }
