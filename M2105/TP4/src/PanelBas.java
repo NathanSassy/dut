@@ -1,25 +1,29 @@
+package view;
+
+import controller.*;
+
 import javax.swing.*;
 import java.awt.*;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.time.*;
+import java.time.format.*;
 
 public class PanelBas extends Container
 {
-	private JLabel bonjour;
+	private JLabel message;
 	private JLabel afficheDate;
+	private Controller control;
 
-	public PanelBas(String username)
+	public PanelBas(Controller control, String username)
 	{
 		super();
 		setLayout(new BorderLayout());
+		this.control = control;
 
-		SimpleDateFormat formater = new SimpleDateFormat("EEEE, d MMM yyyy");
-		afficheDate = new JLabel(formater.format(new Date()));
-		bonjour = new JLabel("Bonjour " + username);
+		String date = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).format(LocalDate.now());
+		afficheDate = new JLabel(date);
+		message = new JLabel("Bonjour " + username);
 
-		add(bonjour, BorderLayout.WEST);
+		add(message, BorderLayout.WEST);
 		add(afficheDate, BorderLayout.EAST);
 	}
 }

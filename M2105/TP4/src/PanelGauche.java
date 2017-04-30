@@ -1,21 +1,35 @@
+package view;
+
+import controller.*;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class PanelGauche extends Container
 {
+	private JButton newFile;
+	private JButton deleteFile;
+	private JButton loadFile;
+	private JButton saveFile;
+	private JButton saveAsFile;
+	private Controller control;
 
-	private JButton buttons[];
-
-	public PanelGauche()
+	public PanelGauche(Controller control, ImageIcon icons[])
 	{
 		super();
+		this.control = control;
 		setLayout(new GridLayout(5, 1));
 
-		buttons = new JButton[5];
-		for(int i = 0; i < 5; i++)
-		{
-			buttons[i] = new JButton(i + "");
-			add(buttons[i]);
-		}
+		newFile = new JButton(icons[0]);
+		deleteFile = new JButton(icons[1]);
+		loadFile = new JButton(icons[2]);
+		saveFile = new JButton(icons[3]);
+		saveAsFile = new JButton(icons[4]);
+
+		add(newFile);
+		add(deleteFile);
+		add(loadFile);
+		add(saveFile);
+		add(saveAsFile);
 	}
 }
