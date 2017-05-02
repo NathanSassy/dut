@@ -5,9 +5,9 @@ import controller.*;
 import javax.swing.*;
 import java.awt.*;
 
-public class EntreeInfoEleve extends Container
+public class EntreeInfoEleve extends JPanel
 {
-	private Controller control;
+	private EleveNoteGUI ihm;
 	// Label
 	private JLabel nomLabel;
 	private JLabel prenomLabel;
@@ -26,10 +26,10 @@ public class EntreeInfoEleve extends Container
 	private JCheckBox r1aCheckBox;
 	private JCheckBox r2aCheckBox;
 
-	public EntreeInfoEleve(Controller control)
+	public EntreeInfoEleve(EleveNoteGUI ihm)
 	{
 		super();
-		this.control = control;
+		this.ihm = ihm;
 		setLayout(new GridLayout(7, 1));
 
 		// ligne 1

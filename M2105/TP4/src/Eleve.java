@@ -58,7 +58,7 @@ public class Eleve
 		if(anneeNaissance != null && anneeNaissance.compareTo(LocalDate.now()) < 0)
 			this.anneeNaissance = anneeNaissance;
 		else
-			throw new EleveException("Annee de naissance invalide");
+			throw new EleveException("Annee de naissance invalide : yyyy-mm-jj");
 	}
 
 	public void setR1a(boolean r)

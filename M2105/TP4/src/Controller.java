@@ -7,7 +7,6 @@ public class Controller
 {
 	private Configuration conf;
 	private EleveNoteGUI gui;
-	private Eleve eleve;
 
 	public Controller(String args[])
 	{
@@ -20,13 +19,14 @@ public class Controller
 			System.out.println("Erreur de configuration : " + ce.getMessage());
 		}
 
-		this.eleve = new Eleve();
-		this.gui = new EleveNoteGUI(this.conf, this);
+		//this.eleve = new Eleve();
+		this.gui = new EleveNoteGUI(this.conf);
 	}
 
-	public String infoMoyGen()
+	/*public String infoMoyGen()
 	{
 		return ("Moyenne Generale : " + eleve.getMoyGen());
-	}
-	
+	}*/
+
+
 }

@@ -5,24 +5,24 @@ import controller.*;
 import javax.swing.*;
 import java.awt.*;
 
-public class EntreeNoteEleve extends Container
+public class EntreeNoteEleve extends JPanel
 {
-	private Controller control;
+	private EleveNoteGUI ihm;
 	private JLabel titreLabel;
 	private JLabel moyGenLabel;
 	private static String ENTETE[] = {"Note", "Matiere", "Date"};
 	private JTable tableau;
 	//private Object contenu[][];
 
-	public EntreeNoteEleve(Controller control)
+	public EntreeNoteEleve(EleveNoteGUI ihm)
 	{
 		super();
-		this.control = control;
+		this.ihm = ihm;
 		setLayout(new BorderLayout());
 
 		// ligne 1
 		titreLabel = new JLabel("Liste des évaluations");
-		moyGenLabel = new JLabel(this.control.infoMoyGen());
+		moyGenLabel = new JLabel();//this.control.infoMoyGen());
 		Container labelEdit = new Container();
 		labelEdit.setLayout(new BorderLayout());
 		labelEdit.add(titreLabel, BorderLayout.WEST);

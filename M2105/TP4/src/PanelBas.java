@@ -7,17 +7,17 @@ import java.awt.*;
 import java.time.*;
 import java.time.format.*;
 
-public class PanelBas extends Container
+public class PanelBas extends JPanel
 {
 	private JLabel message;
 	private JLabel afficheDate;
-	private Controller control;
+	private EleveNoteGUI ihm;
 
-	public PanelBas(Controller control, String username)
+	public PanelBas(EleveNoteGUI ihm, String username)
 	{
 		super();
 		setLayout(new BorderLayout());
-		this.control = control;
+		this.ihm = ihm;
 
 		String date = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).format(LocalDate.now());
 		afficheDate = new JLabel(date);
