@@ -1,0 +1,4 @@
+porte-avion:5
+frégate:4
+patrouilleur:3
+sous-marin:2
