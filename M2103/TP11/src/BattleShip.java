@@ -1,42 +1,70 @@
+package battle;
+
 import java.util.*;
 import java.io.*;
 
+/**
+* Main class of the BattleShip Game
+*/
 public class BattleShip
 {
-	private ArrayList<Ship> ships;
-	
-	public BattleShip()
+	private int width;
+	private int height;
+	private final String delimiter = "\\s*:\\s*";
+	private ArrayList<Ship> fleet;
+	private Game gamePlay;
+
+
+	/**
+	* Constructor of BattleShip
+	* @param fileName the path to the config file
+	* @param playerName1 the player name 1
+	* @param playerName2 the player name 2
+	*/
+	public BattleShip(String fileName, String playerName1, String playerName2)
 	{
-		this.ships = new ArrayList<Ship>();
-	}	
-	
-	public static void main(String args[])
-	{
-		BattleShip bs = new BattleShip();
-		System.out.println("Fichier de configuration : " + args[0]);
-		bs.stockShip(args[0]);
+		this.fleet = new ArrayList<Ship>();
+		//this.gamePlay = new Game(fleet, playerName1, playerName2, width, height);
+		configure(fileName);
 	}
 	
-	public void stockShip(String location)
+	/**
+	* Configure attributes from config file
+	* @param fileName the path to the config file
+	*/
+	private void configure(String fileName)
 	{
 		Scanner s = null;
 		try
 		{
-			s = new Scanner(new File(location)).useDelimiter("\\s*:\\s*");
+			s = new Scanner(new File(fileName)).useDelimiter(delimiter);
 			String name = null;
 			int size = 0;
-			
+
 			while(s.hasNext())
 			{
-				name = s.next(new Patter();
+				name = s.next();
 				size = Integer.parseInt(s.next());
-				System.out.println(name);
-				//this.ships.add(new Ship(name, size));	
+				this.fleet.add(new Ship(name, size));
 			}
 		}
 		catch(IOException e)
 		{
 			System.out.println(e.getMessage());
-		}	
+		}
+		finally
+		{
+			s.close();
+		}
+	}
+
+	/**
+	* @return return a string containing info of the current config
+	*/
+	public String printConfiguration()
+	{
+		String ret = "\nWidth : " + this.width;
+		ret += "\nHeight : " + this.height;
+		return ret;
 	}
 }
