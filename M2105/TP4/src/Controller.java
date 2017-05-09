@@ -3,30 +3,38 @@ package controller;
 import model.*;
 import view.*;
 
+import java.util.*;
+
 public class Controller
 {
-	private Configuration conf;
-	private EleveNoteGUI gui;
-
-	public Controller(String args[])
+	private ArrayList<Eleve> eleves;
+	private Eleve currentEleve;
+	private EntreeInfoEleveListener eiel;
+	private EleveNoteGUI ihm;
+	
+	public Controller(EleveNoteGUI ihm)
 	{
-		try
-		{
-			this.conf = new Configuration(args);
-		}
-		catch(ConfigurationException ce)
-		{
-			System.out.println("Erreur de configuration : " + ce.getMessage());
-		}
-
-		//this.eleve = new Eleve();
-		this.gui = new EleveNoteGUI(this.conf);
+		this.ihm = ihm;
+		this.eleves = new ArrayList<Eleve>();
+		currentEleve = new Eleve();
+		this.eleves.add(currentEleve);
+		this.eiel = new EntreeInfoEleveListener(ihm);
 	}
 
-	/*public String infoMoyGen()
+	public EleveNoteGUI getIhm()
 	{
-		return ("Moyenne Generale : " + eleve.getMoyGen());
-	}*/
+		return ihm;
+	}
+
+	public EntreeInfoEleveListener getEntreeInfoEleveListener()
+	{
+		return this.eiel;
+	}
+
+	public ArrayList<Eleve> getEleve()
+	{
+		return this.eleves;
+	}
 
 
 }

@@ -35,6 +35,7 @@ public class EntreeInfoEleve extends JPanel
 		// ligne 1
 		nomLabel = new JLabel("Nom : ");
 		nomTextField = new JTextField();
+		nomTextField.addKeyListener(ihm.getController().getEntreeInfoEleveListener()); /////////////////////////////////////////////
 		Container nomEdit = new Container();
 		nomEdit.setLayout(new GridLayout(1,2));
 		nomEdit.add(nomLabel);
@@ -71,6 +72,9 @@ public class EntreeInfoEleve extends JPanel
 		// ligne 5
 		hommeRadioButton = new JRadioButton("HOMME");
 		femmeRadioButton = new JRadioButton("FEMME");
+		ButtonGroup bg = new ButtonGroup();
+		bg.add(hommeRadioButton);
+		bg.add(femmeRadioButton);
 		Container sexeEdit = new Container();
 		sexeEdit.setLayout(new FlowLayout(FlowLayout.LEFT));
 		sexeEdit.add(hommeRadioButton);
@@ -89,5 +93,45 @@ public class EntreeInfoEleve extends JPanel
 		redoublementEdit.add(r1aCheckBox);
 		redoublementEdit.add(r2aCheckBox);
 		add(redoublementEdit);
+	}
+
+	public JTextField getNomTextField()
+	{
+		return nomTextField;
+	}
+
+	public JTextField getPrenomTextField()
+	{
+		return prenomTextField;
+	}
+	
+	public JTextField getDateNaissanceTextField()
+	{
+		return dateNaissanceTextField;
+	}
+
+	public JTextField getCourrielTextField()
+	{
+		return courrielTextField;
+	}
+
+	public JRadioButton getHommeRadioButton()
+	{
+		return hommeRadioButton;
+	}
+
+	public JRadioButton getFemmeRadioButton()
+	{
+		return femmeRadioButton;
+	}
+
+	public JCheckBox getR1aCheckBox()
+	{
+		return r1aCheckBox;
+	}
+
+	public JCheckBox getR2aCheckBox()
+	{
+		return r2aCheckBox;
 	}
 }

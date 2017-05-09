@@ -11,12 +11,14 @@ public class EleveNoteGUI extends JFrame
 	private PanelBas panelBas;
 	private EntreeInfoEleve entreeInfoEleve;
 	private EntreeNoteEleve entreeNoteEleve;
+	private Controller control;
 
 	public EleveNoteGUI(Configuration c)
 	{
 		super("Le titre de la fenetre");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout());
+		this.control = new Controller(this);
 
 		panelGauche = new PanelGauche(this, c.getIcons());
 		panelBas = new PanelBas(this, c.getUsername());
@@ -35,4 +37,31 @@ public class EleveNoteGUI extends JFrame
 		pack();
 		setVisible(true);
 	}
+
+	public Controller getController()
+	{
+		return control;
+	}
+
+	public PanelGauche getPanelGauche()
+	{
+		return panelGauche;
+	}
+
+	public PanelBas getPanelBas()
+	{
+		return panelBas;
+	}
+
+	public EntreeInfoEleve getEntreeInfoEleve()
+	{
+		return entreeInfoEleve;
+	}
+
+	public EntreeNoteEleve getEntreeNoteEleve()
+	{
+		return entreeNoteEleve;
+	}
+
+
 }
