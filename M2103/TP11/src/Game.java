@@ -5,9 +5,10 @@ import java.util.ArrayList;
 /**
 * Game of object of Battle Ship
 */
-public class Game // implements IGame
+public class Game implements IGame
 {
-	ArrayList<Ship> fleet;
+	private ArrayList<Ship> fleet;
+	private ShotResult result;
 
 	/**
 	* Constructor of game
@@ -23,5 +24,22 @@ public class Game // implements IGame
 		// cration des 2 players
 	}
 
-	////// PAS FINI
+	/**
+	* @return return info on the game
+	*/
+	public String description()
+	{
+		String ret = "";
+		return ret;
+	}
+	
+	/**
+	* Start the game
+	*/
+	public void start(){}
+	
+	/**
+	* End the game
+	*/
+	public void endOfGame(){}
 }
