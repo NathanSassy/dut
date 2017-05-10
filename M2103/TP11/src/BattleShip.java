@@ -41,6 +41,9 @@ public class BattleShip
 			String name = null;
 			int size = 0;
 
+			System.out.println(s.nextInt());
+			System.out.println(s.nextInt());
+
 			while(s.hasNext())
 			{
 				name = s.next();

@@ -14,36 +14,74 @@ public abstract class Player
 
 	/**
 	* Constructor of Player
-	* @param fleet
-	* @param name
-	* @param width
-	* @param height
+	* @param fleet fleet the array list of sheeps
+	* @param name the player name
+	* @param width the width
+	* @param height the height
 	*/
 	public Player(ArrayList<Ship> fleet, String name, int width, int height)
 	{
 		this.name = name;
 		this.width = width;
 		this.height = height;
-		this.myGrid = new Square[width][height];
-		this.oponentGrid = new Square[width][height];
+		createCopy(fleet);
+		initializeMyGrid();
+		initializeOponentGrid();
 	}
 
 	/**
-	*
-	* @param fleet www
+	* Make a deep copy of the array of ships in parameter
+	* @param fleet the original array of ships
 	*/
 	protected void createCopy(ArrayList<Ship> fleet)
-	{}
+	{
+		this.fleet = new ArrayList<Ship>();
+		for(Ship s : fleet)
+		{
+			this.fleet.add(s);
+		}
+	}
 
 	/**
 	* Initialize the human player grid
 	*/
-	public abstract  void initializeMyGrid();
+	protected void initializeMyGrid()
+	{
+		this.myGrid = new Square[width][height];
+		for(int i = 0; i < width; i++)
+		{
+			for(int j = 0; j < height; j++)
+			{
+				this.myGrid[i][j] = new Square(i,j);
+			}
+		}
+	}
 
 	/**
 	* Initialize the ia player grid
 	*/
-	public abstract  void initializeOponentGrid();
+	protected void initializeOponentGrid()
+	{
+		this.oponentGrid = new Square[width][height];
+		for(int i = 0; i < width; i++)
+		{
+			for(int j = 0; j < height; j++)
+			{
+				this.oponentGrid[i][j] = new Square(i,j);
+			}
+		}
+	}
+
+	/**
+	* Do a new shot
+	* @return return pos of the new shot (x and y)
+	*/
+	public abstract int[] newShot();
+
+	/**
+	* Place ship in the grid
+	*/
+	public abstract void shipPlacement();
 
 	/**
 	* @return return the name of the player
