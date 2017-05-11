@@ -13,7 +13,7 @@ public class Configuration
 	private String username;
 	private File location;
 
-	static final int ICON_SIZE = 64;
+	static final int ICON_SIZE = 32;
 
 	public Configuration(String param[]) throws ConfigurationException
 	{

@@ -8,7 +8,7 @@ import java.util.*;
 public class Controller
 {
 	private ArrayList<Eleve> eleves;
-	private Eleve currentEleve;
+	private int indexCurrentEleve;
 	private EntreeInfoEleveListener eiel;
 	private EleveNoteGUI ihm;
 	
@@ -16,8 +16,9 @@ public class Controller
 	{
 		this.ihm = ihm;
 		this.eleves = new ArrayList<Eleve>();
-		currentEleve = new Eleve();
-		this.eleves.add(currentEleve);
+		this.eleves.add(new Eleve());
+		this.indexCurrentEleve = 0;
+
 		this.eiel = new EntreeInfoEleveListener(ihm);
 	}
 
@@ -31,10 +32,18 @@ public class Controller
 		return this.eiel;
 	}
 
-	public ArrayList<Eleve> getEleve()
+	public int getIndexCurrentEleve()
+	{
+		return this.indexCurrentEleve;
+	}
+
+	public void setIndexCurrentEleve(int i)
+	{
+		this.indexCurrentEleve = i;
+	}
+
+	public ArrayList<Eleve> getEleves()
 	{
 		return this.eleves;
 	}
-
-
 }

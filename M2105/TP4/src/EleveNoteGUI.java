@@ -15,7 +15,7 @@ public class EleveNoteGUI extends JFrame
 
 	public EleveNoteGUI(Configuration c)
 	{
-		super("Le titre de la fenetre");
+		super("Gestion des eleves");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout());
 		this.control = new Controller(this);

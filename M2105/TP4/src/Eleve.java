@@ -23,7 +23,7 @@ public class Eleve
 
 	public void setNom(String nom) throws EleveException
 	{
-		if(nom != null)
+		if(nom != null && !nom.equals(""))
 			this.nom = nom;
 		else
 			throw new EleveException("Nom invalide");
@@ -31,18 +31,16 @@ public class Eleve
 
 	public void setPrenom(String prenom) throws EleveException
 	{
-		if(prenom != null)
+		if(prenom != null && !prenom.equals(""))
 			this.prenom = prenom;
 		else
 			throw new EleveException("Prenom invalide");
 	}
 
-	public void setSexe(String sexe) throws EleveException
+	public void setSexe(String sexe)
 	{
 		if(sexe != null && (sexe.equals("homme") || sexe.equals("femme")))
 			this.sexe = sexe;
-		else
-			throw new EleveException("Sexe invalide");
 	}
 
 	public void setMail(String mail) throws EleveException
