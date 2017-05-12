@@ -26,4 +26,9 @@ public class PanelBas extends JPanel
 		add(message, BorderLayout.WEST);
 		add(afficheDate, BorderLayout.EAST);
 	}
+
+	public JLabel getMessage()
+	{
+		return message;
+	}
 }

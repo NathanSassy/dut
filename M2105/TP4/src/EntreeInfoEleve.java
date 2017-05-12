@@ -22,15 +22,20 @@ public class EntreeInfoEleve extends JPanel
 	// Radio Button
 	private JRadioButton hommeRadioButton;
 	private JRadioButton femmeRadioButton;
+	private ButtonGroup bg;
 	// Check Box
 	private JCheckBox r1aCheckBox;
 	private JCheckBox r2aCheckBox;
+	// Bouton de navigation
+	private JButton prevEleve;
+	private JButton nextEleve;
+	private JLabel indicateurEleve;
 
 	public EntreeInfoEleve(EleveNoteGUI ihm)
 	{
 		super();
 		this.ihm = ihm;
-		setLayout(new GridLayout(7, 1));
+		setLayout(new GridLayout(8, 1));
 
 		// ligne 1
 		nomLabel = new JLabel("Nom : ");
@@ -78,7 +83,7 @@ public class EntreeInfoEleve extends JPanel
 		hommeRadioButton.addActionListener(ihm.getController().getEntreeInfoEleveListener());
 		femmeRadioButton = new JRadioButton("FEMME");
 		femmeRadioButton.addActionListener(ihm.getController().getEntreeInfoEleveListener());
-		ButtonGroup bg = new ButtonGroup();
+		bg = new ButtonGroup();
 		bg.add(hommeRadioButton);
 		bg.add(femmeRadioButton);
 		Container sexeEdit = new Container();
@@ -101,6 +106,19 @@ public class EntreeInfoEleve extends JPanel
 		redoublementEdit.add(r1aCheckBox);
 		redoublementEdit.add(r2aCheckBox);
 		add(redoublementEdit);
+
+		// ligne 8
+		prevEleve = new JButton("Precedent");
+		prevEleve.addActionListener(ihm.getController().getEntreeInfoEleveListener());
+		nextEleve = new JButton("Suivant");
+		nextEleve.addActionListener(ihm.getController().getEntreeInfoEleveListener());
+		indicateurEleve = new JLabel("1/" + ihm.getController().getEleves().size());
+		Container eleveNav = new Container();
+		eleveNav.setLayout(new FlowLayout());
+		eleveNav.add(prevEleve);
+		eleveNav.add(indicateurEleve);
+		eleveNav.add(nextEleve);
+		add(eleveNav);
 	}
 
 	public JTextField getNomTextField()
@@ -133,6 +151,11 @@ public class EntreeInfoEleve extends JPanel
 		return femmeRadioButton;
 	}
 
+	public ButtonGroup getBg()
+	{
+		return bg;
+	}
+
 	public JCheckBox getR1aCheckBox()
 	{
 		return r1aCheckBox;
@@ -141,5 +164,20 @@ public class EntreeInfoEleve extends JPanel
 	public JCheckBox getR2aCheckBox()
 	{
 		return r2aCheckBox;
+	}
+
+	public JButton getPrevEleve()
+	{
+		return prevEleve;
+	}
+
+	public JButton getNextEleve()
+	{
+		return nextEleve;
+	}
+
+	public JLabel getIndicateurEleve()
+	{
+		return indicateurEleve;
 	}
 }

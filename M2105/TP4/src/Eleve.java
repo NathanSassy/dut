@@ -98,4 +98,44 @@ public class Eleve
 		calculeMoyGen();
 		return this.moyGen;
 	}
+
+	public ArrayList<Evaluation> getEvaluations()
+	{
+		return this.evaluations;
+	}
+
+	public String getNom()
+	{
+		return nom;
+	}
+
+	public String getPrenom()
+	{
+		return prenom;
+	}
+
+	public String getSexe()
+	{
+		return sexe;
+	}
+
+	public String getMail()
+	{
+		return mail;
+	}
+
+	public LocalDate getAnneNaissance()
+	{
+		return anneeNaissance;
+	}
+
+	public boolean getR1a()
+	{
+		return r1a;
+	}
+
+	public boolean getR2a()
+	{
+		return r2a;
+	}
 }

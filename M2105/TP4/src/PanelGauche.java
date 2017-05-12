@@ -21,6 +21,7 @@ public class PanelGauche extends JPanel
 		setLayout(new GridLayout(5, 1));
 
 		newFile = new JButton(icons[0]);
+		newFile.addActionListener(ihm.getController().getPanelGaucheListener());
 		//newFile.setOpaque(false);
 		//newFile.setContentAreaFilled(false);
 		//newFile.setBorderPainted(false);
@@ -36,5 +37,30 @@ public class PanelGauche extends JPanel
 		add(loadFile);
 		add(saveFile);
 		add(saveAsFile);
+	}
+
+	public JButton getNewFile()
+	{
+		return newFile;
+	}
+
+	public JButton getDeleteFile()
+	{
+		return deleteFile;
+	}
+
+	public JButton getLoadFile()
+	{
+		return loadFile;
+	}
+
+	public JButton getSaveFile()
+	{
+		return saveFile;
+	}
+
+	public JButton getSaveAsFile()
+	{
+		return saveAsFile;
 	}
 }

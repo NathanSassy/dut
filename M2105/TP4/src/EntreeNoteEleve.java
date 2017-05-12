@@ -24,7 +24,7 @@ public class EntreeNoteEleve extends JPanel
 
 		// ligne 1
 		titreLabel = new JLabel("Liste des évaluations");
-		moyGenLabel = new JLabel("" + ihm.getController().getEleves().get(ihm.getController().getIndexCurrentEleve()).getMoyGen());
+		moyGenLabel = new JLabel("Moyenne : " + ihm.getController().getEleves().get(ihm.getController().getIndexCurrentEleve()).getMoyGen());
 		Container labelEdit = new Container();
 		labelEdit.setLayout(new BorderLayout());
 		labelEdit.add(titreLabel, BorderLayout.WEST);
@@ -38,12 +38,19 @@ public class EntreeNoteEleve extends JPanel
 		add(new JScrollPane(tableau), BorderLayout.CENTER);
 
 		nouvelleNote = new JButton("Ajouter note");
+		nouvelleNote.addActionListener(ihm.getController().getEntreeNoteEleveListener());
 		supprNote = new JButton("Supprimer note");
+		supprNote.addActionListener(ihm.getController().getEntreeNoteEleveListener());
 		Container noteEdit = new Container();
 		noteEdit.setLayout(new FlowLayout());
 		noteEdit.add(nouvelleNote);
 		noteEdit.add(supprNote);
 		add(noteEdit, BorderLayout.SOUTH);
+	}
+
+	public ModelTable getModel()
+	{
+		return model;
 	}
 
 	public JLabel getMoyGenLabel()

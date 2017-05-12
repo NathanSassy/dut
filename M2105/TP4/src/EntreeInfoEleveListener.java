@@ -26,12 +26,14 @@ public class EntreeInfoEleveListener implements ActionListener, KeyListener
 			Eleve eleve  = ihm.getController().getEleves().get(index);
 			eleve.setSexe("homme");
 			ihm.getController().getEleves().set(index, eleve);
+			ihm.getPanelBas().getMessage().setText("Sexe modifié");
 		}
 		else if(e.getSource() == ihm.getEntreeInfoEleve().getFemmeRadioButton())
 		{
 			Eleve eleve  = ihm.getController().getEleves().get(index);
 			eleve.setSexe("femme");
 			ihm.getController().getEleves().set(index, eleve);
+			ihm.getPanelBas().getMessage().setText("Sexe modifié");
 		}
 		else if(e.getSource() == ihm.getEntreeInfoEleve().getR1aCheckBox())
 		{
@@ -41,6 +43,7 @@ public class EntreeInfoEleveListener implements ActionListener, KeyListener
 			else
 				eleve.setR1a(false);
 			ihm.getController().getEleves().set(index, eleve);
+			ihm.getPanelBas().getMessage().setText("Redoublement modifié");
 		}
 		else if(e.getSource() == ihm.getEntreeInfoEleve().getR2aCheckBox())
 		{
@@ -50,6 +53,27 @@ public class EntreeInfoEleveListener implements ActionListener, KeyListener
 			else
 				eleve.setR2a(false);
 			ihm.getController().getEleves().set(index, eleve);
+			ihm.getPanelBas().getMessage().setText("Redoublement modifié");
+		}
+		else if(e.getSource() == ihm.getEntreeInfoEleve().getPrevEleve())
+		{
+			int nouvIndex = ihm.getController().getIndexCurrentEleve() - 1;
+			if(nouvIndex >= 0 && nouvIndex < ihm.getController().getEleves().size())
+			{
+				ihm.getController().setIndexCurrentEleve(nouvIndex);
+				ihm.getController().updateIhmEleve(ihm.getController().getEleves().get(nouvIndex));
+				updateIndicateurEleve();
+			}
+		}
+		else if(e.getSource() == ihm.getEntreeInfoEleve().getNextEleve())
+		{
+			int nouvIndex = ihm.getController().getIndexCurrentEleve() + 1;
+			if(nouvIndex >= 0 && nouvIndex < ihm.getController().getEleves().size())
+			{
+				ihm.getController().setIndexCurrentEleve(nouvIndex);
+				ihm.getController().updateIhmEleve(ihm.getController().getEleves().get(nouvIndex));
+				updateIndicateurEleve();
+			}
 		}
 	}
 
@@ -67,6 +91,7 @@ public class EntreeInfoEleveListener implements ActionListener, KeyListener
 				Eleve eleve  = ihm.getController().getEleves().get(index);
 				eleve.setNom(entree);
 				ihm.getController().getEleves().set(index, eleve);
+				ihm.getPanelBas().getMessage().setText("Nom modifié");
 			}
 			else if(e.getSource() == ihm.getEntreeInfoEleve().getPrenomTextField())
 			{
@@ -75,6 +100,7 @@ public class EntreeInfoEleveListener implements ActionListener, KeyListener
 				Eleve eleve  = ihm.getController().getEleves().get(index);
 				eleve.setPrenom(entree);
 				ihm.getController().getEleves().set(index, eleve);
+				ihm.getPanelBas().getMessage().setText("Prenom modifié");
 			}
 			else if(e.getSource() == ihm.getEntreeInfoEleve().getDateNaissanceTextField())
 			{
@@ -83,6 +109,7 @@ public class EntreeInfoEleveListener implements ActionListener, KeyListener
 				Eleve eleve  = ihm.getController().getEleves().get(index);
 				eleve.setAnneeNaissance(LocalDate.parse(entree));
 				ihm.getController().getEleves().set(index, eleve);
+				ihm.getPanelBas().getMessage().setText("Date de naissance modifiée");
 			}
 			else if(e.getSource() == ihm.getEntreeInfoEleve().getCourrielTextField())
 			{
@@ -91,14 +118,20 @@ public class EntreeInfoEleveListener implements ActionListener, KeyListener
 				Eleve eleve  = ihm.getController().getEleves().get(index);
 				eleve.setMail(entree);
 				ihm.getController().getEleves().set(index, eleve);
+				ihm.getPanelBas().getMessage().setText("Courriel modifié");
 			}
-			jtf.setBackground(Color.green);
+			jtf.setBackground(Color.white);
 		}
 		catch(Exception err)
 		{
 			jtf.setBackground(Color.red);
-			System.out.println(err.getMessage());
+			//System.out.println(err.getMessage());
 		}
+	}
+
+	public void updateIndicateurEleve()
+	{
+		ihm.getEntreeInfoEleve().getIndicateurEleve().setText((ihm.getController().getIndexCurrentEleve()+1) + "/" + ihm.getController().getEleves().size());
 	}
 
 	public void keyPressed(KeyEvent e){}
