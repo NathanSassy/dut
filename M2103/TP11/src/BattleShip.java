@@ -24,8 +24,8 @@ public class BattleShip
 	public BattleShip(String fileName, String playerName1, String playerName2)
 	{
 		this.fleet = new ArrayList<Ship>();
-		//this.gamePlay = new Game(fleet, playerName1, playerName2, width, height);
 		configure(fileName);
+		this.gamePlay = new Game(fleet, playerName1, playerName2, width, height);
 	}
 	
 	/**
@@ -41,8 +41,8 @@ public class BattleShip
 			String name = null;
 			int size = 0;
 
-			System.out.println(s.nextInt());
-			System.out.println(s.nextInt());
+			this.width = s.nextInt();
+			this.height = s.nextInt();
 
 			while(s.hasNext())
 			{
@@ -66,8 +66,17 @@ public class BattleShip
 	*/
 	public String printConfiguration()
 	{
-		String ret = "\nWidth : " + this.width;
-		ret += "\nHeight : " + this.height;
+		String ret = "\nConfiguration du jeu : ";
+		ret += "\nWidth : " + this.width;
+		ret += "\nHeight : " + this.height + "\n";
 		return ret;
+	}
+
+	/**
+	* @return Return the gameplay attribute
+	*/
+	public Game getPlay()
+	{
+		return this.gamePlay;
 	}
 }

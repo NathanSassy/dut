@@ -106,4 +106,21 @@ public abstract class Player
 	{
 		return this.height;
 	}
+
+	public void showMyGrid()
+	{
+		System.out.print("\n");
+		for(int i = 0; i < this.height; i++)
+		{
+			for(int j = 0; j < this.width; j++)
+			{
+				if(myGrid[j][i].isFree())
+					System.out.print(" o ");
+				else
+					System.out.print(" S ");
+			}
+			System.out.print("\n");
+		}
+		System.out.print("\n");
+	}
 }

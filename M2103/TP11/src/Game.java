@@ -9,6 +9,8 @@ public class Game implements IGame
 {
 	private ArrayList<Ship> fleet;
 	private ShotResult result;
+	private Player player1;
+	private Player player2;
 
 	/**
 	* Constructor of game
@@ -22,6 +24,31 @@ public class Game implements IGame
 	{
 		this.fleet = fleet;
 		// cration des 2 players
+		player1 = new HumanPlayer(fleet, "p1", width, height);
+		player2 = new AutoPlayer(fleet, "p1", width, height);
+	}
+
+	public int[] readShot(Player player)
+	{
+		return player.newShot();
+	}
+
+	public ShotResult analyzeShot(int shot[])
+	{
+		ShotResult ret = null;
+
+		if(shot != null && shot.length == 2)
+		{
+			int x = shot[0];
+			int y = shot[1];
+
+			if(true)
+			{
+				//
+			}
+		}
+
+		return ret;	
 	}
 
 	/**
@@ -36,7 +63,13 @@ public class Game implements IGame
 	/**
 	* Start the game
 	*/
-	public void start(){}
+	public void start()
+	{
+		//player1.shipPlacement();
+		//player1.showMyGrid();
+		player2.shipPlacement();
+		player2.showMyGrid();
+	}
 	
 	/**
 	* End the game

@@ -1,4 +1,4 @@
-10:10:
+6:6:
 porte-avion:5:
 frégate:4:
 patrouilleur:3:

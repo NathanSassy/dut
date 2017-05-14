@@ -132,4 +132,21 @@ public class Ship
 	{
 		this.hitNumber = hitNumber;
 	}
+
+	/**
+	* @return return the direction of the ship
+	*/
+	public Direction getDirection()
+	{
+		return this.direction;
+	}
+
+	/**
+	* Set the direction of the ship
+	* @param d the new direction
+	*/
+	public void setDirection(Direction d)
+	{
+		this.direction = d;
+	}
 }
