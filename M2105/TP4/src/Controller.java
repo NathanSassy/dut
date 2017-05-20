@@ -16,7 +16,7 @@ public class Controller
 	private EntreeNoteEleveListener ene;
 	private PanelGaucheListener pgl;
 	private EleveNoteGUI ihm;
-	private File location;
+	private String location;
 	
 	public Controller(EleveNoteGUI ihm)
 	{
@@ -82,6 +82,45 @@ public class Controller
 		ene.updateMoyGen();
 	}
 
+	public void saveIntoFile()
+	{
+		if(location != null)
+		{
+			PrintWriter fichier = null;
+			try
+			{
+				fichier = new PrintWriter(new FileWriter(location));
+				for(Eleve eleve : this.eleves)
+				{
+					fichier.print(eleve.getNom() + ":");
+					fichier.print(eleve.getPrenom() + ":");
+					fichier.print(eleve.getAnneNaissance() + ":");
+					fichier.print(eleve.getMail() + ":");
+					fichier.print(eleve.getSexe() + ":");
+					fichier.print(eleve.getR1a() + ":");
+					fichier.print(eleve.getR2a() + ":");
+					
+					for(Evaluation eva : eleve.getEvaluations())
+					{
+						fichier.print(eva.getNote() + ":");
+						fichier.print(eva.getMatiere() + ":");
+					}
+
+					fichier.print("\n");
+				}
+			}
+			catch(Exception e)
+			{
+				System.out.println(e.getMessage());
+			}
+			finally
+			{
+				fichier.close();
+			}
+		}
+		// sinon lancer saveAsIntoFile()
+	}
+
 	public EleveNoteGUI getIhm()
 	{
 		return ihm;
@@ -129,12 +168,17 @@ public class Controller
 		this.eleves.add(e);
 	}
 
-	public File getLocation()
+	public void supprEleve(int index)
+	{
+		this.eleves.remove(index);
+	}
+
+	public String getLocation()
 	{
 		return this.location;
 	}
 
-	public void setLocation(File newLoc)
+	public void setLocation(String newLoc)
 	{
 		this.location = newLoc;
 	}
