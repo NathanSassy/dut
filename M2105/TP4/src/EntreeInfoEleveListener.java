@@ -75,6 +75,11 @@ public class EntreeInfoEleveListener implements ActionListener, KeyListener
 				updateIndicateurEleve();
 			}
 		}
+		else if(e.getSource() ==  ihm.getEntreeInfoEleve().getNewEleve())
+		{
+			ihm.getController().ajoutEleve(new Eleve());
+			updateIndicateurEleve();
+		}
 	}
 
 	public void keyReleased(KeyEvent e)

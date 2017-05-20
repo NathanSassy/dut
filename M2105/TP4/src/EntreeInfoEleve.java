@@ -29,6 +29,7 @@ public class EntreeInfoEleve extends JPanel
 	// Bouton de navigation
 	private JButton prevEleve;
 	private JButton nextEleve;
+	private JButton newEleve;
 	private JLabel indicateurEleve;
 
 	public EntreeInfoEleve(EleveNoteGUI ihm)
@@ -112,12 +113,15 @@ public class EntreeInfoEleve extends JPanel
 		prevEleve.addActionListener(ihm.getController().getEntreeInfoEleveListener());
 		nextEleve = new JButton("Suivant");
 		nextEleve.addActionListener(ihm.getController().getEntreeInfoEleveListener());
+		newEleve = new JButton("Nouveau");
+		newEleve.addActionListener(ihm.getController().getEntreeInfoEleveListener());
 		indicateurEleve = new JLabel("1/" + ihm.getController().getEleves().size());
 		Container eleveNav = new Container();
 		eleveNav.setLayout(new FlowLayout());
 		eleveNav.add(prevEleve);
 		eleveNav.add(indicateurEleve);
 		eleveNav.add(nextEleve);
+		eleveNav.add(newEleve);
 		add(eleveNav);
 	}
 
@@ -174,6 +178,11 @@ public class EntreeInfoEleve extends JPanel
 	public JButton getNextEleve()
 	{
 		return nextEleve;
+	}
+
+	public JButton getNewEleve()
+	{
+		return newEleve;
 	}
 
 	public JLabel getIndicateurEleve()

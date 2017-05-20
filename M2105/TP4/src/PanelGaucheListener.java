@@ -23,8 +23,14 @@ public class PanelGaucheListener implements ActionListener
 
 		if(e.getSource() == ihm.getPanelGauche().getNewFile())
 		{
-			ihm.getController().ajoutEleve(new Eleve());
-			ihm.getController().getEntreeInfoEleveListener().updateIndicateurEleve();
+			int dialogResult = JOptionPane.showConfirmDialog (new JPanel(), "Attention, toutes données non enrengistrées seront perdus. Continuez ?","Warning", JOptionPane.YES_NO_OPTION);
+			if(dialogResult == JOptionPane.YES_OPTION)
+			{
+				ihm.getController().resetEleves();
+				ihm.getController().getEntreeInfoEleveListener().updateIndicateurEleve();
+				ihm.getController().updateIhmEleve(ihm.getController().getEleves().get(ihm.getController().getIndexCurrentEleve()));
+				ihm.getController().setLocation(null);
+			}
 		}
 	}
 }

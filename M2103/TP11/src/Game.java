@@ -26,6 +26,9 @@ public class Game implements IGame
 		// cration des 2 players
 		player1 = new HumanPlayer(fleet, "p1", width, height);
 		player2 = new AutoPlayer(fleet, "p1", width, height);
+
+		player1.oponentGrid = player2.myGrid;
+		player2.oponentGrid = player1.myGrid;
 	}
 
 	public int[] readShot(Player player)
@@ -33,7 +36,7 @@ public class Game implements IGame
 		return player.newShot();
 	}
 
-	public ShotResult analyzeShot(int shot[])
+	public ShotResult analyzeShot(Player player, int shot[])
 	{
 		ShotResult ret = null;
 
@@ -42,9 +45,25 @@ public class Game implements IGame
 			int x = shot[0];
 			int y = shot[1];
 
-			if(true)
+			if(x < this.width && x > 0 && y < this.height && y > 0)
 			{
-				//
+				if(player == player1 && !player1.oponentGrid[x][y].isFree() && !player1.oponentGrid[x][y].isHit())
+				{
+					player1.oponentGrid[x][y].setHit();
+					ret = ShotResult.HIT;
+				}
+				else if(player == player2 && !player2.oponentGrid[x][y].isFree() && !player2.oponentGrid[x][y].isHit())
+					player2.oponentGrid[x][y].setHit();
+					ret = ShotResult.HIT;
+				else
+				{
+					ret = ShotResult.MISS;
+				}
+					
+			}
+			else
+			{
+				System.out.println("coordonnes invalides");
 			}
 		}
 

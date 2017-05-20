@@ -55,6 +55,7 @@ public abstract class Player
 				this.myGrid[i][j] = new Square(i,j);
 			}
 		}
+		this.shipPlacement();
 	}
 
 	/**

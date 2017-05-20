@@ -1,6 +1,5 @@
 package controller;
 
-import java.io.*;
 import javax.swing.*;
 import java.awt.Image;
 
@@ -11,7 +10,6 @@ public class Configuration
 {
 	private ImageIcon icons[];
 	private String username;
-	private File location;
 
 	static final int ICON_SIZE = 32;
 
@@ -50,10 +48,4 @@ public class Configuration
 	{
 		return this.icons;
 	}
-
-	public File getLocation()
-	{
-		return this.location;
-	}
-
 }

@@ -6,6 +6,7 @@ import view.*;
 import java.util.*;
 import javax.swing.*;
 import java.awt.*;
+import java.io.*;
 
 public class Controller
 {
@@ -15,6 +16,7 @@ public class Controller
 	private EntreeNoteEleveListener ene;
 	private PanelGaucheListener pgl;
 	private EleveNoteGUI ihm;
+	private File location;
 	
 	public Controller(EleveNoteGUI ihm)
 	{
@@ -22,6 +24,7 @@ public class Controller
 		this.eleves = new ArrayList<Eleve>();
 		this.eleves.add(new Eleve());
 		this.indexCurrentEleve = 0;
+		this.location = null;
 
 		this.eiel = new EntreeInfoEleveListener(ihm);
 		this.ene = new EntreeNoteEleveListener(ihm);
@@ -114,8 +117,25 @@ public class Controller
 		return this.eleves;
 	}
 
+	public void resetEleves()
+	{
+		this.eleves = new ArrayList<Eleve>();
+		this.eleves.add(new Eleve());
+		this.indexCurrentEleve = 0;
+	}
+
 	public void ajoutEleve(Eleve e)
 	{
 		this.eleves.add(e);
+	}
+
+	public File getLocation()
+	{
+		return this.location;
+	}
+
+	public void setLocation(File newLoc)
+	{
+		this.location = newLoc;
 	}
 }
