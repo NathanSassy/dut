@@ -79,6 +79,7 @@ public class EntreeInfoEleveListener implements ActionListener, KeyListener
 		{
 			ihm.getController().ajoutEleve(new Eleve());
 			updateIndicateurEleve();
+			ihm.getPanelBas().getMessage().setText("Nouvel eleve crée");
 		}
 	}
 

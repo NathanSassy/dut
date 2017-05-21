@@ -31,6 +31,7 @@ public class PanelGaucheListener implements ActionListener
 				ihm.getController().getEntreeInfoEleveListener().updateIndicateurEleve();
 				ihm.getController().updateIhmEleve(ihm.getController().getEleves().get(ihm.getController().getIndexCurrentEleve()));
 				ihm.getController().setLocation(null);
+				ihm.getPanelBas().getMessage().setText("Nouveau fichier crée");
 			}
 		}
 		else if(e.getSource() == ihm.getPanelGauche().getDeleteFile())
@@ -51,6 +52,8 @@ public class PanelGaucheListener implements ActionListener
 				ihm.getController().updateIhmEleve(ihm.getController().getEleves().get(ihm.getController().getIndexCurrentEleve()));
 				ihm.getController().getEntreeInfoEleveListener().updateIndicateurEleve();
 			}
+
+			ihm.getPanelBas().getMessage().setText("Eleve supprimé");
 		}
 		else if((e.getSource() == ihm.getPanelGauche().getSaveFile() && ihm.getController().getLocation() == null) || e.getSource() == ihm.getPanelGauche().getSaveAsFile())
 		{
@@ -59,6 +62,7 @@ public class PanelGaucheListener implements ActionListener
 			JFileChooser chooser = new JFileChooser();
 			FileNameExtensionFilter filterCVS = new FileNameExtensionFilter("CVS", "cvs");
 			chooser.addChoosableFileFilter(filterCVS);
+			chooser.setFileFilter(filterCVS);
 
 			int returnVal = chooser.showOpenDialog(new JPanel());
 	    	if(returnVal == JFileChooser.APPROVE_OPTION)
@@ -70,6 +74,25 @@ public class PanelGaucheListener implements ActionListener
 
 	    	ihm.getController().setLocation(location);
 	    	ihm.getController().saveIntoFile();
+
+	    	ihm.getPanelBas().getMessage().setText("Modification enrengistrées");
+		}
+		else if(e.getSource() == ihm.getPanelGauche().getSaveFile())
+		{
+			ihm.getController().saveIntoFile();
+	    	ihm.getPanelBas().getMessage().setText("Modification enrengistrées");
+		}
+		else if(e.getSource() == ihm.getPanelGauche().getLoadFile())
+		{
+			String location = null;
+			JFileChooser chooser = new JFileChooser();
+
+			int returnVal = chooser.showOpenDialog(new JPanel());
+	    	if(returnVal == JFileChooser.APPROVE_OPTION)
+	    	{
+	            location = chooser.getSelectedFile().getPath();
+	            ihm.getController().loadFromFile(location);
+	    	}
 		}
 	}
 }

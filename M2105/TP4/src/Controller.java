@@ -7,6 +7,7 @@ import java.util.*;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
+import java.time.LocalDate;
 
 public class Controller
 {
@@ -118,7 +119,57 @@ public class Controller
 				fichier.close();
 			}
 		}
-		// sinon lancer saveAsIntoFile()
+	}
+
+	public void loadFromFile(String file)
+	{
+		Scanner scanLine = null;
+		Scanner scanInfo = null;
+		try
+		{
+			ArrayList<Eleve> nouvEleves = new ArrayList<Eleve>();
+			Eleve e = null;
+			scanLine = new Scanner(new File(file)).useDelimiter("\\s*\n\\s*");
+			while(scanLine.hasNext())
+			{
+				scanInfo = new Scanner(scanLine.next()).useDelimiter("\\s*:\\s*");
+				e = new Eleve();
+				e.setNom(scanInfo.next());
+				e.setPrenom(scanInfo.next());
+				try
+				{
+					e.setAnneeNaissance(LocalDate.parse(scanInfo.next()));
+				} catch(Exception err){}
+				try
+				{
+					e.setMail(scanInfo.next());
+				} catch(Exception err2){}
+				e.setSexe(scanInfo.next());
+				e.setR1a(scanInfo.nextBoolean());
+				e.setR2a(scanInfo.nextBoolean());
+				while(scanInfo.hasNext())
+				{
+					e.ajouteEvaluation(new Evaluation(Double.parseDouble(scanInfo.next()), scanInfo.next()));
+				}
+				nouvEleves.add(e);
+			}
+
+			this.location = file;
+			this.eleves = nouvEleves;
+			this.indexCurrentEleve = 0;
+			updateIhmEleve(this.eleves.get(0));
+			this.eiel.updateIndicateurEleve();
+
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+		finally
+		{
+			scanLine.close();
+			scanInfo.close();
+		}
 	}
 
 	public EleveNoteGUI getIhm()

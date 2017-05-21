@@ -22,10 +22,8 @@ public class PanelGauche extends JPanel
 
 		newFile = new JButton(icons[0]);
 		newFile.addActionListener(ihm.getController().getPanelGaucheListener());
-		//newFile.setOpaque(false);
-		//newFile.setContentAreaFilled(false);
-		//newFile.setBorderPainted(false);
 		loadFile = new JButton(icons[1]);
+		loadFile.addActionListener(ihm.getController().getPanelGaucheListener());
 		deleteFile = new JButton(icons[2]);
 		deleteFile.addActionListener(ihm.getController().getPanelGaucheListener());
 		saveFile = new JButton(icons[3]);
