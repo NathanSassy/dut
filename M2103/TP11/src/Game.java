@@ -136,6 +136,8 @@ public class Game implements IGame
 		player1.showMyGrid();
 		player1.showOpponentGrid();
 
+		new guiBattleShip(player1.myGrid, player1.opponentGrid);
+
 		System.out.println(analyzeShot("player1", player1.newShot()));
 		System.out.println(analyzeShot("player1", player1.newShot()));
 		System.out.println(analyzeShot("player1", player1.newShot()));

@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.table.AbstractTableModel;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import battle.Square;
 
 public class GridTableModel extends AbstractTableModel {
@@ -61,5 +62,10 @@ public class GridTableModel extends AbstractTableModel {
    */
    public Class getColumnClass(int c) {
       return this.getValueAt(0, c).getClass();
+   }
+
+   public boolean isCellEditable()
+   {
+    return false;
    }
 }
