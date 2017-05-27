@@ -25,10 +25,8 @@ public class AutoPlayer extends Player
 		int ret[] = new int[2];
 		Random randomGenerator = new Random();
 
-
 		ret[0] = randomGenerator.nextInt(this.width);
 		ret[1] = randomGenerator.nextInt(this.height);
-
 
 		return ret;
 	}
@@ -60,7 +58,7 @@ public class AutoPlayer extends Player
 
 				if(orientation == 0)
 				{
-					if(x >= 0 && x + this.fleet.get(i).getSize() < this.height && y >= 0 && y < this.width + y)
+					if(x >= 0 && x + this.fleet.get(i).getSize() < this.height && y >= 0 && y < this.width)
 						ok = true;
 					else
 						ok = false;
@@ -86,7 +84,7 @@ public class AutoPlayer extends Player
 				}
 				else if(orientation == 1)
 				{
-					if(x >= 0 && x < this.height + x && y >= 0 && y + this.fleet.get(i).getSize() < this.width)
+					if(x >= 0 && x < this.height && y >= 0 && y + this.fleet.get(i).getSize() < this.width)
 						ok = true;
 					else
 					{

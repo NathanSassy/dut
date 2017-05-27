@@ -24,14 +24,14 @@ public class HumanPlayer extends Player
 	{
 		int ret[] = new int[2];
 		Scanner in = new Scanner(System.in);
-		System.out.printf("*** Nouveau Tir ***");
+		System.out.println("*** Nouveau Tir ***");
 		do
 		{
 			System.out.println("Entez son abscisse : ");
 			ret[0] = in.nextInt();
 			System.out.println("Entez son ordonné : ");
-			ret[2] = in.nextInt();
-		} while(ret[0] < this.width && ret[0] > 0 && ret[1] < this.height && ret[1] > 0);
+			ret[1] = in.nextInt();
+		} while(!(ret[0] < this.width && ret[0] >= 0 && ret[1] < this.height && ret[1] >= 0));
 		return ret;
 	}
 
@@ -63,7 +63,7 @@ public class HumanPlayer extends Player
 
 				if(orientation.equals("H"))
 				{
-					if(x >= 0 && x + this.fleet.get(i).getSize() < this.height && y >= 0 && y < this.width + y)
+					if(x >= 0 && x + this.fleet.get(i).getSize() < this.height && y >= 0 && y < this.width)
 						ok = true;
 					else
 						System.out.println("abscisse incorrecte");
@@ -92,7 +92,7 @@ public class HumanPlayer extends Player
 				}
 				else if(orientation.equals("V"))
 				{
-					if(x >= 0 && x < this.height + x && y >= 0 && y + this.fleet.get(i).getSize() < this.width)
+					if(x >= 0 && x < this.height && y >= 0 && y + this.fleet.get(i).getSize() < this.width)
 						ok = true;
 					else
 						System.out.println("ordonné incorrecte");

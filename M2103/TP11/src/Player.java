@@ -1,6 +1,7 @@
 package battle;
 
 import java.util.ArrayList;
+import view.GridTableFrame;
 
 public abstract class Player
 {
@@ -10,7 +11,7 @@ public abstract class Player
 
 	protected ArrayList<Ship> fleet;
 	protected Square myGrid[][];
-	protected Square oponentGrid[][];
+	protected Square opponentGrid[][];
 
 	/**
 	* Constructor of Player
@@ -26,7 +27,7 @@ public abstract class Player
 		this.height = height;
 		createCopy(fleet);
 		initializeMyGrid();
-		initializeOponentGrid();
+		initializeOpponentGrid();
 	}
 
 	/**
@@ -55,20 +56,19 @@ public abstract class Player
 				this.myGrid[i][j] = new Square(i,j);
 			}
 		}
-		this.shipPlacement();
 	}
 
 	/**
 	* Initialize the ia player grid
 	*/
-	protected void initializeOponentGrid()
+	protected void initializeOpponentGrid()
 	{
-		this.oponentGrid = new Square[width][height];
+		this.opponentGrid = new Square[width][height];
 		for(int i = 0; i < width; i++)
 		{
 			for(int j = 0; j < height; j++)
 			{
-				this.oponentGrid[i][j] = new Square(i,j);
+				this.opponentGrid[i][j] = new Square(i,j);
 			}
 		}
 	}
@@ -115,7 +115,9 @@ public abstract class Player
 		{
 			for(int j = 0; j < this.width; j++)
 			{
-				if(myGrid[j][i].isFree())
+				if(myGrid[j][i].isHit())
+					System.out.print(" X ");
+				else if(myGrid[j][i].isFree())
 					System.out.print(" o ");
 				else
 					System.out.print(" S ");
@@ -124,4 +126,36 @@ public abstract class Player
 		}
 		System.out.print("\n");
 	}
+
+	public void showOpponentGrid()
+	{
+		System.out.print("\n");
+		for(int i = 0; i < this.height; i++)
+		{
+			for(int j = 0; j < this.width; j++)
+			{
+				if(opponentGrid[j][i].isHit())
+					System.out.print(" X ");
+				else if(opponentGrid[j][i].isFree())
+					System.out.print(" o ");
+				else
+					System.out.print(" S ");
+			}
+			System.out.print("\n");
+		}
+		System.out.print("\n");
+	}
+
+	public void displayMygrid()
+	{
+		GridTableFrame otframe = new GridTableFrame(myGrid);
+		otframe.showIt();
+	}
+
+	public void displayOpponentGrid()
+	{
+		GridTableFrame otframe = new GridTableFrame(opponentGrid);
+		otframe.showIt();
+	}
+
 }

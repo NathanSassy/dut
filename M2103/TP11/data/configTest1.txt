@@ -1,0 +1,5 @@
+8:8:
+porte-avion:1:
+frégate:1:
+patrouilleur:1:
+sous-marin:1:
