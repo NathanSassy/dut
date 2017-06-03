@@ -2,14 +2,13 @@ package view;
 
 import javax.swing.table.AbstractTableModel;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import battle.Square;
 
 public class GridTableModel extends AbstractTableModel {
 
   private int noOfRows, noOfCols;
   private Square[][] grid;
-  private static final String PATH = "./data/"; 
+  private static final String PATH = "../data/"; 
   private String imageFree= "free.png";
   private String imageHitAndFree= "freeHit.png";
   private String imageBusyAndHit= "busyHit.png";
@@ -62,10 +61,5 @@ public class GridTableModel extends AbstractTableModel {
    */
    public Class getColumnClass(int c) {
       return this.getValueAt(0, c).getClass();
-   }
-
-   public boolean isCellEditable()
-   {
-    return false;
    }
 }

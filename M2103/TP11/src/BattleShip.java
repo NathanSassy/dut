@@ -21,11 +21,11 @@ public class BattleShip
 	* @param playerName1 the player name 1
 	* @param playerName2 the player name 2
 	*/
-	public BattleShip(String fileName, String playerName1, String playerName2)
+	public BattleShip(String fileName, String playerName1, String playerName2, String mode)
 	{
 		this.fleet = new ArrayList<Ship>();
 		configure(fileName);
-		this.gamePlay = new Game(fleet, playerName1, playerName2, width, height);
+		this.gamePlay = new Game(fleet, playerName1, playerName2, width, height, mode);
 	}
 	
 	/**

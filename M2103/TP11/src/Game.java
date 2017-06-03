@@ -12,6 +12,7 @@ public class Game implements IGame
 	private ShotResult result;
 	private Player player1;
 	private Player player2;
+	private String mode;
 
 	/**
 	* Constructor of game
@@ -21,14 +22,15 @@ public class Game implements IGame
 	* @param width the width
 	* @param height the height
 	*/
-	public Game(ArrayList<Ship> fleet, String playerName1, String playerName2, int width, int height)
+	public Game(ArrayList<Ship> fleet, String playerName1, String playerName2, int width, int height, String mode)
 	{
 		this.fleet = fleet;
+		this.mode = mode;
 		// cration des 2 players
 		player1 = new HumanPlayer(fleet, playerName1, width, height);
 		player2 = new AutoPlayer(fleet, playerName2, width, height);
 
-		player1.opponentGrid = player2.myGrid;
+		//player1.opponentGrid = player2.myGrid;
 		player2.opponentGrid = player1.myGrid;
 	}
 
@@ -37,7 +39,7 @@ public class Game implements IGame
 		return player.newShot();
 	}
 
-	public ShotResult analyzeShot(String playerName, int shot[])
+	public ShotResult analyzeShot(Player p, int shot[])
 	{
 		ShotResult ret = ShotResult.MISS;
 
@@ -45,18 +47,19 @@ public class Game implements IGame
 		{
 			int x = shot[0];
 			int y = shot[1];
-			Player p = null;
-
-			if(playerName.equals(player1.getName()))
-				p = player1;
-			else if(playerName.equals(player2.getName()))
-				p = player2;
 
 			if(p != null)
 			{
-				if(!p.opponentGrid[x][y].isFree() && !p.opponentGrid[x][y].isHit())
+				Square opponent[][] = null;
+				if(p == player1)
+					opponent = player2.myGrid;
+				else if(p == player2)
+					opponent = player1.myGrid;
+
+				if(!opponent[x][y].isFree() && !p.opponentGrid[x][y].isHit())
 				{
 					p.opponentGrid[x][y].setHit();
+					p.opponentGrid[x][y].setBusy();
 					ret = ShotResult.HIT;
 					Ship s = null;
 					int i = 0;
@@ -126,38 +129,25 @@ public class Game implements IGame
 	*/
 	public void start()
 	{
-		//SimpleFrame sf = new SimpleFrame();
-		//sf.showIt();
-
-		//player1.shipPlacement();
-		//player1.showMyGrid();
 		player2.shipPlacement();
-		
-		player1.showMyGrid();
-		player1.showOpponentGrid();
 
-		new guiBattleShip(player1.myGrid, player1.opponentGrid);
-
-		System.out.println(analyzeShot("player1", player1.newShot()));
-		System.out.println(analyzeShot("player1", player1.newShot()));
-		System.out.println(analyzeShot("player1", player1.newShot()));
-		System.out.println(analyzeShot("player1", player1.newShot()));
-
-		player1.displayOpponentGrid();
-
-		//player2.showMyGrid();
-		//player2.showOpponentGrid();
-
-		//player2.displayMygrid();
-		//player2.displayOpponentGrid();
-
-		/*while(!allSunk(player2))
+		if(mode.equals("curses"))
 		{
-			//player2.showMyGrid();
-			//player2.displayMygrid();
-			//player1.displayOpponentGrid();
-			System.out.println(analyzeShot("player1", player1.newShot()));
-		}*/
+			player1.shipPlacement();
+			while(!allSunk(player1) && !allSunk(player2))
+			{
+				System.out.println("Ma grille : ");
+				player1.showMyGrid();
+				System.out.println("Grille Adverse : ");
+				player1.showOpponentGrid();
+				System.out.println(analyzeShot(player1, player1.newShot()));
+				System.out.println(analyzeShot(player2, player2.newShot()));
+			}
+		}
+		else if(mode.equals("gui"))
+		{
+			new GraphicalGame(player1);
+		}
 	}
 	
 	/**

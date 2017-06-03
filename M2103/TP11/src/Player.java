@@ -1,7 +1,6 @@
 package battle;
 
 import java.util.ArrayList;
-import view.GridTableFrame;
 
 public abstract class Player
 {
@@ -85,6 +84,29 @@ public abstract class Player
 	public abstract void shipPlacement();
 
 	/**
+	* Place ship in the grid
+	*/
+	public void shipPlacement(int x, int y, String orientation, int i)
+	{
+		Ship s = this.fleet.get(i);
+		s.setXOrigin(x);
+		s.setYOrigin(y);
+		if(orientation.equals("H"))
+		{
+			s.setDirection(Direction.HORIZONTAL);
+			for(int k = x; k < x + this.fleet.get(i).getSize(); k++)
+				this.myGrid[k][y].setBusy();
+		}
+		else if(orientation.equals("V"))
+		{
+			s.setDirection(Direction.VERTICAL);
+			for(int k = y; k < y + this.fleet.get(i).getSize(); k++)
+				this.myGrid[x][k].setBusy();
+		}
+		this.fleet.set(i, s);
+	}
+
+	/**
 	* @return return the name of the player
 	*/
 	public String getName()
@@ -115,8 +137,10 @@ public abstract class Player
 		{
 			for(int j = 0; j < this.width; j++)
 			{
-				if(myGrid[j][i].isHit())
+				if(myGrid[j][i].isHit() && myGrid[j][i].isFree())
 					System.out.print(" X ");
+				else if(myGrid[j][i].isHit() && !myGrid[j][i].isFree())
+					System.out.print(" Ø ");
 				else if(myGrid[j][i].isFree())
 					System.out.print(" o ");
 				else
@@ -134,8 +158,10 @@ public abstract class Player
 		{
 			for(int j = 0; j < this.width; j++)
 			{
-				if(opponentGrid[j][i].isHit())
+				if(opponentGrid[j][i].isHit() && opponentGrid[j][i].isFree())
 					System.out.print(" X ");
+				else if(opponentGrid[j][i].isHit() && !opponentGrid[j][i].isFree())
+					System.out.print(" Ø ");
 				else if(opponentGrid[j][i].isFree())
 					System.out.print(" o ");
 				else
@@ -146,16 +172,18 @@ public abstract class Player
 		System.out.print("\n");
 	}
 
-	public void displayMygrid()
+	public Square[][] getMyGrid()
 	{
-		GridTableFrame otframe = new GridTableFrame(myGrid);
-		otframe.showIt();
+		return this.myGrid;
 	}
 
-	public void displayOpponentGrid()
+	public Square[][] getOpponentGrid()
 	{
-		GridTableFrame otframe = new GridTableFrame(opponentGrid);
-		otframe.showIt();
+		return this.opponentGrid;
 	}
 
+	public ArrayList<Ship> getFleet()
+	{
+		return fleet;
+	}
 }
