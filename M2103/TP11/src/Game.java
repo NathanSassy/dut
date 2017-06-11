@@ -30,15 +30,26 @@ public class Game implements IGame
 		player1 = new HumanPlayer(fleet, playerName1, width, height);
 		player2 = new AutoPlayer(fleet, playerName2, width, height);
 
-		//player1.opponentGrid = player2.myGrid;
+		player1.opponentGrid = player2.myGrid;
 		player2.opponentGrid = player1.myGrid;
 	}
 
+	/**
+	* read a new shot from a player
+	* @param player the player who make the new shot
+	* @return the shot values
+	*/
 	public int[] readShot(Player player)
 	{
 		return player.newShot();
 	}
 
+	/**
+	* Give the result of a shot
+	* @param p the player who made the shot
+	* @param shot the shot values
+	* @return the result of the shot
+	*/
 	public ShotResult analyzeShot(Player p, int shot[])
 	{
 		ShotResult ret = ShotResult.MISS;
@@ -48,59 +59,51 @@ public class Game implements IGame
 			int x = shot[0];
 			int y = shot[1];
 
-			if(p != null)
+			if(p != null &&!p.opponentGrid[x][y].isFree() && !p.opponentGrid[x][y].isHit())
 			{
-				Square opponent[][] = null;
+				p.opponentGrid[x][y].setHit();
+				p.opponentGrid[x][y].setBusy();
+				ret = ShotResult.HIT;
+				Ship s = null;
+				int i = 0;
+				Player enn = null;
 				if(p == player1)
-					opponent = player2.myGrid;
+					enn = this.player2;
 				else if(p == player2)
-					opponent = player1.myGrid;
+					enn = this.player1;
 
-				if(!opponent[x][y].isFree() && !p.opponentGrid[x][y].isHit())
+				for(i = 0; i < enn.fleet.size() && s == null; i++)
 				{
-					p.opponentGrid[x][y].setHit();
-					p.opponentGrid[x][y].setBusy();
-					ret = ShotResult.HIT;
-					Ship s = null;
-					int i = 0;
-
-					for(i = 0; i < p.fleet.size() && s == null; i++)
+					if(enn.fleet.get(i).getDirection() == Direction.VERTICAL)
 					{
-						if(p.fleet.get(i).getDirection() == Direction.VERTICAL)
-						{
-							if(x == p.fleet.get(i).getXOrigin() && y >= p.fleet.get(i).getYOrigin() && y <= (p.fleet.get(i).getYOrigin() + p.fleet.get(i).getSize()))
-								s = p.fleet.get(i);
-						}
-						else if(p.fleet.get(i).getDirection() == Direction.HORIZONTAL)
-						{
-							if(y == p.fleet.get(i).getYOrigin() && x >= p.fleet.get(i).getXOrigin() && x <= (p.fleet.get(i).getXOrigin() + p.fleet.get(i).getSize()))
-								s = p.fleet.get(i);
-						}
+						if(x == enn.fleet.get(i).getXOrigin() && y >= enn.fleet.get(i).getYOrigin() && y <= (enn.fleet.get(i).getYOrigin() + enn.fleet.get(i).getSize()))
+							s = enn.fleet.get(i);
 					}
-
-					if(s != null)
+					else if(enn.fleet.get(i).getDirection() == Direction.HORIZONTAL)
 					{
-						i--;
-						s.addHit();
-						p.fleet.set(i, s);
-						if(p.fleet.get(i).getHitNumber() == p.fleet.get(i).getSize())
-							ret = ShotResult.SUNK;
+						if(y == enn.fleet.get(i).getYOrigin() && x >= enn.fleet.get(i).getXOrigin() && x <= (enn.fleet.get(i).getXOrigin() + enn.fleet.get(i).getSize()))
+							s = enn.fleet.get(i);
 					}
 				}
-				else
-					p.opponentGrid[x][y].setHit();	
+
+				if(s != null)
+				{
+					i--;
+					s.addHit();
+					enn.fleet.set(i, s);
+					if(enn.fleet.get(i).getHitNumber() == enn.fleet.get(i).getSize())
+						ret = ShotResult.SUNK;
+				}
 			}
 			else
-			{
-				System.out.println("coordonnes invalides");
-			}
+				p.opponentGrid[x][y].setHit();	
 		}
 
 		return ret;	
 	}
 
 	/**
-	*
+	* @return return true if all the fleet is sunk
 	*/
 	public boolean allSunk(Player player)
 	{
@@ -129,11 +132,10 @@ public class Game implements IGame
 	*/
 	public void start()
 	{
-		player2.shipPlacement();
-
 		if(mode.equals("curses"))
 		{
 			player1.shipPlacement();
+			player2.shipPlacement();
 			while(!allSunk(player1) && !allSunk(player2))
 			{
 				System.out.println("Ma grille : ");
@@ -146,7 +148,7 @@ public class Game implements IGame
 		}
 		else if(mode.equals("gui"))
 		{
-			new GraphicalGame(player1);
+			new GraphicalGame(this);
 		}
 	}
 	
@@ -154,4 +156,20 @@ public class Game implements IGame
 	* End the game
 	*/
 	public void endOfGame(){}
+
+	/**
+	* @return get the player1
+	*/
+	public Player getPlayer1()
+	{
+		return player1;
+	}
+
+	/**
+	* @return get the player2
+	*/
+	public Player getPlayer2()
+	{
+		return player2;
+	}
 }

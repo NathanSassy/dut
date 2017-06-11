@@ -3,12 +3,13 @@ package view;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import battle.Square;
-import battle.Player;
+import battle.*;
 
+/**
+* The graphical game mode of battleship
+*/
 public class GraphicalGame extends SimpleFrame implements ActionListener
 {
-    private Player player;
     private JTable myGridTab;
     private JTable opponentGridTab;
     private JButton shipPlacementBtn;
@@ -18,12 +19,19 @@ public class GraphicalGame extends SimpleFrame implements ActionListener
     private CordDialog newShotDialog;
     private int shipNumber;
 
-  public GraphicalGame(Player hp)
+    private Game game;
+
+  /**
+  * The constructor
+  * @param game the game
+  */
+  public GraphicalGame(Game game)
   {
-    this.player = hp;
+    this.game = game;
     this.setTitle("Bataille Navale");
-    this.shipPlacementDialog = new CordDialog(0, hp.getMyGrid().length, 0, hp.getMyGrid()[0].length);
-    this.newShotDialog = new CordDialog(0, hp.getOpponentGrid().length, 0, hp.getOpponentGrid()[0].length);
+    this.shipPlacementDialog = new CordDialog(0, game.getPlayer1().getMyGrid().length-1, 0, game.getPlayer1().getMyGrid()[0].length-1);
+    this.shipPlacementDialog.addDirectionChooser();
+    this.newShotDialog = new CordDialog(0, game.getPlayer1().getOpponentGrid().length-1, 0, game.getPlayer1().getOpponentGrid()[0].length-1);
     
     // Containers
     Container container = new Container();
@@ -36,7 +44,7 @@ public class GraphicalGame extends SimpleFrame implements ActionListener
     opponentGridContainer.setLayout(new BorderLayout());
 
     // Block 1
-    GridTableModel myGridModel = new GridTableModel(hp.getMyGrid());
+    GridTableModel myGridModel = new GridTableModel(game.getPlayer1().getMyGrid());
     this.myGridTab = new JTable(myGridModel);
     // to adjust some parameters
     myGridTab.setShowGrid(true);
@@ -57,10 +65,11 @@ public class GraphicalGame extends SimpleFrame implements ActionListener
     JScrollPane sp = new JScrollPane(logTextArea);
     containerOperation.add(shipPlacementBtn);
     containerOperation.add(newShotBtn);
-    containerOperation.add(logTextArea);
+    //containerOperation.add(logTextArea);
+    containerOperation.add(sp);
 
     // Block 3
-    GridTableModel opponentGridModel = new GridTableModel(hp.getOpponentGrid());
+    GridTableModel opponentGridModel = new GridTableModel(game.getPlayer1().getOpponentGrid());
     this.opponentGridTab = new JTable(opponentGridModel);
     // to adjust some parameters
     opponentGridTab.setShowGrid(true);
@@ -77,27 +86,92 @@ public class GraphicalGame extends SimpleFrame implements ActionListener
     getContentPane().add(container);
     pack();
     setVisible(true);
+    setExtendedState(this.MAXIMIZED_BOTH);
   }
 
   public void actionPerformed(ActionEvent e)
   {
     if(e.getSource() == shipPlacementBtn)
     {
-        int x, y;
-        for(int i = 0; i < player.getFleet().size(); i++)
+        new Thread(new Runnable()
         {
-            //shipPlacementDialog.showIt();
-            //player.shipPlacement(shipPlacementDialog.getX(), shipPlacementDialog.getY(), "H", i);
-            //writeLog("Bateau placé en (" +  shipPlacementDialog.getX() + ", " + shipPlacementDialog.getY() + " )");
-            x = Integer.parseInt(JOptionPane.showInputDialog(null, "x"));
-            y = Integer.parseInt(JOptionPane.showInputDialog(null, "y"));
-            player.shipPlacement(x, y, "H", i);
-            writeLog("Bateau placé en (" +  x + ", " + y + " )");
-            myGridTab.updateUI();
+            public void run()
+            {
+                boolean ok;
+                for(int i = 0; i < game.getPlayer1().getFleet().size(); i++)
+                {
+                    ok = false;
+                    while(!ok)
+                    {
+                        try
+                        {
+                            shipPlacementDialog.setTitle("Placez le " + game.getPlayer1().getFleet().get(i).getName());
+                            shipPlacementDialog.showIt();
+                            while(shipPlacementDialog.getLock())
+                            {
+                                try
+                                {
+                                    wait();
+                                }
+                                catch(Exception err){}
+                                
+                            }
+                            game.getPlayer1().shipPlacement(shipPlacementDialog.getX(), shipPlacementDialog.getY(), shipPlacementDialog.getDirection(), i);
+                            writeLog(game.getPlayer1().getFleet().get(i).getName() + " placé en (" +  shipPlacementDialog.getX() + ", " + shipPlacementDialog.getY() + " )");
+                            ok = true;
+                        }
+                        catch(Exception wrongPlacement)
+                        {
+                            ok = false;
+                            JOptionPane.showMessageDialog(new JFrame(), wrongPlacement.getMessage());
 
-        }
-        shipPlacementBtn.setEnabled(false);
-        newShotBtn.setEnabled(true);
+                        }
+
+                        myGridTab.updateUI();
+                    }
+                }
+
+                game.getPlayer2().shipPlacement();
+                opponentGridTab.updateUI();
+
+                shipPlacementBtn.setEnabled(false);
+                newShotBtn.setEnabled(true);
+            }
+        }).start();
+    }
+    else if(e.getSource() == newShotBtn)
+    {
+        new Thread(new Runnable()
+        {
+            public void run()
+            {
+                newShotDialog.showIt();
+                while(newShotDialog.getLock())
+                {
+                    try
+                    {
+                        wait();
+                    }
+                    catch(Exception err){}
+                    
+                }
+                int shot[] = new int[2];
+                shot[0] = newShotDialog.getX();
+                shot[1] = newShotDialog.getY();
+                writeLog(game.getPlayer1().getName() + " tire en (" + shot[0] + ", " + shot[1] + ") : " + game.analyzeShot(game.getPlayer1(), shot));
+                opponentGridTab.updateUI();
+
+                if(game.allSunk(game.getPlayer2()))
+                    JOptionPane.showMessageDialog(new JFrame(), game.getPlayer1().getName() + " gagne !");
+
+                shot = game.getPlayer2().newShot();
+                writeLog(game.getPlayer2().getName() + " tire en (" + shot[0] + ", " + shot[1] + ") : " + game.analyzeShot(game.getPlayer2(), shot));
+                myGridTab.updateUI();
+                
+                if(game.allSunk(game.getPlayer1()))
+                    JOptionPane.showMessageDialog(new JFrame(), game.getPlayer2().getName() + " gagne !");
+            }
+        }).start();
     }
   }
 

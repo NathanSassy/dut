@@ -38,7 +38,7 @@ public abstract class Player
 		this.fleet = new ArrayList<Ship>();
 		for(Ship s : fleet)
 		{
-			this.fleet.add(s);
+			this.fleet.add(new Ship(s.getName(), s.getSize()));
 		}
 	}
 
@@ -83,26 +83,59 @@ public abstract class Player
 	*/
 	public abstract void shipPlacement();
 
-	/**
-	* Place ship in the grid
-	*/
-	public void shipPlacement(int x, int y, String orientation, int i)
+	public void shipPlacement(int x, int y, String orientation, int i) throws Exception
 	{
 		Ship s = this.fleet.get(i);
-		s.setXOrigin(x);
-		s.setYOrigin(y);
-		if(orientation.equals("H"))
+
+		if(orientation.equals("HORIZONTAL"))
 		{
+			if(!(x >= 0 && x + this.fleet.get(i).getSize() < this.height && y >= 0 && y < this.width))
+				throw new Exception("abscisse incorrecte");
+
+			for(int k = x - 1; k < x + this.fleet.get(i).getSize() + 1; k++)
+			{
+				if(k >= 0 && k < this.width)
+				{
+					if(this.myGrid[k][y].isFree() == false)
+						throw new Exception("bateau à proximité en (" + k +", " + y + ")");
+					else if(y - 1 >= 0 && this.myGrid[k][y-1].isFree() == false)
+						throw new Exception("bateau à proximité en (" + k +", " + (y-1) + ")");
+					else if(y + 1 < this.width && this.myGrid[k][y+1].isFree() == false)
+						throw new Exception("bateau à proximité en (" + k +", " + (y+1) + ")");
+				}
+			}
+
 			s.setDirection(Direction.HORIZONTAL);
 			for(int k = x; k < x + this.fleet.get(i).getSize(); k++)
 				this.myGrid[k][y].setBusy();
+				
 		}
-		else if(orientation.equals("V"))
+		else if(orientation.equals("VERTICAL"))
 		{
+			if(!(x >= 0 && x < this.height && y >= 0 && y + this.fleet.get(i).getSize() < this.width))
+				throw new Exception("ordonné incorrecte");
+
+			for(int k = y - 1; k < y + this.fleet.get(i).getSize() + 1; k++)
+			{
+				if(k >= 0 && k < this.height)
+				{
+					if(this.myGrid[x][k].isFree() == false)
+						throw new Exception("bateau à proximité en (" + x +", " + k + ")");
+					else if(x - 1 >= 0 && this.myGrid[x-1][k].isFree() == false)
+						throw new Exception("bateau à proximité en (" + (x-1) +", " + k + ")");
+					else if(x + 1 < this.height && this.myGrid[x+1][k].isFree() == false)
+						throw new Exception("bateau à proximité en (" + (x+1) +", " + k + ")");
+				}
+			}
+
 			s.setDirection(Direction.VERTICAL);
 			for(int k = y; k < y + this.fleet.get(i).getSize(); k++)
 				this.myGrid[x][k].setBusy();
 		}
+
+		s.setXOrigin(x);
+		s.setYOrigin(y);
+
 		this.fleet.set(i, s);
 	}
 
@@ -130,6 +163,9 @@ public abstract class Player
 		return this.height;
 	}
 
+	/**
+	* Display myGird in the terminal
+	*/
 	public void showMyGrid()
 	{
 		System.out.print("\n");
@@ -151,6 +187,9 @@ public abstract class Player
 		System.out.print("\n");
 	}
 
+	/**
+	* Display opponentGrid in the terminal
+	*/
 	public void showOpponentGrid()
 	{
 		System.out.print("\n");
@@ -172,16 +211,25 @@ public abstract class Player
 		System.out.print("\n");
 	}
 
+	/**
+	* @return return the myGird attribute
+	*/
 	public Square[][] getMyGrid()
 	{
 		return this.myGrid;
 	}
 
+	/**
+	* @return return the opponentGird attribute
+	*/
 	public Square[][] getOpponentGrid()
 	{
 		return this.opponentGrid;
 	}
 
+	/**
+	* @return return the fleet attribute
+	*/
 	public ArrayList<Ship> getFleet()
 	{
 		return fleet;

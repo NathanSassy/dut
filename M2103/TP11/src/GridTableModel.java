@@ -4,7 +4,8 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.ImageIcon;
 import battle.Square;
 
-public class GridTableModel extends AbstractTableModel {
+public class GridTableModel extends AbstractTableModel
+{
 
   private int noOfRows, noOfCols;
   private Square[][] grid;
@@ -21,8 +22,8 @@ public class GridTableModel extends AbstractTableModel {
   */
   public GridTableModel(Square[][] grid) {
     this.grid = grid;
-    noOfRows = this.grid.length;
-    noOfCols = this.grid[0].length;
+    noOfCols = this.grid.length;
+    noOfRows = this.grid[0].length;
   }
 
 // Implementing the tree abstract methods:
@@ -36,7 +37,7 @@ public class GridTableModel extends AbstractTableModel {
 
   public Object getValueAt(int r,int c) {
     Object result = new Object();
-    Square sq = grid[r][c];
+    Square sq = grid[c][r];
     if ((sq.isFree())&&(!sq.isHit())) result= new ImageIcon(PATH + imageFree);
     else if (sq.isFree() && (sq.isHit())) result= new ImageIcon(PATH + imageHitAndFree);
     else if (!sq.isFree() && (!sq.isHit())) result= new ImageIcon(PATH + imageBusy);
@@ -60,6 +61,6 @@ public class GridTableModel extends AbstractTableModel {
    * @return the class of the object at column c
    */
    public Class getColumnClass(int c) {
-      return this.getValueAt(0, c).getClass();
+      return this.getValueAt(c, 0).getClass();
    }
 }

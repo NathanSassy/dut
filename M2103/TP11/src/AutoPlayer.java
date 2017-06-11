@@ -25,9 +25,12 @@ public class AutoPlayer extends Player
 		int ret[] = new int[2];
 		Random randomGenerator = new Random();
 
-		ret[0] = randomGenerator.nextInt(this.width);
-		ret[1] = randomGenerator.nextInt(this.height);
-
+		do
+		{
+			ret[0] = randomGenerator.nextInt(this.width);
+			ret[1] = randomGenerator.nextInt(this.height);
+		} while(opponentGrid[ret[0]][ret[1]].isHit());
+		
 		return ret;
 	}
 
