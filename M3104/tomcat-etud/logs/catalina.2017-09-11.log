@@ -1,0 +1,64 @@
+11-Sep-2017 10:00:17.059 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.15
+11-Sep-2017 10:00:17.060 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 2 2014 19:25:20 UTC
+11-Sep-2017 10:00:17.060 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.15.0
+11-Sep-2017 10:00:17.060 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+11-Sep-2017 10:00:17.060 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.12.9-300.fc26.x86_64
+11-Sep-2017 10:00:17.060 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+11-Sep-2017 10:00:17.060 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JAVA_HOME:             /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.144-5.b01.fc26.x86_64/jre
+11-Sep-2017 10:00:17.060 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_144-b01
+11-Sep-2017 10:00:17.060 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+11-Sep-2017 10:00:17.060 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /ubs/fukuisaurus/home.1/8/e1600718/Documents/tomcat-etud
+11-Sep-2017 10:00:17.060 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /ubs/fukuisaurus/home.1/8/e1600718/Documents/tomcat-etud
+11-Sep-2017 10:00:17.061 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/ubs/home/etud/2016/e1600718/Documents/tomcat-etud/conf/logging.properties
+11-Sep-2017 10:00:17.061 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+11-Sep-2017 10:00:17.061 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=/ubs/home/etud/2016/e1600718/Documents/tomcat-etud/endorsed
+11-Sep-2017 10:00:17.061 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/ubs/home/etud/2016/e1600718/Documents/tomcat-etud
+11-Sep-2017 10:00:17.061 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/ubs/home/etud/2016/e1600718/Documents/tomcat-etud
+11-Sep-2017 10:00:17.061 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/ubs/home/etud/2016/e1600718/Documents/tomcat-etud/temp
+11-Sep-2017 10:00:17.061 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+11-Sep-2017 10:00:17.117 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+11-Sep-2017 10:00:17.127 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+11-Sep-2017 10:00:17.129 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+11-Sep-2017 10:00:17.130 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+11-Sep-2017 10:00:17.131 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 290 ms
+11-Sep-2017 10:00:17.148 INFO [main] org.apache.catalina.core.StandardService.startInternal Démarrage du service Catalina
+11-Sep-2017 10:00:17.148 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.15
+11-Sep-2017 10:00:17.158 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /ubs/fukuisaurus/home.1/8/e1600718/Documents/tomcat-etud/webapps/host-manager de l'application web
+11-Sep-2017 10:00:17.358 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+11-Sep-2017 10:00:17.383 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /ubs/fukuisaurus/home.1/8/e1600718/Documents/tomcat-etud/webapps/host-manager has finished in 224 ms
+11-Sep-2017 10:00:17.383 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /ubs/fukuisaurus/home.1/8/e1600718/Documents/tomcat-etud/webapps/ROOT de l'application web
+11-Sep-2017 10:00:17.433 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+11-Sep-2017 10:00:17.435 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /ubs/fukuisaurus/home.1/8/e1600718/Documents/tomcat-etud/webapps/ROOT has finished in 52 ms
+11-Sep-2017 10:00:17.435 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /ubs/fukuisaurus/home.1/8/e1600718/Documents/tomcat-etud/webapps/manager de l'application web
+11-Sep-2017 10:00:17.530 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+11-Sep-2017 10:00:17.533 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /ubs/fukuisaurus/home.1/8/e1600718/Documents/tomcat-etud/webapps/manager has finished in 97 ms
+11-Sep-2017 10:00:17.533 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /ubs/fukuisaurus/home.1/8/e1600718/Documents/tomcat-etud/webapps/gpsapp de l'application web
+11-Sep-2017 10:00:17.611 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+11-Sep-2017 10:00:17.616 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /ubs/fukuisaurus/home.1/8/e1600718/Documents/tomcat-etud/webapps/gpsapp has finished in 83 ms
+11-Sep-2017 10:00:17.616 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /ubs/fukuisaurus/home.1/8/e1600718/Documents/tomcat-etud/webapps/examples de l'application web
+11-Sep-2017 10:00:18.222 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /ubs/fukuisaurus/home.1/8/e1600718/Documents/tomcat-etud/webapps/examples has finished in 606 ms
+11-Sep-2017 10:00:18.222 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /ubs/fukuisaurus/home.1/8/e1600718/Documents/tomcat-etud/webapps/docs de l'application web
+11-Sep-2017 10:00:18.265 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+11-Sep-2017 10:00:18.267 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /ubs/fukuisaurus/home.1/8/e1600718/Documents/tomcat-etud/webapps/docs has finished in 45 ms
+11-Sep-2017 10:00:18.269 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+11-Sep-2017 10:00:18.272 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+11-Sep-2017 10:00:18.273 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 1142 ms
+11-Sep-2017 10:16:10.601 INFO [http-nio-8080-exec-4] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+11-Sep-2017 10:16:10.698 INFO [http-nio-8080-exec-4] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+11-Sep-2017 10:16:10.704 INFO [http-nio-8080-exec-4] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+11-Sep-2017 10:36:36.291 INFO [http-nio-8080-exec-12] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+11-Sep-2017 10:36:36.365 INFO [http-nio-8080-exec-12] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+11-Sep-2017 10:36:36.369 INFO [http-nio-8080-exec-12] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+11-Sep-2017 10:37:44.795 INFO [http-nio-8080-exec-21] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+11-Sep-2017 10:37:44.879 INFO [http-nio-8080-exec-21] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+11-Sep-2017 10:37:44.881 INFO [http-nio-8080-exec-21] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+11-Sep-2017 10:47:57.521 INFO [http-nio-8080-exec-25] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+11-Sep-2017 10:47:57.589 INFO [http-nio-8080-exec-25] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+11-Sep-2017 10:47:57.592 INFO [http-nio-8080-exec-25] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+11-Sep-2017 12:54:12.634 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+11-Sep-2017 12:54:12.690 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+11-Sep-2017 12:54:12.741 INFO [Thread-5] org.apache.catalina.core.StandardService.stopInternal Arrêt du service Catalina
+11-Sep-2017 12:54:12.761 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+11-Sep-2017 12:54:12.764 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+11-Sep-2017 12:54:12.769 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+11-Sep-2017 12:54:12.770 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]

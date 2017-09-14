@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/WEB-INF.iml" filepath="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/WEB-INF.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webapps/examples/WEB-INF/WEB-INF1.iml" filepath="$PROJECT_DIR$/webapps/examples/WEB-INF/WEB-INF1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/WEB-INF2.iml" filepath="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/WEB-INF2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webapps/examples/WEB-INF/jsp/jsp.iml" filepath="$PROJECT_DIR$/webapps/examples/WEB-INF/jsp/jsp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/work/Catalina/localhost/localhost.iml" filepath="$PROJECT_DIR$/work/Catalina/localhost/localhost.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webapps/examples/jsp/plugin/plugin.iml" filepath="$PROJECT_DIR$/webapps/examples/jsp/plugin/plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webapps/docs/appdev/sample/sample.iml" filepath="$PROJECT_DIR$/webapps/docs/appdev/sample/sample.iml" />
+    </modules>
+  </component>
+</project>

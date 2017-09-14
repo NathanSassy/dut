@@ -21,3 +21,13 @@ M2103 : Bases de la programmation par objets
 M2105 : Introduction aux interfaces homme-machine
 
 M2106 : Programmation et Administration des Bases de Données
+
+# Semestre 3
+
+M3101 : Principe des systèmes d'exploitation
+
+M3103 : Algorithmique avancée
+
+M3104 : Développement Web côté serveur
+
+
