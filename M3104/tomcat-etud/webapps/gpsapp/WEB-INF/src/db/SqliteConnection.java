@@ -46,7 +46,6 @@ public class SqliteConnection {
     public java.sql.Connection getConnection() {
         try {
             connect = DriverManager.getConnection(dsn);
-            System.out.println("connecté");
         }
         catch (SQLException e) {
             System.out.println(e.getMessage());

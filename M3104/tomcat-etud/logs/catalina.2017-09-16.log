@@ -1,0 +1,52 @@
+16-Sep-2017 15:54:47.071 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.15
+16-Sep-2017 15:54:47.076 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 2 2014 19:25:20 UTC
+16-Sep-2017 15:54:47.076 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.15.0
+16-Sep-2017 15:54:47.076 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+16-Sep-2017 15:54:47.076 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.12.9-300.fc26.x86_64
+16-Sep-2017 15:54:47.077 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+16-Sep-2017 15:54:47.077 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JAVA_HOME:             /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.144-5.b01.fc26.x86_64/jre
+16-Sep-2017 15:54:47.077 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_144-b01
+16-Sep-2017 15:54:47.077 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+16-Sep-2017 15:54:47.077 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/agicquel/workspace/dut/M3104/tomcat-etud
+16-Sep-2017 15:54:47.077 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/agicquel/workspace/dut/M3104/tomcat-etud
+16-Sep-2017 15:54:47.078 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/agicquel/workspace/dut/M3104/tomcat-etud/conf/logging.properties
+16-Sep-2017 15:54:47.078 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+16-Sep-2017 15:54:47.078 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=/home/agicquel/workspace/dut/M3104/tomcat-etud/endorsed
+16-Sep-2017 15:54:47.078 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/agicquel/workspace/dut/M3104/tomcat-etud
+16-Sep-2017 15:54:47.078 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/agicquel/workspace/dut/M3104/tomcat-etud
+16-Sep-2017 15:54:47.078 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/agicquel/workspace/dut/M3104/tomcat-etud/temp
+16-Sep-2017 15:54:47.079 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+16-Sep-2017 15:54:47.213 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+16-Sep-2017 15:54:47.247 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+16-Sep-2017 15:54:47.252 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+16-Sep-2017 15:54:47.255 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+16-Sep-2017 15:54:47.256 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 708 ms
+16-Sep-2017 15:54:47.295 INFO [main] org.apache.catalina.core.StandardService.startInternal Démarrage du service Catalina
+16-Sep-2017 15:54:47.295 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.15
+16-Sep-2017 15:54:47.308 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/gpsapp de l'application web
+16-Sep-2017 15:54:47.675 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+16-Sep-2017 15:54:47.742 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/gpsapp has finished in 433 ms
+16-Sep-2017 15:54:47.742 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/docs de l'application web
+16-Sep-2017 15:54:47.846 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+16-Sep-2017 15:54:47.849 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/docs has finished in 106 ms
+16-Sep-2017 15:54:47.849 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/host-manager de l'application web
+16-Sep-2017 15:54:47.954 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+16-Sep-2017 15:54:47.961 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/host-manager has finished in 112 ms
+16-Sep-2017 15:54:47.962 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/examples de l'application web
+16-Sep-2017 15:54:48.347 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/examples has finished in 384 ms
+16-Sep-2017 15:54:48.347 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/manager de l'application web
+16-Sep-2017 15:54:48.403 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+16-Sep-2017 15:54:48.404 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/manager has finished in 57 ms
+16-Sep-2017 15:54:48.405 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/ROOT de l'application web
+16-Sep-2017 15:54:48.458 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+16-Sep-2017 15:54:48.460 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/ROOT has finished in 55 ms
+16-Sep-2017 15:54:48.464 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+16-Sep-2017 15:54:48.472 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+16-Sep-2017 15:54:48.474 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 1218 ms
+16-Sep-2017 23:28:31.371 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+16-Sep-2017 23:28:31.432 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+16-Sep-2017 23:28:31.483 INFO [Thread-5] org.apache.catalina.core.StandardService.stopInternal Arrêt du service Catalina
+16-Sep-2017 23:28:31.537 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+16-Sep-2017 23:28:31.594 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+16-Sep-2017 23:28:31.597 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+16-Sep-2017 23:28:31.598 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]

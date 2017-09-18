@@ -11,82 +11,126 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Trajet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/Trajet.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="TestDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/TestDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+            <state relative-caret-position="64">
+              <caret line="59" column="64" lean-forward="false" selection-start-line="59" selection-start-column="64" selection-end-line="59" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ApplicationController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/control/ApplicationController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-270">
+              <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="38" />
               <folding>
-                <element signature="e#133#134#0" expanded="true" />
-                <element signature="e#149#150#0" expanded="true" />
-                <element signature="e#184#185#0" expanded="true" />
-                <element signature="e#209#210#0" expanded="true" />
-                <element signature="e#260#261#0" expanded="true" />
-                <element signature="e#297#298#0" expanded="true" />
-                <element signature="e#323#324#0" expanded="true" />
-                <element signature="e#341#342#0" expanded="true" />
-                <element signature="e#376#377#0" expanded="true" />
-                <element signature="e#399#400#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#356#357#0" expanded="true" />
+                <element signature="e#418#419#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TrajetDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/TrajetDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PointDansTrajetDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/PointDansTrajetDAO.java">
+      <file leaf-file-name="CalculDistance.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/control/CalculDistance.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
+              <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PointGPSDAO.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/PointGPSDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PointDansTrajet.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/PointDansTrajet.java">
+      <file leaf-file-name="UrlMapping.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/control/UrlMapping.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
-              <caret line="4" column="32" lean-forward="false" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+              <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ActionListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/control/ActionListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="genListener.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/control/listeners/genListener.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FrontController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/control/FrontController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="JourneyListListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/control/listeners/JourneyListListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CoordinatesDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/CoordinatesDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="118" column="70" lean-forward="false" selection-start-line="118" selection-start-column="70" selection-end-line="118" selection-end-column="70" />
               <folding>
-                <element signature="e#146#147#0" expanded="true" />
-                <element signature="e#190#191#0" expanded="true" />
-                <element signature="e#224#225#0" expanded="true" />
-                <element signature="e#257#258#0" expanded="true" />
-                <element signature="e#286#287#0" expanded="true" />
-                <element signature="e#330#331#0" expanded="true" />
-                <element signature="e#366#367#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PointGPS.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/PointGPS.java">
+      <file leaf-file-name="Coordinates.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/Coordinates.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="652">
+              <caret line="50" column="48" lean-forward="false" selection-start-line="50" selection-start-column="48" selection-end-line="50" selection-end-column="48" />
+              <folding>
+                <element signature="e#403#404#0" expanded="true" />
+                <element signature="e#436#437#0" expanded="true" />
+                <element signature="e#485#486#0" expanded="true" />
+                <element signature="e#529#530#0" expanded="true" />
+                <element signature="e#564#565#0" expanded="true" />
+                <element signature="e#598#599#0" expanded="true" />
+                <element signature="e#649#650#0" expanded="true" />
+                <element signature="e#695#696#0" expanded="true" />
+                <element signature="e#730#731#0" expanded="true" />
+                <element signature="e#761#762#0" expanded="true" />
+                <element signature="e#809#810#0" expanded="true" />
+                <element signature="e#849#850#0" expanded="true" />
+                <element signature="e#885#886#0" expanded="true" />
+                <element signature="e#917#918#0" expanded="true" />
+                <element signature="e#967#968#0" expanded="true" />
+                <element signature="e#1009#1010#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,9 +140,17 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Singleton" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Trajet²²²</find>
+      <find>Trajet</find>
+    </findStrings>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -110,16 +162,28 @@
       <list>
         <option value="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/PointDansTrajet.java" />
         <option value="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/Trajet.java" />
+        <option value="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/SqliteConnection.java" />
+        <option value="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/DAO.java" />
         <option value="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/TrajetDAO.java" />
+        <option value="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/PointGPS.java" />
         <option value="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/PointGPSDAO.java" />
+        <option value="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/PointDansTrajetDAO.java" />
+        <option value="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/Journey.java" />
+        <option value="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/JourneyDAO.java" />
+        <option value="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/CoordinatesDAO.java" />
+        <option value="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/Coordinates.java" />
+        <option value="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/TestDAO.java" />
+        <option value="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/control/ApplicationController.java" />
+        <option value="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/control/CalculDistance.java" />
+        <option value="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/control/FrontController.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="260" />
-    <option name="y" value="53" />
-    <option name="width" value="1400" />
-    <option name="height" value="1000" />
+    <option name="x" value="683" />
+    <option name="y" value="25" />
+    <option name="width" value="683" />
+    <option name="height" value="743" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -136,33 +200,96 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="tomcat-etud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="localhost" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tomcat-etud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="plugin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tomcat-etud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="plugin" type="462c0819:PsiDirectoryNode" />
+              <item name="applet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tomcat-etud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sample" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tomcat-etud" type="b2602c69:ProjectViewProjectNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tomcat-etud" type="b2602c69:ProjectViewProjectNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tomcat-etud" type="b2602c69:ProjectViewProjectNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+              <item name="applet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="tomcat-etud" type="b2602c69:ProjectViewProjectNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="jsp2" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="WEB-INF2" type="cbb8eebc:String" user="WEB-INF2" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="WEB-INF2" type="cbb8eebc:String" user="WEB-INF2" />
+              <item name="webapps/gpsapp/WEB-INF/src" type="cbb8eebc:String" user="webapps/gpsapp/WEB-INF/src" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="WEB-INF2" type="cbb8eebc:String" user="WEB-INF2" />
+              <item name="webapps/gpsapp/WEB-INF/src" type="cbb8eebc:String" user="webapps/gpsapp/WEB-INF/src" />
+              <item name="control" type="cbb8eebc:String" user="control" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="WEB-INF2" type="cbb8eebc:String" user="WEB-INF2" />
+              <item name="webapps/gpsapp/WEB-INF/src" type="cbb8eebc:String" user="webapps/gpsapp/WEB-INF/src" />
+              <item name="db" type="cbb8eebc:String" user="db" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="WEB-INF2" type="cbb8eebc:String" user="WEB-INF2" />
+              <item name="webapps/gpsapp/WEB-INF/src" type="cbb8eebc:String" user="webapps/gpsapp/WEB-INF/src" />
+              <item name="webapps/gpsapp/db" type="cbb8eebc:String" user="webapps/gpsapp/db" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/control" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -273,32 +400,33 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
+    <frame x="0" y="25" width="1366" height="743" extended-state="6" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -310,62 +438,38 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/MySQLConnection.java">
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/Journey.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/PointDansTrajet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="32" lean-forward="false" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-          <folding>
-            <element signature="e#146#147#0" expanded="true" />
-            <element signature="e#190#191#0" expanded="true" />
-            <element signature="e#224#225#0" expanded="true" />
-            <element signature="e#257#258#0" expanded="true" />
-            <element signature="e#286#287#0" expanded="true" />
-            <element signature="e#330#331#0" expanded="true" />
-            <element signature="e#366#367#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/PointGPS.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/Trajet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
+        <state relative-caret-position="234">
           <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
           <folding>
-            <element signature="e#133#134#0" expanded="true" />
-            <element signature="e#149#150#0" expanded="true" />
-            <element signature="e#184#185#0" expanded="true" />
-            <element signature="e#209#210#0" expanded="true" />
-            <element signature="e#260#261#0" expanded="true" />
-            <element signature="e#297#298#0" expanded="true" />
-            <element signature="e#323#324#0" expanded="true" />
-            <element signature="e#341#342#0" expanded="true" />
-            <element signature="e#376#377#0" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
+            <element signature="e#358#359#0" expanded="true" />
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#416#417#0" expanded="true" />
+            <element signature="e#444#445#0" expanded="true" />
+            <element signature="e#482#483#0" expanded="true" />
+            <element signature="e#516#517#0" expanded="true" />
+            <element signature="e#570#571#0" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#654#655#0" expanded="true" />
+            <element signature="e#690#691#0" expanded="true" />
+            <element signature="e#746#747#0" expanded="true" />
+            <element signature="e#796#797#0" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+            <element signature="e#861#862#0" expanded="true" />
+            <element signature="e#908#909#0" expanded="true" />
+            <element signature="e#948#949#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/TrajetDAO.java">
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/JourneyDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -377,10 +481,232 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/PointGPSDAO.java">
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/PointDansTrajet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="32" lean-forward="false" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/Coordinates.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding>
+            <element signature="e#403#404#0" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#529#530#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#598#599#0" expanded="true" />
+            <element signature="e#649#650#0" expanded="true" />
+            <element signature="e#695#696#0" expanded="true" />
+            <element signature="e#730#731#0" expanded="true" />
+            <element signature="e#761#762#0" expanded="true" />
+            <element signature="e#809#810#0" expanded="true" />
+            <element signature="e#849#850#0" expanded="true" />
+            <element signature="e#885#886#0" expanded="true" />
+            <element signature="e#917#918#0" expanded="true" />
+            <element signature="e#967#968#0" expanded="true" />
+            <element signature="e#1009#1010#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/CoordinatesDAO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/MySQLConnection.java" />
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/azert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="4" lean-forward="true" selection-start-line="1" selection-start-column="4" selection-end-line="8" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/PointDansTrajet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="32" lean-forward="false" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/work/Catalina/localhost/gpsapp/org/apache/jsp/index_jsp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/SqliteConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="52" column="23" lean-forward="true" selection-start-line="52" selection-start-column="23" selection-end-line="52" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/PointDansTrajetDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="129" column="5" lean-forward="false" selection-start-line="129" selection-start-column="5" selection-end-line="129" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/DAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/JourneyDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="119" column="137" lean-forward="false" selection-start-line="119" selection-start-column="137" selection-end-line="119" selection-end-column="137" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/Journey.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="56" column="5" lean-forward="true" selection-start-line="47" selection-start-column="4" selection-end-line="56" selection-end-column="5" />
+          <folding>
+            <element signature="e#358#359#0" expanded="true" />
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#416#417#0" expanded="true" />
+            <element signature="e#444#445#0" expanded="true" />
+            <element signature="e#482#483#0" expanded="true" />
+            <element signature="e#516#517#0" expanded="true" />
+            <element signature="e#570#571#0" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#654#655#0" expanded="true" />
+            <element signature="e#690#691#0" expanded="true" />
+            <element signature="e#746#747#0" expanded="true" />
+            <element signature="e#796#797#0" expanded="true" />
+            <element signature="e#830#831#0" expanded="true" />
+            <element signature="e#861#862#0" expanded="true" />
+            <element signature="e#908#909#0" expanded="true" />
+            <element signature="e#948#949#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/CoordinatesDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="118" column="70" lean-forward="false" selection-start-line="118" selection-start-column="70" selection-end-line="118" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/Coordinates.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="652">
+          <caret line="50" column="48" lean-forward="false" selection-start-line="50" selection-start-column="48" selection-end-line="50" selection-end-column="48" />
+          <folding>
+            <element signature="e#403#404#0" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#529#530#0" expanded="true" />
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#598#599#0" expanded="true" />
+            <element signature="e#649#650#0" expanded="true" />
+            <element signature="e#695#696#0" expanded="true" />
+            <element signature="e#730#731#0" expanded="true" />
+            <element signature="e#761#762#0" expanded="true" />
+            <element signature="e#809#810#0" expanded="true" />
+            <element signature="e#849#850#0" expanded="true" />
+            <element signature="e#885#886#0" expanded="true" />
+            <element signature="e#917#918#0" expanded="true" />
+            <element signature="e#967#968#0" expanded="true" />
+            <element signature="e#1009#1010#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/db/TestDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="59" column="64" lean-forward="false" selection-start-line="59" selection-start-column="64" selection-end-line="59" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/control/CalculDistance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="16" lean-forward="false" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/control/ActionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/control/listeners/JourneyListListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/control/listeners/genListener.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/control/UrlMapping.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="26" lean-forward="false" selection-start-line="4" selection-start-column="12" selection-end-line="4" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/control/ApplicationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-270">
+          <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#356#357#0" expanded="true" />
+            <element signature="e#418#419#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapps/gpsapp/WEB-INF/src/control/FrontController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
           <folding />
         </state>
       </provider>
