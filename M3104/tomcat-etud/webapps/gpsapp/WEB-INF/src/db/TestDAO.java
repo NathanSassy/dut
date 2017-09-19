@@ -1,4 +1,7 @@
 import java.sql.Date;
+import java.util.ArrayList;
+
+import db.*;
 
 public class TestDAO {
     public static void main(String args[]) {
@@ -47,7 +50,22 @@ public class TestDAO {
             System.out.println("[FAILED] No journey found journey");
         }
 
-        System.out.println("\n*********************");
+        // try find()
+        System.out.println("Insert 5 rows into Journey");
+        journeyDAO.insert(new Journey("toto"));
+        journeyDAO.insert(new Journey("toto2"));
+        journeyDAO.insert(new Journey("toto3"));
+        journeyDAO.insert(new Journey("toto4"));
+        System.out.println("Put in ArrayList");
+        ArrayList<Journey> list = journeyDAO.find();
+        if(list != null && list.size() != 0) {
+            System.out.println("[OK] list = \n" + list);
+        }
+        else {
+            System.out.println("[FAILED] list empty");
+        }
+
+        System.out.println("\n*********************\n");
     }
 
     private static void testCoordinatesDAO() {
@@ -91,6 +109,6 @@ public class TestDAO {
             System.out.println("[FAILED] No coordinates found coordinates");
         }
 
-        System.out.println("\n*********************");
+        System.out.println("\n*********************\n");
     }
 }

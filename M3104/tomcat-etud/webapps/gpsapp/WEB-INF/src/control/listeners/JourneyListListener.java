@@ -1,5 +1,6 @@
 package control.listeners;
 
+import java.util.ArrayList;
 import javax.servlet.http.*;
 import db.*;
 import control.*;
@@ -7,9 +8,9 @@ import control.*;
 public class JourneyListListener implements ActionListener {
 
   public void handle(HttpServletRequest request){
-
-    request.setAttribute("data", "JourneyListListener");
+      JourneyDAO journeyDAO = JourneyDAO.getInstance();
+      ArrayList<Journey> list = journeyDAO.find();
+      request.setAttribute("data", list);
   }
-  
-}
 
+}

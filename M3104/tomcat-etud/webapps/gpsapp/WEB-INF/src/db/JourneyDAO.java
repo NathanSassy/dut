@@ -1,8 +1,10 @@
-import db.SqliteConnection;
+package db;
 
+import db.SqliteConnection;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class JourneyDAO implements DAO<Journey>{
     private static JourneyDAO inst;
@@ -41,7 +43,8 @@ public class JourneyDAO implements DAO<Journey>{
         }
         finally {
             try {
-                con.close();
+                if(con != null)
+                    con.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -72,7 +75,8 @@ public class JourneyDAO implements DAO<Journey>{
         }
         finally {
             try {
-                con.close();
+                if(con != null)
+                    con.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -98,7 +102,8 @@ public class JourneyDAO implements DAO<Journey>{
         }
         finally {
             try {
-                con.close();
+                if(con != null)
+                    con.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -122,16 +127,54 @@ public class JourneyDAO implements DAO<Journey>{
         }
         catch (SQLException e) {
             e.printStackTrace();
-        } catch (ParseException e) {
+        }
+        catch (ParseException e) {
             e.printStackTrace();
-        } finally {
+        }
+        finally {
             try {
-                con.close();
+                if(con != null)
+                    con.close();
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
         return journey;
+    }
+
+    public ArrayList<Journey> find() {
+        ArrayList<Journey> list = new ArrayList<>();
+
+        Connection con = null;
+        try {
+            con = connection.getConnection();
+            String query = "SELECT * FROM Journey;";
+            PreparedStatement state = con.prepareStatement(query);
+
+            ResultSet res = state.executeQuery();
+            ResultSetMetaData meta = res.getMetaData();
+
+            while(res.next()) {
+                Journey journey = new Journey(res.getString("description"));
+                journey.setId(res.getInt("id"));
+                journey.setDate_creation(new Date(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(res.getString("date_creation")).getTime()));
+                journey.setDistance(res.getFloat("distance"));
+                list.add(journey);
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if(con != null)
+                    con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return list;
     }
 
 }

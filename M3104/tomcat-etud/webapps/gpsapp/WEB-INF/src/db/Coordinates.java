@@ -1,3 +1,6 @@
+package db;
+
+
 public class Coordinates
 {
     private int journey_id;
@@ -55,4 +58,3 @@ public class Coordinates
         return ret;
     }
 }
-

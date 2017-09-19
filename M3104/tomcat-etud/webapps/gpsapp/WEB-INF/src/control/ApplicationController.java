@@ -35,8 +35,8 @@ public class ApplicationController {
                                HttpServletResponse response, ServletContext context)
             throws IOException, ServletException {
 
-        String pattern = request.getParameter("p");
 
+        String pattern = request.getParameter("p");
         ActionListener listener = null;
         String view = "";
         UrlMapping rule = this.rules.get(pattern);
@@ -44,7 +44,8 @@ public class ApplicationController {
         if (rule == null) {
             request.setAttribute("message", "The view does not exist");
             view = this.rules.get("error").getView();
-        } else {
+        }
+        else {
             listener = rule.getListener();
             view = rule.getView();
         }

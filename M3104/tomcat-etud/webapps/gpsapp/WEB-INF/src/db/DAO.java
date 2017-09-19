@@ -1,3 +1,6 @@
+package db;
+
+
 public interface DAO<T> {
     public int insert(T object);
     public boolean update(T object);

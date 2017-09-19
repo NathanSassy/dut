@@ -16,35 +16,35 @@ public class FrontController extends HttpServlet {
 	private ApplicationController appController;
 
     public void init(ServletConfig config) throws ServletException {
-	super.init(config);
-	ServletContext sc = getServletContext();
-	if(sc.getAttribute("ApplicationController") == null){
-	    this.appController = ApplicationController.getInstance();
-	    sc.setAttribute("ApplicationController", this.appController);
-		rules.add(new UrlMapping("main",null,"/jsp/MainView.jsp"));
-		rules.add(new UrlMapping("error",null,"/jsp/Error.jsp"));
-		rules.add(new UrlMapping("journey_list",new JourneyListListener(),"/jsp/JourneyListView.jsp"));
+		super.init(config);
+		ServletContext sc = getServletContext();
+		if(sc.getAttribute("ApplicationController") == null) {
+		    this.appController = ApplicationController.getInstance();
+		    sc.setAttribute("ApplicationController", this.appController);
+			rules.add(new UrlMapping("main",null,"/jsp/MainView.jsp"));
+			rules.add(new UrlMapping("error",null,"/jsp/Error.jsp"));
+			rules.add(new UrlMapping("journey_list", new JourneyListListener(), "/jsp/JourneyListView.jsp"));
+			rules.add(new UrlMapping("journey", new JourneyListListener(), "/jsp/JourneyListView.jsp"));
+			rules.add(new UrlMapping("journey_add", new JourneyAddListener(), "/jsp/JourneyAddView.jsp"));
 
-	    this.appController.setRules(rules);
-	}
+		    this.appController.setRules(rules);
+		}
     }
 
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
   	throws IOException, ServletException {
-  		processRequest(request, response);
+  		this.processRequest(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
-	throws IOException, ServletException {
-   		processRequest(request, response);
+		throws IOException, ServletException {
+   		this.processRequest(request, response);
     }
-  
-    private void processRequest(HttpServletRequest request,
-				  HttpServletResponse response)
-	throws IOException, ServletException {    
-    this.appController.processRequest(request,
-				   response, getServletContext());
+
+    private void processRequest(HttpServletRequest request,  HttpServletResponse response)
+	throws IOException, ServletException {
+    	this.appController.processRequest(request, response, getServletContext());
 	}
-  
+
 }

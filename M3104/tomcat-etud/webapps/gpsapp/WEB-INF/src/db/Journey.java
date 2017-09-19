@@ -1,3 +1,6 @@
+package db;
+
+
 import java.sql.Date;
 
 public class Journey {

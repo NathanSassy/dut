@@ -15,7 +15,7 @@ import org.sqlite.JDBC;
  */
 public class SqliteConnection {
 
-  
+
     private String dsn = "jdbc:sqlite:" + System.getProperty("user.dir") + "/webapps/gpsapp/db/gps_web_app.db";
     private java.sql.Connection connect;
     private static SqliteConnection theInst = null;
@@ -25,6 +25,12 @@ public class SqliteConnection {
      * Etablissement de la connexion.
      */
     private SqliteConnection() {
+        try {
+            Class.forName("org.sqlite.JDBC");
+        }
+        catch(ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         this.getConnection();
     }
 
