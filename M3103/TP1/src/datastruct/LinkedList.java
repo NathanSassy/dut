@@ -62,11 +62,21 @@ public class LinkedList implements List {
      */
     public String toString() {
         String ret = "";
-        Element e = sentinel.next;
+        Element e = null;
+
+        if(sentinel != null && sentinel.next != null)
+            e = sentinel.next;
 
         for(int i = 0; i < size; i++) {
-            ret += "The value [" + i + "] is : " + e.theValue.toString() + "\n";
-            e = e.next;
+            if(e == null)
+                ret += "The element [" + i + "] is : null\n";
+            else if(e.theValue != null)
+                ret += "The value [" + i + "] is : " + e.theValue.toString() + "\n";
+            else
+                ret += "The value [" + i + "] is : null\n";
+
+            if(e != null && e.next != null)
+                e = e.next;
         }
 
         return ret;
@@ -89,14 +99,14 @@ public class LinkedList implements List {
      * @return true if the current element have a precedent
      */
     public boolean hasPrevious() {
-        return (current.prev != null);
+        return (current != null && current.prev != null);
     }
 
     /**
      * @return true if the current element have a next
      */
     public boolean hasNext() {
-        return (current.next != null);
+        return (current != null && current.next != null);
     }
 
 
@@ -106,15 +116,17 @@ public class LinkedList implements List {
     public void insert(Object data) {
         size++;
         if(current == null) {
-            sentinel = new Element(null, null, null);
-            current = new Element(null, null, data);
-            sentinel.next = sentinel.prev = current;
-
-            current.next = current;
+            sentinel.next = sentinel.prev = current = new Element(null, null, data);
+        }
+        else if(current.next == null) {
+            Element e = new Element(current, null, data);
+            sentinel.prev = e;
+            current.next = e;
+            current = e;
         }
         else {
-            current.next = new Element(current, current.next, data);
-            current = current.next;
+            Element e = new Element(current, current.next, data);
+            current.prev.next = current.next.prev = current = e;
         }
     }
 
@@ -123,26 +135,28 @@ public class LinkedList implements List {
         if(size == 0)
             return false;
 
-        if(hasPrevious()) {
-            current.prev.next = current.next;
-
-            if(hasNext()) {
-                current.next.prev = current.prev;
-            }
-            else {
-                sentinel.next = current.prev;
-            }
-            previous();
+        // only 1 element
+        if(current.prev == null && current.next == null) {
+            current = null;
+            sentinel = null;
         }
-        else if(hasNext()) {
-            current.next.prev = null;
-            next();
+        // last element
+        else if(current.next == null) {
+            current.prev.next = null;
+            current = current.prev;
             sentinel.prev = current;
         }
+        // first element
+        else if(current.prev == null) {
+            current.next.prev = null;
+            current = current.next;
+            sentinel.next = current;
+        }
+        // other
         else {
-            current = null;
-            sentinel.next = null;
-            sentinel.prev = null;
+            current.prev.next = current.next;
+            current.next.prev = current.prev;
+            current = current.prev;
         }
 
         size--;
@@ -167,7 +181,7 @@ public class LinkedList implements List {
 
     @Override
     public Object getValue() {
-        return current.theValue;
+        return current == null ? null : current.theValue;
     }
 
     @Override
