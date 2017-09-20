@@ -53,6 +53,8 @@ public class ApplicationController {
         if (listener != null) {
             listener.handle(request);
         }
+        else
+            System.out.println("listene null");
 
         RequestDispatcher dispatcher = context.getRequestDispatcher(view);
         dispatcher.forward(request, response);

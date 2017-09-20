@@ -13,7 +13,7 @@
  </head>
  <body>
 
-     <table>
+     <table border="1">
         <tr>
             <th>id</th>
             <th>description</th>
