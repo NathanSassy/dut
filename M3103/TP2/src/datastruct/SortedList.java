@@ -7,6 +7,7 @@ public interface SortedList {
     /**
      * Insert a new element into the list
      * @param data the element you want to add
+     * @throws RuntimeException if the data type is not
      */
     public void insert(Comparable data);
 

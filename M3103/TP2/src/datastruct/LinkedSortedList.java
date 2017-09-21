@@ -8,7 +8,13 @@ public class LinkedSortedList implements SortedList {
     private Element sentinel;
     private Itr iterator;
 
-    public LinkedSortedList(Class theType) {
+    /**
+     * Constructor of LinkedSortedList. Element
+     * need to implement Comparable.
+     * @param theType type of element of the list
+     * @throws RuntimeException if Class Type doesnt implement Comparable
+     */
+    public LinkedSortedList(Class theType) throws RuntimeException {
         Class comp = Comparable.class ;
         if (!comp.isAssignableFrom(theType)) {
             throw new RuntimeException ( "Pré-condition violée : " + theType.toString() +
@@ -23,13 +29,22 @@ public class LinkedSortedList implements SortedList {
 
     // SortedList methods
 
+    /**
+     * Insert a new element into the list
+     * @param data the element you want to add
+     * @throws RuntimeException if the data type is not the same as dataType attribute
+     */
     @Override
-    public void insert(Comparable data) {
+    public void insert(Comparable data) throws RuntimeException {
         if(data == null)
             return;
 
+        if(!dataType.isAssignableFrom(data.getClass()))
+            throw new RuntimeException("Incorrect data type");
+
         if(sentinel.next == null) {
             sentinel.next = new Element(data, sentinel);
+            iterator.actualise();
         }
         else {
             int index = 0;
@@ -42,34 +57,47 @@ public class LinkedSortedList implements SortedList {
                 it = it.next;
             }
 
-            if(index == 0)
+            if(index == 0) {
                 sentinel.next = new Element(data, sentinel.next);
+                iterator.actualise();
+            }
             else if(index == size)
                 e.next = new Element(data, sentinel);
             else
                 e.next = new Element(data, e.next);
         }
 
-        iterator.actualise();
         size++;
     }
 
-
+    /**
+     * @return true if the list is empty
+     */
     @Override
     public boolean isEmpty() {
         return size == 0;
     }
 
+    /**
+     * @return return the number of elements in the list
+     */
     @Override
     public int getSize() {
         return size;
     }
 
+    /**
+     * @return the Iterator of the list
+     */
     @Override
     public Iterator getIterator() {
         return iterator;
     }
 
+    /**
+     * Textual information of the list
+     * @return data about the lists and each element
+     */
     @Override
     public String toString() {
         String ret = "";
@@ -87,7 +115,8 @@ public class LinkedSortedList implements SortedList {
         return ret;
     }
 
-    // Internal classe Element
+
+    // Internal classes
 
     private class Element {
         // Attributs
@@ -100,24 +129,28 @@ public class LinkedSortedList implements SortedList {
         }
     }
 
-
-    // Iterator of the list
-
     private class Itr implements Iterator {
         Element current;
         Element pastCurrent;
 
         void actualise() {
-            current = pastCurrent = sentinel.next;
+            current = sentinel.next;
+            pastCurrent = null;
         }
 
         // Iterator methods
 
+        /**
+         * @return true if there is an element left
+         */
         @Override
         public boolean hasNext() {
-            return pastCurrent != null && pastCurrent.next != sentinel;
+            return current != null && (pastCurrent == null || pastCurrent.next != sentinel);
         }
 
+        /**
+         * @return the next object of list
+         */
         @Override
         public Object next() {
             pastCurrent = current;
@@ -125,14 +158,29 @@ public class LinkedSortedList implements SortedList {
             return pastCurrent.theValue;
         }
 
+        /**
+         * Remove the current element of the list.
+         * Cannot remove twice without using next.
+         */
         @Override
         public void remove() {
             if(current == pastCurrent)
                 return;
 
-            Element next = current.next;
-            current = pastCurrent;
-            current.next = next;
+            if(current == sentinel.next) {
+                pastCurrent = current.next;
+                sentinel.next = pastCurrent;
+                current = pastCurrent;
+            }
+            else if(current == sentinel) {
+                sentinel = pastCurrent;
+                current = pastCurrent;
+            }
+            else {
+                pastCurrent.next = current.next;
+                current = pastCurrent;
+            }
+            size--;
         }
     };
 }
