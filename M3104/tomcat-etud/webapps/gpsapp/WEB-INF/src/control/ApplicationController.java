@@ -37,6 +37,7 @@ public class ApplicationController {
 
 
         String pattern = request.getParameter("p");
+
         ActionListener listener = null;
         String view = "";
         UrlMapping rule = this.rules.get(pattern);
@@ -53,8 +54,6 @@ public class ApplicationController {
         if (listener != null) {
             listener.handle(request);
         }
-        else
-            System.out.println("listene null");
 
         RequestDispatcher dispatcher = context.getRequestDispatcher(view);
         dispatcher.forward(request, response);

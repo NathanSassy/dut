@@ -24,7 +24,7 @@ public class FrontController extends HttpServlet {
 			rules.add(new UrlMapping("main",null,"/jsp/MainView.jsp"));
 			rules.add(new UrlMapping("error",null,"/jsp/Error.jsp"));
 			rules.add(new UrlMapping("journey_list", new JourneyListListener(), "/jsp/JourneyListView.jsp"));
-			rules.add(new UrlMapping("journey", new JourneyListListener(), "/jsp/JourneyListView.jsp"));
+			rules.add(new UrlMapping("journey", new JourneyListener(), "/jsp/JourneyView.jsp"));
 			rules.add(new UrlMapping("journey_form", null, "/jsp/JourneyFromView.jsp"));
 			rules.add(new UrlMapping("journey_add", new JourneyAddListener() , "/jsp/JourneyAddView.jsp"));
 

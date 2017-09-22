@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class CoordinatesDAO implements DAO<Coordinates> {
     private static CoordinatesDAO inst;
@@ -141,6 +142,42 @@ public class CoordinatesDAO implements DAO<Coordinates> {
             }
         }
         return coordinates;
+    }
+
+    public ArrayList<Coordinates> findFromJourneyId(int id) {
+        ArrayList<Coordinates> coodinates = new ArrayList<>();
+        Connection con = null;
+
+        try {
+            con = connection.getConnection();
+            String query = "SELECT * FROM Coordinates WHERE journey_id = ?";
+            PreparedStatement state = con.prepareStatement(query);
+            state.setInt(1, id);
+
+            ResultSet res = state.executeQuery();
+
+            while(res.next()) {
+                Coordinates coordinate = new Coordinates(
+                        id,
+                        res.getDouble("latitude"),
+                        res.getDouble("longitude")
+                );
+                coordinate.setJourney_pos(res.getInt("journey_pos"));
+                coodinates.add(coordinate);
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return coodinates;
     }
 
 

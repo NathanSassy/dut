@@ -8,11 +8,7 @@ import control.*;
 public class JourneyAddListener implements ActionListener {
 
   public void handle(HttpServletRequest request) {
-
-  	if(request.getAttribute("journey_description") == null)
-  		System.out.println("pas d'argument recu");
-
-  	String description = (String) request.getAttribute("journey_description");
+  	String description = (String) request.getParameter("journey_description");
   	if(description == null) {
   		System.out.println("description est null");
   		return;
@@ -20,12 +16,8 @@ public class JourneyAddListener implements ActionListener {
 
   	JourneyDAO journeyDAO = JourneyDAO.getInstance();
   	int id = journeyDAO.insert(new Journey(description));
-  	System.out.println("new id = " + id);
 
-  	id = 666;
-  	
   	request.setAttribute("journey_id", id);
 
   }
-
 }

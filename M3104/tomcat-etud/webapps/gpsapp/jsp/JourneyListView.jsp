@@ -13,6 +13,10 @@
  </head>
  <body>
 
+    <FORM method="POST" action="http://localhost:8080/gpsapp/?p=journey_form">
+    		 <INPUT type=submit value="Ajouter un trajet">
+    </FORM>
+
      <table border="1">
         <tr>
             <th>id</th>
@@ -24,19 +28,21 @@
      <c:forEach items="${data}" var="journey">
          <tr>
              <td>
-         <c:out value="${journey.id}"/>
+                <a href="http://localhost:8080/gpsapp/?p=journey&journey_id=${journey.id}">
+                    <c:out value="${journey.id}"/>
+                </a>
             </td>
 
             <td>
-        <c:out value="${journey.description}"/>
+                <c:out value="${journey.description}"/>
            </td>
 
            <td>
-       <c:out value="${journey.date_creation}"/>
+                <c:out value="${journey.date_creation}"/>
           </td>
 
           <td>
-      <c:out value="${journey.distance}"/>
+                <c:out value="${journey.distance}"/>
          </td>
 
         </tr>
