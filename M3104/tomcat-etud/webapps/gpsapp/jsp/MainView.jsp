@@ -8,14 +8,6 @@
   
    <jsp:include page="../html/header.html"/>
 
-   <div class="main">
-     <jsp:scriptlet>
-   	Object data = request.getAttribute("data");
-
-	if(data!=null && data instanceof String){
-	out.println(data);
-	}
-     </jsp:scriptlet>
    </div>
  </body>
 </html>

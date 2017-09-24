@@ -8,7 +8,7 @@ import control.*;
 public class JourneyAddListener implements ActionListener {
 
   public void handle(HttpServletRequest request) {
-  	String description = (String) request.getParameter("journey_description");
+  	String description = request.getParameter("journey_description");
   	if(description == null) {
   		System.out.println("description est null");
   		return;

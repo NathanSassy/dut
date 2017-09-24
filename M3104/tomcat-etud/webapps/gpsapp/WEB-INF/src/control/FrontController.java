@@ -27,6 +27,8 @@ public class FrontController extends HttpServlet {
 			rules.add(new UrlMapping("journey", new JourneyListener(), "/jsp/JourneyView.jsp"));
 			rules.add(new UrlMapping("journey_form", null, "/jsp/JourneyFromView.jsp"));
 			rules.add(new UrlMapping("journey_add", new JourneyAddListener() , "/jsp/JourneyAddView.jsp"));
+			rules.add(new UrlMapping("coordinate_form", new CoordinateFormListener(), "/jsp/CoordinateFormView.jsp"));
+            rules.add(new UrlMapping("coordinate_add", new CoordinateAddListener(), "/jsp/CoordinateAddView.jsp"));
 
 		    this.appController.setRules(rules);
 		}

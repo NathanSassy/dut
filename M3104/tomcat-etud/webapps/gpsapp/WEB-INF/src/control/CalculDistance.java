@@ -10,12 +10,13 @@ public class CalculDistance {
 		coordonnees = new ArrayList<>();
 	}
 	
-	public void addPoint(double latitude, double longitude) {
-		coordonnees.add(new Point(latitude, longitude));
-	}
-	
-	public static double compute(Point p1, Point p2) {
-		return REarth * Math.acos(Math.sin(convertToRad(p2.getLatitude())) * Math.sin(convertToRad(p1.getLatitude())) + Math.cos(convertToRad(p2.getLatitude())) * Math.cos(convertToRad(p1.getLatitude())) * Math.cos(convertToRad(p2.getLongitude()) - convertToRad(p1.getLongitude())));
+	public static double compute(double lat1, double long1, double lat2, double long2) {
+		return REarth * Math.acos(Math.sin(convertToRad(lat2))
+                * Math.sin(convertToRad(lat1))
+                + Math.cos(convertToRad(lat2))
+                * Math.cos(convertToRad(lat1))
+                * Math.cos(convertToRad(long2)
+                - convertToRad(long1)));
 	}
 	
 	private static double convertToRad(double degre) {

@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import control.CalculDistance;
+
 public class CoordinatesDAO implements DAO<Coordinates> {
     private static CoordinatesDAO inst;
     private db.SqliteConnection connection = db.SqliteConnection.getInstance();
@@ -34,15 +36,13 @@ public class CoordinatesDAO implements DAO<Coordinates> {
             int rows = con.prepareStatement(counter).executeQuery().getInt(1);
             PreparedStatement state = con.prepareStatement(query);
 
-            state.setInt(1, rows+1);
-            state.setInt(2, coordinates.getJourney_pos());
+            state.setInt(1, coordinates.getJourney_id());
+            state.setInt(2, rows+1);
             state.setDouble(3, coordinates.getLatitude());
             state.setDouble(4, coordinates.getLongitude());
-
             state.executeUpdate();
             newId = rows + 1;
-            coordinates.setJourney_id(newId);
-
+            coordinates.setJourney_pos(newId);
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -52,6 +52,7 @@ public class CoordinatesDAO implements DAO<Coordinates> {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+            updateDistance(coordinates.getJourney_id());
         }
 
         return  newId;
@@ -85,6 +86,7 @@ public class CoordinatesDAO implements DAO<Coordinates> {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+            updateDistance(coordinates.getJourney_id());
         }
         return ret;
     }
@@ -111,6 +113,7 @@ public class CoordinatesDAO implements DAO<Coordinates> {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+            updateDistance(coordinates.getJourney_id());
         }
         return ret;
     }
@@ -178,6 +181,23 @@ public class CoordinatesDAO implements DAO<Coordinates> {
         }
 
         return coodinates;
+    }
+
+    private void updateDistance(int id) {
+        ArrayList<Coordinates> coordinates =  findFromJourneyId(id);
+        Journey journey = JourneyDAO.getInstance().find(id);
+
+        double distance = 0;
+        for(int i = 0; i < coordinates.size()-1; i++) {
+            double lat1 = coordinates.get(i).getLatitude();
+            double long1 = coordinates.get(i).getLongitude();
+            double lat2 = coordinates.get(i+1).getLatitude();
+            double long2 = coordinates.get(i+1).getLongitude();
+            distance += CalculDistance.compute(lat1, long1, lat2, long2);
+        }
+
+        journey.setDistance(distance);
+        JourneyDAO.getInstance().update(journey);
     }
 
 

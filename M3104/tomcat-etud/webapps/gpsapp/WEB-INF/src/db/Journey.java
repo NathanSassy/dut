@@ -1,13 +1,13 @@
 package db;
 
-
+import java.io.Serializable;
 import java.sql.Date;
 
-public class Journey {
+public class Journey implements Serializable {
 	private int id;
 	private String description;
 	private Date date_creation;
-	private float distance;
+	private double distance;
 
     public Journey(String description) {
         this.id = id;
@@ -40,11 +40,11 @@ public class Journey {
         this.date_creation = date_creation;
     }
 
-    public float getDistance() {
+    public double getDistance() {
         return distance;
     }
 
-    public void setDistance(float distance) {
+    public void setDistance(double distance) {
         this.distance = distance;
     }
 

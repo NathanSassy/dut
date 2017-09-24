@@ -8,9 +8,10 @@
  </head>
  <body>
 
+    <jsp:include page="../html/header.html"/>
+
     <FORM method="POST" action=http://localhost:8080/gpsapp/?p=journey_add>
-         Description : 		
-         <INPUT type=text size=50 name="journey_description">
+         Description : <INPUT type=text size=50 name="journey_description">
          <BR>
 		 <INPUT type=submit value=Envoyer>
     </FORM>

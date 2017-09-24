@@ -4,7 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <% ArrayList<Coordinates> coordinates = (ArrayList<Coordinates>) request.getAttribute("coordinates");
-   int id = (int) request.getAttribute("journey_id"); %>
+   int id = (int) request.getAttribute("journey_id");
+   session.setAttribute("journey_id", id);
+%>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//FR" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
@@ -15,7 +17,28 @@
  </head>
  <body>
 
+    <jsp:include page="../html/header.html"/>
+
     Coordonnees du trajet <% out.print(id); %> :
+
+    <table>
+            <tr>
+                <th>
+                    <FORM method="POST" action="http://localhost:8080/gpsapp/?p=coordinate_form">
+                        <INPUT type=submit value="Ajouter une coordonne">
+                        <INPUT type="hidden" name="journey_id" value="${id}" />
+                    </FORM>
+                </th>
+            </tr>
+
+            <tr>
+                <th>
+                    <FORM method="POST" action="http://localhost:8080/gpsapp/?p=journey_list">
+                        <INPUT type=submit value="Retour a la liste des trajets">
+                    </FORM>
+                </th>
+            </tr>
+    </table>
 
      <table border="1">
         <tr>

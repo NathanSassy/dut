@@ -64,7 +64,7 @@ public class JourneyDAO implements DAO<Journey>{
             PreparedStatement state = con.prepareStatement(query);
 
             state.setString(1, journey.getDescription());
-            state.setFloat(2, journey.getDistance());
+            state.setDouble(2, journey.getDistance());
             state.setInt(3, journey.getId());
 
             state.executeUpdate();
@@ -123,7 +123,7 @@ public class JourneyDAO implements DAO<Journey>{
             journey = new Journey(res.getString("description"));
             journey.setId(res.getInt("id"));
             journey.setDate_creation(new Date(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(res.getString("date_creation")).getTime()));
-            journey.setDistance(res.getFloat("distance"));
+            journey.setDistance(res.getDouble("distance"));
         }
         catch (SQLException e) {
             e.printStackTrace();
@@ -158,7 +158,7 @@ public class JourneyDAO implements DAO<Journey>{
                 Journey journey = new Journey(res.getString("description"));
                 journey.setId(res.getInt("id"));
                 journey.setDate_creation(new Date(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(res.getString("date_creation")).getTime()));
-                journey.setDistance(res.getFloat("distance"));
+                journey.setDistance(res.getDouble("distance"));
                 list.add(journey);
             }
         }

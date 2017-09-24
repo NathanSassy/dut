@@ -1,8 +1,8 @@
 package db;
 
+import java.io.Serializable;
 
-public class Coordinates
-{
+public class Coordinates implements Serializable {
     private int journey_id;
     private int journey_pos;
     private double latitude;
@@ -49,11 +49,11 @@ public class Coordinates
 
     @Override
     public String toString() {
-        String ret = "--- Coordinates ---";
+        String ret = "\n--- Coordinates ---";
         ret += "\nJOURNEY_ID = " + journey_id;
         ret += "\nJOURNEY_POS = " + journey_pos;
         ret += "\nLATITUDE = " + latitude;
-        ret += "\nLONGITUDE" + longitude;
+        ret += "\nLONGITUDE = " + longitude;
         ret += "\n---------------\n";
         return ret;
     }

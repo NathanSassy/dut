@@ -3,7 +3,8 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<% ArrayList<Journey> data = (ArrayList<Journey>) request.getAttribute("data"); %>
+<% ArrayList<Journey> data = (ArrayList<Journey>) request.getAttribute("data");
+   session.invalidate(); %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//FR" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -12,6 +13,8 @@
   <link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
  </head>
  <body>
+
+    <jsp:include page="../html/header.html"/>
 
     <FORM method="POST" action="http://localhost:8080/gpsapp/?p=journey_form">
     		 <INPUT type=submit value="Ajouter un trajet">

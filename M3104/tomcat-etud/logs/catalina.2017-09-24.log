@@ -1,0 +1,278 @@
+24-Sep-2017 14:19:55.014 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.15
+24-Sep-2017 14:19:55.017 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 2 2014 19:25:20 UTC
+24-Sep-2017 14:19:55.018 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.15.0
+24-Sep-2017 14:19:55.018 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+24-Sep-2017 14:19:55.018 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.12.13-300.fc26.x86_64
+24-Sep-2017 14:19:55.018 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+24-Sep-2017 14:19:55.018 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JAVA_HOME:             /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.144-5.b01.fc26.x86_64/jre
+24-Sep-2017 14:19:55.018 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_144-b01
+24-Sep-2017 14:19:55.018 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+24-Sep-2017 14:19:55.019 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/agicquel/workspace/dut/M3104/tomcat-etud
+24-Sep-2017 14:19:55.019 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/agicquel/workspace/dut/M3104/tomcat-etud
+24-Sep-2017 14:19:55.019 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/agicquel/workspace/dut/M3104/tomcat-etud/conf/logging.properties
+24-Sep-2017 14:19:55.020 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+24-Sep-2017 14:19:55.020 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=/home/agicquel/workspace/dut/M3104/tomcat-etud/endorsed
+24-Sep-2017 14:19:55.020 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/agicquel/workspace/dut/M3104/tomcat-etud
+24-Sep-2017 14:19:55.020 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/agicquel/workspace/dut/M3104/tomcat-etud
+24-Sep-2017 14:19:55.020 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/agicquel/workspace/dut/M3104/tomcat-etud/temp
+24-Sep-2017 14:19:55.020 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+24-Sep-2017 14:19:55.118 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+24-Sep-2017 14:19:55.138 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+24-Sep-2017 14:19:55.141 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+24-Sep-2017 14:19:55.147 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+24-Sep-2017 14:19:55.154 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 587 ms
+24-Sep-2017 14:19:55.186 INFO [main] org.apache.catalina.core.StandardService.startInternal Démarrage du service Catalina
+24-Sep-2017 14:19:55.187 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.15
+24-Sep-2017 14:19:55.201 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/gpsapp de l'application web
+24-Sep-2017 14:19:55.872 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/gpsapp has finished in 669 ms
+24-Sep-2017 14:19:55.872 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/docs de l'application web
+24-Sep-2017 14:19:55.959 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+24-Sep-2017 14:19:55.963 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/docs has finished in 91 ms
+24-Sep-2017 14:19:55.967 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/host-manager de l'application web
+24-Sep-2017 14:19:56.057 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+24-Sep-2017 14:19:56.068 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/host-manager has finished in 102 ms
+24-Sep-2017 14:19:56.068 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/examples de l'application web
+24-Sep-2017 14:19:56.398 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/examples has finished in 329 ms
+24-Sep-2017 14:19:56.398 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/manager de l'application web
+24-Sep-2017 14:19:56.469 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+24-Sep-2017 14:19:56.472 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/manager has finished in 74 ms
+24-Sep-2017 14:19:56.472 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/ROOT de l'application web
+24-Sep-2017 14:19:56.565 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+24-Sep-2017 14:19:56.569 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/ROOT has finished in 97 ms
+24-Sep-2017 14:19:56.573 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+24-Sep-2017 14:19:56.581 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+24-Sep-2017 14:19:56.584 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 1428 ms
+24-Sep-2017 15:18:01.217 INFO [http-nio-8080-exec-9] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 15:18:01.406 INFO [http-nio-8080-exec-9] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 15:35:04.143 INFO [http-nio-8080-exec-11] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 15:35:04.314 INFO [http-nio-8080-exec-11] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 15:35:51.110 INFO [http-nio-8080-exec-14] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 15:35:51.289 INFO [http-nio-8080-exec-14] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 15:37:52.990 INFO [http-nio-8080-exec-24] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 15:37:53.137 INFO [http-nio-8080-exec-24] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 15:38:58.354 INFO [http-nio-8080-exec-31] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 15:38:58.479 INFO [http-nio-8080-exec-31] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 15:41:07.464 INFO [http-nio-8080-exec-37] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 15:41:07.607 INFO [http-nio-8080-exec-37] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 15:41:09.549 INFO [http-nio-8080-exec-38] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 15:41:09.705 INFO [http-nio-8080-exec-38] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 15:43:33.895 INFO [http-nio-8080-exec-47] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 15:43:34.033 INFO [http-nio-8080-exec-47] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 15:46:10.280 INFO [http-nio-8080-exec-58] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 15:46:10.414 INFO [http-nio-8080-exec-58] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 15:47:35.698 INFO [http-nio-8080-exec-62] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 15:47:35.829 INFO [http-nio-8080-exec-62] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 15:51:11.118 INFO [http-nio-8080-exec-70] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 15:51:11.234 INFO [http-nio-8080-exec-70] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 15:53:57.594 INFO [http-nio-8080-exec-76] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 15:53:57.724 INFO [http-nio-8080-exec-76] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 16:07:31.984 INFO [http-nio-8080-exec-86] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 16:07:32.109 INFO [http-nio-8080-exec-86] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 16:16:53.750 INFO [http-nio-8080-exec-97] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 16:16:53.887 INFO [http-nio-8080-exec-97] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 16:19:36.513 INFO [http-nio-8080-exec-104] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 16:19:36.629 INFO [http-nio-8080-exec-104] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 16:20:57.736 INFO [http-nio-8080-exec-112] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 16:20:57.846 INFO [http-nio-8080-exec-112] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 16:26:08.866 INFO [http-nio-8080-exec-117] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 16:26:08.978 INFO [http-nio-8080-exec-117] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 16:31:06.922 INFO [http-nio-8080-exec-128] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 16:31:07.052 INFO [http-nio-8080-exec-128] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 16:34:00.945 INFO [http-nio-8080-exec-135] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 16:34:01.088 INFO [http-nio-8080-exec-135] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 17:17:38.127 INFO [http-nio-8080-exec-146] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 17:17:38.233 INFO [http-nio-8080-exec-146] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 17:18:02.782 INFO [http-nio-8080-exec-148] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 17:18:02.884 INFO [http-nio-8080-exec-148] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 17:22:27.644 INFO [http-nio-8080-exec-160] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 17:22:27.749 INFO [http-nio-8080-exec-160] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 17:43:27.385 INFO [http-nio-8080-exec-167] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 17:43:27.486 INFO [http-nio-8080-exec-167] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 17:44:21.497 INFO [http-nio-8080-exec-173] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 17:44:21.590 INFO [http-nio-8080-exec-173] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 17:45:01.659 INFO [http-nio-8080-exec-177] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 17:45:01.756 INFO [http-nio-8080-exec-177] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 21:07:49.719 INFO [http-nio-8080-exec-184] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 21:07:49.809 INFO [http-nio-8080-exec-184] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 21:11:08.285 INFO [http-nio-8080-exec-196] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/docs] a démarré
+24-Sep-2017 21:11:08.329 INFO [http-nio-8080-exec-196] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 21:14:25.341 INFO [http-nio-8080-exec-201] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 21:14:25.449 INFO [http-nio-8080-exec-201] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 21:21:23.332 INFO [http-nio-8080-exec-211] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 21:21:23.440 INFO [http-nio-8080-exec-211] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 21:24:32.480 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+24-Sep-2017 21:24:32.536 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+24-Sep-2017 21:24:32.587 INFO [Thread-5] org.apache.catalina.core.StandardService.stopInternal Arrêt du service Catalina
+24-Sep-2017 21:24:32.622 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+24-Sep-2017 21:24:32.625 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+24-Sep-2017 21:24:32.626 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+24-Sep-2017 21:24:32.627 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
+24-Sep-2017 21:24:34.100 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version:        Apache Tomcat/8.0.15
+24-Sep-2017 21:24:34.102 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Nov 2 2014 19:25:20 UTC
+24-Sep-2017 21:24:34.102 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server number:         8.0.15.0
+24-Sep-2017 21:24:34.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+24-Sep-2017 21:24:34.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            4.12.13-300.fc26.x86_64
+24-Sep-2017 21:24:34.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+24-Sep-2017 21:24:34.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JAVA_HOME:             /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.144-5.b01.fc26.x86_64/jre
+24-Sep-2017 21:24:34.103 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_144-b01
+24-Sep-2017 21:24:34.104 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+24-Sep-2017 21:24:34.104 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/agicquel/workspace/dut/M3104/tomcat-etud
+24-Sep-2017 21:24:34.104 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/agicquel/workspace/dut/M3104/tomcat-etud
+24-Sep-2017 21:24:34.104 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/agicquel/workspace/dut/M3104/tomcat-etud/conf/logging.properties
+24-Sep-2017 21:24:34.105 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+24-Sep-2017 21:24:34.105 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.endorsed.dirs=/home/agicquel/workspace/dut/M3104/tomcat-etud/endorsed
+24-Sep-2017 21:24:34.105 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/agicquel/workspace/dut/M3104/tomcat-etud
+24-Sep-2017 21:24:34.105 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/agicquel/workspace/dut/M3104/tomcat-etud
+24-Sep-2017 21:24:34.106 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/agicquel/workspace/dut/M3104/tomcat-etud/temp
+24-Sep-2017 21:24:34.106 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+24-Sep-2017 21:24:34.202 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+24-Sep-2017 21:24:34.227 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+24-Sep-2017 21:24:34.230 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["ajp-nio-8009"]
+24-Sep-2017 21:24:34.235 INFO [main] org.apache.tomcat.util.net.NioSelectorPool.getSharedSelector Using a shared selector for servlet write/read
+24-Sep-2017 21:24:34.236 INFO [main] org.apache.catalina.startup.Catalina.load Initialization processed in 584 ms
+24-Sep-2017 21:24:34.273 INFO [main] org.apache.catalina.core.StandardService.startInternal Démarrage du service Catalina
+24-Sep-2017 21:24:34.273 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet Engine: Apache Tomcat/8.0.15
+24-Sep-2017 21:24:34.288 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/gpsapp de l'application web
+24-Sep-2017 21:24:34.972 SEVERE [localhost-startStop-1] org.apache.catalina.session.StandardManager.doLoad standardManager.loading.ioe
+ java.io.WriteAbortedException: writing aborted; java.io.NotSerializableException: db.Coordinates
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1539)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:422)
+	at java.util.ArrayList.readObject(ArrayList.java:791)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1058)
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2136)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2027)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1535)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:422)
+	at org.apache.catalina.session.StandardSession.doReadObject(StandardSession.java:1634)
+	at org.apache.catalina.session.StandardSession.readObjectData(StandardSession.java:1099)
+	at org.apache.catalina.session.StandardManager.doLoad(StandardManager.java:261)
+	at org.apache.catalina.session.StandardManager.load(StandardManager.java:180)
+	at org.apache.catalina.session.StandardManager.startInternal(StandardManager.java:460)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5213)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:725)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:701)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:714)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1069)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1719)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.NotSerializableException: db.Coordinates
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1184)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at java.util.ArrayList.writeObject(ArrayList.java:762)
+	at sun.reflect.GeneratedMethodAccessor150.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:1028)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1496)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at org.apache.catalina.session.StandardSession.doWriteObject(StandardSession.java:1710)
+	at org.apache.catalina.session.StandardSession.writeObjectData(StandardSession.java:1116)
+	at org.apache.catalina.session.StandardManager.doUnload(StandardManager.java:401)
+	at org.apache.catalina.session.StandardManager.unload(StandardManager.java:320)
+	at org.apache.catalina.session.StandardManager.stopInternal(StandardManager.java:487)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5409)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1425)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1414)
+	... 4 more
+
+24-Sep-2017 21:24:34.974 SEVERE [localhost-startStop-1] org.apache.catalina.session.StandardManager.startInternal Exception au chargement des sessions depuis le stockage persistant (persistent storage)
+ java.io.WriteAbortedException: writing aborted; java.io.NotSerializableException: db.Coordinates
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1539)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:422)
+	at java.util.ArrayList.readObject(ArrayList.java:791)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at java.io.ObjectStreamClass.invokeReadObject(ObjectStreamClass.java:1058)
+	at java.io.ObjectInputStream.readSerialData(ObjectInputStream.java:2136)
+	at java.io.ObjectInputStream.readOrdinaryObject(ObjectInputStream.java:2027)
+	at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1535)
+	at java.io.ObjectInputStream.readObject(ObjectInputStream.java:422)
+	at org.apache.catalina.session.StandardSession.doReadObject(StandardSession.java:1634)
+	at org.apache.catalina.session.StandardSession.readObjectData(StandardSession.java:1099)
+	at org.apache.catalina.session.StandardManager.doLoad(StandardManager.java:261)
+	at org.apache.catalina.session.StandardManager.load(StandardManager.java:180)
+	at org.apache.catalina.session.StandardManager.startInternal(StandardManager.java:460)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5213)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150)
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:725)
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:701)
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:714)
+	at org.apache.catalina.startup.HostConfig.deployDirectory(HostConfig.java:1069)
+	at org.apache.catalina.startup.HostConfig$DeployDirectory.run(HostConfig.java:1719)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.io.NotSerializableException: db.Coordinates
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1184)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at java.util.ArrayList.writeObject(ArrayList.java:762)
+	at sun.reflect.GeneratedMethodAccessor150.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:1028)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1496)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at org.apache.catalina.session.StandardSession.doWriteObject(StandardSession.java:1710)
+	at org.apache.catalina.session.StandardSession.writeObjectData(StandardSession.java:1116)
+	at org.apache.catalina.session.StandardManager.doUnload(StandardManager.java:401)
+	at org.apache.catalina.session.StandardManager.unload(StandardManager.java:320)
+	at org.apache.catalina.session.StandardManager.stopInternal(StandardManager.java:487)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5409)
+	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:232)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1425)
+	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1414)
+	... 4 more
+
+24-Sep-2017 21:24:35.007 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/gpsapp has finished in 715 ms
+24-Sep-2017 21:24:35.008 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/docs de l'application web
+24-Sep-2017 21:24:35.083 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+24-Sep-2017 21:24:35.086 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/docs has finished in 78 ms
+24-Sep-2017 21:24:35.087 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/host-manager de l'application web
+24-Sep-2017 21:24:35.175 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+24-Sep-2017 21:24:35.182 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/host-manager has finished in 96 ms
+24-Sep-2017 21:24:35.183 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/examples de l'application web
+24-Sep-2017 21:24:35.502 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/examples has finished in 319 ms
+24-Sep-2017 21:24:35.503 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/manager de l'application web
+24-Sep-2017 21:24:35.582 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+24-Sep-2017 21:24:35.591 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/manager has finished in 88 ms
+24-Sep-2017 21:24:35.591 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Déploiement du répertoire /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/ROOT de l'application web
+24-Sep-2017 21:24:35.674 INFO [localhost-startStop-1] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+24-Sep-2017 21:24:35.677 INFO [localhost-startStop-1] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /home/agicquel/workspace/dut/M3104/tomcat-etud/webapps/ROOT has finished in 86 ms
+24-Sep-2017 21:24:35.681 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+24-Sep-2017 21:24:35.694 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["ajp-nio-8009"]
+24-Sep-2017 21:24:35.700 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in 1464 ms
+24-Sep-2017 21:26:58.213 INFO [http-nio-8080-exec-6] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 21:26:58.433 INFO [http-nio-8080-exec-6] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 21:45:16.009 INFO [http-nio-8080-exec-8] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 21:45:16.203 INFO [http-nio-8080-exec-8] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 21:57:25.040 INFO [http-nio-8080-exec-22] org.apache.catalina.core.StandardContext.reload Le rechargement du contexte [/gpsapp] a démarré
+24-Sep-2017 21:57:25.196 INFO [http-nio-8080-exec-22] org.apache.catalina.core.StandardContext.reload Le rechargement de ce contexte est terminé
+24-Sep-2017 21:58:27.139 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+24-Sep-2017 21:58:27.197 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+24-Sep-2017 21:58:27.249 INFO [Thread-5] org.apache.catalina.core.StandardService.stopInternal Arrêt du service Catalina
+24-Sep-2017 21:58:27.287 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+24-Sep-2017 21:58:27.290 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+24-Sep-2017 21:58:27.291 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+24-Sep-2017 21:58:27.292 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]
