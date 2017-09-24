@@ -23,17 +23,4 @@ public class CalculDistance {
 		return Math.PI * degre / 180;
 	}
 	
-	private class Point	{
-		private double latitude;
-		private double longitude;
-		
-		public Point(double latitude, double longitude) {
-			this.latitude = latitude;
-			this.longitude = longitude;
-		}
-		
-		public double getLatitude() { return latitude; }
-		public double getLongitude() { return longitude; }
-	}
-	
 }
