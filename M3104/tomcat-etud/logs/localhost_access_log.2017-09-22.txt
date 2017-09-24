@@ -1,0 +1,6 @@
+0:0:0:0:0:0:0:1 - - [22/Sep/2017:13:53:16 +0200] "GET /gpsapp/?p=journey_list HTTP/1.1" 200 12803
+0:0:0:0:0:0:0:1 - - [22/Sep/2017:13:53:26 +0200] "GET /gpsapp/?p=journey&journey_id=1 HTTP/1.1" 200 1662
+0:0:0:0:0:0:0:1 - - [22/Sep/2017:13:53:30 +0200] "POST /gpsapp/?p=journey_form HTTP/1.1" 200 536
+0:0:0:0:0:0:0:1 - - [22/Sep/2017:13:53:45 +0200] "POST /gpsapp/?p=journey_add HTTP/1.1" 200 340
+0:0:0:0:0:0:0:1 - - [22/Sep/2017:13:53:52 +0200] "GET /gpsapp/?p=journey_list HTTP/1.1" 200 13175
+0:0:0:0:0:0:0:1 - - [22/Sep/2017:13:53:58 +0200] "GET /gpsapp/?p=journey&journey_id=47 HTTP/1.1" 200 546
