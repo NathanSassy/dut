@@ -1,0 +1,11 @@
+{
+  "name": "gpsapp-db",
+  "version": "0.1.0",
+  "description": "database for myGPSWebApp",
+  "main": "gpsapp-db.js",
+  "scripts": {
+    "test": "gpsapp-db-test.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
