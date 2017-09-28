@@ -7,11 +7,14 @@
     <target name="all" depends="clean, compile, package, run"/>
 
     <path id="classpath">
+        <fileset dir="${build.dir}">
+            <include name="**/*.class"/>
+        </fileset>
+        <pathelement path="${build.dir}"/>
+
         <fileset dir="lib/">
             <include name="*.jar"/>
         </fileset>
-
-        <pathelement path="${build.dir}"/>
     </path>
 
     <target name="clean">
