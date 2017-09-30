@@ -12,7 +12,7 @@
         </fileset>
         <pathelement path="${build.dir}"/>
 
-        <fileset dir="lib/">
+        <fileset dir="./lib/">
             <include name="*.jar"/>
         </fileset>
     </path>
@@ -35,18 +35,18 @@
     <target name="package" depends="compile">
         <mkdir dir="${jar.dir}"/>
 
-        <jar destfile="${jar.dir}/${application.name}.jar" basedir="${build.dir}">
+        <jar destfile="${jar.dir}/JWallet.jar" basedir="${build.dir}">
             <manifest>
-                <attribute name="Main-Class" value="JWalletFrame"/>
+                <attribute name="Main-Class" value="jwallet.ui.JWalletFrame"/>
             </manifest>
-            <zipgroupfileset dir="lib/" includes="*.jar"/>
+        	<zipgroupfileset dir="./lib/" includes="*.jar"/>
         </jar>
 
         <echo message = "packaged successfully" />
     </target>
 
     <target name="run" depends="package">
-        <java jar="${jar.dir}/${application.name}.jar" fork="true">
+        <java jar="${jar.dir}/JWallet.jar" fork="true">
             <classpath refid="classpath"/>
         </java>
     </target>
