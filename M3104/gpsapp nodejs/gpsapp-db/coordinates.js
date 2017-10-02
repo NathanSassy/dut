@@ -2,30 +2,84 @@ var db = require("./sqlite_connection");
 var journey = require("./journey");
 
 var CoordinatesDAO = function(){
-    this.insert = function(journey_id, journey_pos, latitude, longitude, callback){
-        let stmt = db.prepare("INSERT INTO Journey (description) VALUES (?)");
-        stmt.run(journey_id, journey_pos, latitude, longitude, function() {
+
+    this.findFromJourneyId = function(key, callback) {
+        db.all("SELECT * FROM Coordinates WHERE journey_id = " + key, function(err, rows) {
             if(callback)
-                callback(this.lastID);
-            updateDistance(key);
+                callback(rows);
         });
     };
 
-    this.update = function(key,journey_pos, latitude, longitude, callback){
+    const updateDistance = (coordinateID) => {
+        let convertToRad = function (degrees) {
+            return degrees * (Math.PI / 180);
+        };        
+
+        let distance = function (lat1, long1, lat2, long2) {
+            let REarth =  6378.137;
+            return parseFloat(REarth * Math.acos(Math.sin(convertToRad(lat2))
+                * Math.sin(convertToRad(lat1))
+                + Math.cos(convertToRad(lat2))
+                * Math.cos(convertToRad(lat1))
+                * Math.cos(convertToRad(long2)
+                - convertToRad(long1))));
+        };
+
+        this.findByKey(coordinateID, (row) => {
+            let journeyId = row.journey_id;
+            this.findFromJourneyId(journeyId, (rows) => {
+                let distanceTotal = 0.0;
+                let coord = [];
+                rows.forEach(function(row) {
+                    coord.push([row.latitude, row.longitude]);
+                });
+
+                for (let i = 0; i < coord.length - 1; i++) {
+                    distanceTotal += distance(coord[i][0], coord[i][1], coord[i+1][0], coord[i+1][1]);
+                }
+    
+                journey.findByKey(journeyId, function(row) {
+                    journey.update(journeyId, row.description, distanceTotal);
+                });
+            });
+        });
+    };
+
+    this.getLastCoordinatesID = function(callback) {
+        let stmt = db.prepare("SELECT COUNT(*) AS id FROM Coordinates");
+        stmt.get(function(err, row) {
+            if(callback)
+                callback(row.id);
+        });
+    };
+    
+    this.insert = (journey_id, journey_pos, latitude, longitude, callback) => {
+        this.getLastCoordinatesID((id) => {
+            var newID = id + 1;
+            let stmt = db.prepare("INSERT INTO Coordinates VALUES (?,?,?,?)");
+            stmt.run(journey_id, newID, latitude, longitude, function() {
+                updateDistance(newID);
+                if(callback)
+                    callback(this.lastID);
+            });
+        });
+    };
+
+    this.update = function(key, journey_pos, latitude, longitude, callback){
         let stmt = db.prepare("UPDATE Coordinates SET journey_pos = ?, latitude = ?, longitude = ? WHERE id = ?");
-        stmt.run(journey_pos, latitude, longitude, key, function() {
+        stmt.run(journey_pos, latitude, longitude, key, function(key) {
+            updateDistance(key);
             if(callback)
                 callback(true);
-            updateDistance(key);
         });
     };
 
     this.delete = function(key, callback){
         let stmt = db.prepare("DELETE FROM Coordinates WHERE journey_pos = ?");
-        stmt.run(key, function() {
+        stmt.run(key, function(key) {
+            updateDistance(key);
             if(callback)
                 callback(true);
-            updateDistance(key);
         });
     };
 
@@ -43,26 +97,7 @@ var CoordinatesDAO = function(){
                 callback(row);
         });
     };
-
-    this.findFromJourneyId = function(key, callback) {
-        db.all("SELECT * FROM Coordinates WHERE journey_id = " + key, function(err, rows) {
-            if(callback)
-                callback(rows);
-        });
-    };
-
-    this.updateDistance = function(key) {
-        journey.findByKey(key, function(rows) {
-            var distance = 0.0;
-            rows.forEach(function (row) {  
-                distance += rows.distance; 
-            });
-            journey.findByKey(key, function(row) {
-                journey.update(key, row.description, distance);
-            });
-        });
-    };
-
 };
+
 var coordinates_dao = new CoordinatesDAO();
-  module.exports = coordinates_dao;
+module.exports = coordinates_dao;

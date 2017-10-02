@@ -31,6 +31,18 @@ app.use("/journeys", journeys);
 var journey = require("./routes/journey");
 app.use("/journey", journey);
 
+var coordinate_form = require("./routes/coordinate_form");
+app.use("/coordinate_form", coordinate_form);
+
+var coordinate_add = require("./routes/coordinate_add");
+app.use("/coordinate_add", coordinate_add);
+
+var journey_form = require("./routes/journey_form");
+app.use("/journey_form", journey_form);
+
+var journey_add = require("./routes/journey_add");
+app.use("/journey_add", journey_add);
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

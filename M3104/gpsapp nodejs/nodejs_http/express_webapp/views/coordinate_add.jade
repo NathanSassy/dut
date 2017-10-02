@@ -1,0 +1,12 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+
+        p Trajet ajouté : #{ok}
+    
+        form(name="go-journeys", method="get", action="http://localhost:3000/journeys")
+            div.input
+                input(type="submit", value="Retour a la liste des trajets")

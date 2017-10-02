@@ -1,0 +1,19 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+
+        p Ajouter coordonnée au trajet n° #{id}
+
+        form(name="add-coord", method="post", action="http://localhost:3000/coordinate_add")
+            div.input
+                input(type="number", step="0.000001", name="latitude")
+                input(type="number", step="0.000001", name="longitude")
+                input(type="hidden", name="journey_id", value=id)
+                input(type="submit", value="Ajouter une coordonne")
+    
+        form(name="go-journeys", method="get", action="http://localhost:3000/journeys")
+            div.input
+                input(type="submit", value="Retour a la liste des trajets")

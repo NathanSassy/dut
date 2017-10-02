@@ -4,6 +4,16 @@ html
         title= title
         link(rel='stylesheet', href='/stylesheets/style.css')
     body
+
+    form(name="add-coord", method="post", action="http://localhost:3000/coordinate_form")
+        div.input
+            input(type="hidden", name="id", value=id)
+            input(type="submit", value="Ajouter une coordonne")
+    
+    form(name="go-journeys", method="post", action="http://localhost:3000/journeys")
+        div.input
+            input(type="submit", value="Retour a la liste des trajets")
+
         table(border='1')
             thead
                 tr
