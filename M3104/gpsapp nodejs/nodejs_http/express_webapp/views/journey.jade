@@ -1,0 +1,20 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+        table(border='1')
+            thead
+                tr
+                    th journey_id
+                    th journey_pos
+                    th latitude
+                    th longitude
+            tbody
+                each val in data
+                    tr
+                        td= val.journey_id
+                        td= val.journey_pos
+                        td= val.latitude
+                        td= val.longitude

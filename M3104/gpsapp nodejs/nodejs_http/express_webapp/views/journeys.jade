@@ -1,0 +1,21 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+        table(border='1')
+            thead
+                tr
+                    th ID
+                    th Description
+                    th Date
+                    th Distance
+            tbody
+                each val in data
+                    tr
+                        td
+                            a(href="http://localhost:3000/journey?id=" + val.id) #{val.id}
+                        td= val.description
+                        td= val.date_creation
+                        td= val.distance
