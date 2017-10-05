@@ -7,16 +7,15 @@ package jwallet.ui;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Arrays;
+
 import org.json.*;
-import java.util.Collection;
+
 import java.util.Vector;
-import javax.swing.table.DefaultTableModel;
 
 /**
-*
-* @author nicolas
-*/
+ *
+ * @author nicolas
+ */
 public class JWalletFrame extends javax.swing.JFrame {
 
     private javax.swing.JMenuItem addMenuItem;
@@ -32,8 +31,8 @@ public class JWalletFrame extends javax.swing.JFrame {
     private Vector<String> data;
 
     /**
-    * Creates new form MainFrame
-    */
+     * Creates new form MainFrame
+     */
     public JWalletFrame() {
         initComponents();
     }
@@ -108,12 +107,12 @@ public class JWalletFrame extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
         );
 
         pack();
@@ -130,22 +129,22 @@ public class JWalletFrame extends javax.swing.JFrame {
 
     private void updateMenuItemActionPerformed(java.awt.event.ActionEvent evt) {
         try (FileWriter file = new FileWriter("saves.json")){
-        	 for (int i = 0; i < this.table.getRowCount(); i++) {
+            for (int i = 0; i < this.table.getRowCount(); i++) {
                 JSONObject obj = new JSONObject();
-				obj.put("URL", this.table.getValueAt(i,0));
-				obj.put("Identifiant", this.table.getValueAt(i,1));
-				obj.put("Mot de passe", this.table.getValueAt(i,2));
-	            obj.put("Commentaire", this.table.getValueAt(i,3));
-	            file.write(obj.toString());
-        	 }
-        	 file.flush();
-		} catch (JSONException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+                obj.put("URL", this.table.getValueAt(i,0));
+                obj.put("Identifiant", this.table.getValueAt(i,1));
+                obj.put("Mot de passe", this.table.getValueAt(i,2));
+                obj.put("Commentaire", this.table.getValueAt(i,3));
+                file.write(obj.toString());
+            }
+            file.flush();
+        } catch (JSONException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
 
