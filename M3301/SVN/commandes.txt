@@ -1,0 +1,126 @@
+*** Création d’un dépôt
+
+Afin de vous exercer, vous allez créer un dépôt SVN sur votre machine. Pour ce faire, vous devrez exécuter la commande suivante:
+
+#> svnadmin create /tmp/mon_depot
+
+> svnadmin create ./mon_depot/	--> Création du dépot SVN
+
+
+
+
+*** Importation d’un répertoire
+
+ Pour les projets de synthèse, il est demandé de respecter la structure de répertoires suivante:
+
+.
+|-- developpements
+|-- documents
+‘-- livrables 
+
+Le répertoire “developpements” contiendra les sources de votre logiciel. Le répertoire “documents” contiendra le source de vos différents documents (proposition de projet, rapport de spécification, etc.). Le répertoire “livrables” contiendra quant à lui les livrables fournis au client.
+Afin de vous exercer, créez cette arborescence localement et importez la dans votre dépôt SVN que vous avez créé avec la commande svnadmin.
+Vous pouvez désormais supprimer votre répertoire ~/depot.
+
+> mkdir depot
+> mkdir depot/developpements depot/documents depot/livrables	--> Création du dépot à importer
+> svn import depot file:///home/agicquel/workspace/dut/M3301/SVN/mon_depot -m "importation du dépot"	--> Importation du dépot
+
+
+
+
+*** Ajout, modification et suppression de fichiers et de répertoires et gestion des conflits
+
+Dans la suite du TP, on considère 2 utilisateurs : un utilisateur A et un utilisateur B. Créez à la racine de votre compte deux répertoires: userA et userB.
+Ouvrez un terminal dans chacun de ces répertoires, et créez une copie locale de votre dépôt SVN dans les répertoire userA et userB.
+À présent l’utilisateur userA et l’utilisateur userB disposent tous deux d’une copie locale du dépôt. 
+
+> svn checkout file:///home/agicquel/workspace/dut/M3301/SVN/mon_depot ./userA
+> svn checkout file:///home/agicquel/workspace/dut/M3301/SVN/mon_depot ./userB	--> Création de copie pour utilisateur A et B
+
+1) L’utilisateur userA ajoute un document dans le répertoire documents et fait un commit.
+> touch userA/documents/document.txt	--> Création d'un document par le userA
+> svn add userA/documents/document.txt	--> Versionnage de ce fichier
+A         userA/documents/document.txt
+> svn commit userA/documents/document.txt -m "ajout d'un doc par le userA"	--> Modification coté dépot
+Ajout          userA/documents/document.txt
+Transmission des données .done
+Transaction de propagation...
+Révision 2 propagée.
+
+2) L’utilisateur userB recupère le document déposé par userA en faisant un update.
+> svn update ./userB/	--> Mise à jour du userB, il récupere bien le document crée par userA
+Mise à jour de 'userB' :
+A    userB/documents/document.txt
+Actualisé à la révision 2.
+
+3) L’utilisateur userB modifie le fichier déposé par userA.
+> echo "blabla modification" >> ./userB/documents/document.txt	--> Modification du document par userB
+> svn commit ./userB/ -m "modification du document par userB"	--> Mise à jour du dépot
+Envoi          userB/documents/document.txt
+Transmission des données .done
+Transaction de propagation...
+Révision 3 propagée.
+
+4) L’utilisateur userB ajoute un nouveau fichier dans le répertoire developpements.
+> touch ./userB/developpements/dev.txt	--> Ajout d'un fichier dans 'developpements' par userB
+
+5) L’utilisateur userB affiche l’état de sa copie locale du dépôt via un svn status. 
+> svn status ./userB/	--> On voit que le fichier ajouté n'est pas encore versionné
+?       userB/developpements/dev.txt
+> svn add ./userB/developpements/dev.txt	--> Versionnage du fichier
+A         userB/developpements/dev.txt
+> svn status ./userB/	--> Le fichier ajouté est à présent bien versionné
+A       userB/developpements/dev.txt
+
+6) L’utilisateur userB fait un commit afin de propager ses modifications sur le dépôt.
+> svn commit ./userB/ -m "Ajout du fichier dans le repertoire developpements"	--> La modification a été propagée
+Ajout          userB/developpements/dev.txt
+Transmission des données .done
+Transaction de propagation...
+Révision 4 propagée.
+
+7) L’utilisateur userA récupère les fichiers ajoutés et modifiés par userB en faisant un update.
+> svn update ./userA/	--> Mise à jours du dépot pour userA. On voit le fichier modifié avec un U pour update et le fichier ajouté avec un A pour add
+Mise à jour de 'userA' :
+U    userA/documents/document.txt
+A    userA/developpements/dev.txt
+Actualisé à la révision 4.
+
+8) L’utilisateur userA pose un verrou sur le fichier déposé par userB dans le répertoire developpements et modifie celui-ci.
+> svn lock ./userA/developpements/dev.txt	--> Verrouillage du fichier
+'dev.txt' verrouillé par l'utilisateur 'agicquel'.
+> echo "modif par userA" >> ./userA/developpements/dev.txt	--> Modification du fichier
+--> svn commit ./userA/ -m "verrouillage et modification par userA du fichier dans 'developpements'"	--> Mise à jour du dépot
+Envoi          userA/developpements/dev.txt
+Transmission des données .done
+Transaction de propagation...
+Révision 5 propagée.
+
+9) L’utilisateur userB modifie le fichier contenu dans le répertoire developpements et tente de déposer celui-ci sur le dépôt en faisant un commit.
+/!\ Le userB ne va pas update avant de faire sa modification /!\
+> echo "modif par userB" >> ./userB/developpements/dev.txt	--> Modification en local OK
+> svn commit ./userB/ -m "Essai de modifcation par userB"	--> Tentative de mise à jour du dépot
+Envoi          userB/developpements/dev.txt
+svn: E155011: Échec de la propagation (commit), détails : 
+svn: E155011: Fichier '/home/agicquel/workspace/dut/M3301/SVN/userB/developpements/dev.txt' obsolète
+svn: E160028: Fichier '/developpements/dev.txt' obsolète
+
+
+Qu’observez-vous ? Trouvez une solution pour résoudre ce conflit. 
+La modification est impossible car le dépot local est obsolete.
+On va donc mettre en quarantaine notre fichier, puis update notre dépot, puis appliquer les modifications souhaitées.
+> mv ./userB/developpements/dev.txt ./	--> Mise en quarantaine
+> svn update ./userB/	--> Mise à jour du dépot avec la restauration du fichier dev.txt
+Mise à jour de 'userB' :
+'userB/developpements/dev.txt' restauré
+U    userB/developpements/dev.txt
+Actualisé à la révision 5.
+> cat dev.txt >> ./userB/developpements/dev.txt	--> Ajout des modifications de userB
+> svn commit ./userB/ -m "Nouvelle tentation de modifcation par userB"	--> Mise à jour du dépot. Le lock n'a pas d'impact car nous sommes en local.
+Envoi          userB/developpements/dev.txt
+Transmission des données .done
+Transaction de propagation...
+Révision 6 propagée.
+
+
