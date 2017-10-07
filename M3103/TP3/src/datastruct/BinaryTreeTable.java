@@ -21,11 +21,11 @@ public class BinaryTreeTable<E extends Comparable<E>, T> implements Table<E, T> 
         Node father = seekFather(key);
         Node newNode = new Node(null, null, father, data, key);
 
-        if(father.lSon == null && father.key.compareTo(key) <= 0) {
+        if(father.lSon == null && father.key.compareTo(key) > 0) {
             father.lSon = newNode;
             ret = true;
         }
-        else if(father.rSon == null && father.key.compareTo(key) >= 0) {
+        else if(father.rSon == null && father.key.compareTo(key) <= 0) {
             father.rSon = newNode;
             ret = true;
         }
@@ -47,7 +47,7 @@ public class BinaryTreeTable<E extends Comparable<E>, T> implements Table<E, T> 
 
     @Override
     public String toString() {
-        return getInfo(root);
+        return root != null ? getInfo(root) : "\nArbre vide";
     }
 
     /**
@@ -58,16 +58,16 @@ public class BinaryTreeTable<E extends Comparable<E>, T> implements Table<E, T> 
     private Node seekFather(E key) {
         Node father = root;
         while(father.lSon != null && father.rSon != null) {
-            if(father.key.compareTo(key) <= 0) // father.key < key
+            if(father.key.compareTo(key) > 0)
                 father = father.lSon;
-            else if(father.key.compareTo(key) > 0) // father.key > key
+            else if(father.key.compareTo(key) <= 0)
                 father = father.rSon;
         }
 
-        if(!(father.lSon == null && father.key.compareTo(key) <= 0) && !(father.rSon == null && father.key.compareTo(key) >= 0)) {
-            if(father.key.compareTo(key) <= 0)
+        if(!(father.lSon == null && father.key.compareTo(key) > 0) && !(father.rSon == null && father.key.compareTo(key) <= 0)) {
+            if(father.key.compareTo(key) > 0)
                 father = father.lSon;
-            else if(father.key.compareTo(key) > 0)
+            else if(father.key.compareTo(key) <= 0)
                 father = father.rSon;
         }
 
@@ -85,8 +85,16 @@ public class BinaryTreeTable<E extends Comparable<E>, T> implements Table<E, T> 
         if ( theN != null ) {
             infosLNode = getInfo(theN.lSon);
             infosRNode = getInfo(theN.rSon);
-            String infoFather = theN.father != null ? "Fclé=" + theN.father.key : "Fclé=n";
+            String infoFather = theN.father != null ? "Fkey=" + theN.father.key : "Fkey=n";
             infosNode = "\n" + infoFather + "\t" + "clé=" + theN.key + "\tdata=" + theN.theValue;
+
+            if(theN.father != null) {
+                if(theN.father.lSon == theN)
+                    infosNode += "   -> L";
+                else
+                    infosNode += "   -> R";
+            }
+
             ret = infosLNode + infosNode + infosRNode;
         }
         return ret ;
@@ -106,10 +114,13 @@ public class BinaryTreeTable<E extends Comparable<E>, T> implements Table<E, T> 
             return theNode;
         }
         else {
-            if(theNode.key.compareTo(key) <= 0)
-                return findNode(theNode.lSon, key);
-            else if(theNode.key.compareTo(key) > 0)
-                return findNode(theNode.rSon, key);
+            Node foundL =  findNode(theNode.lSon, key);
+            Node foundR =  findNode(theNode.rSon, key);
+
+            if(foundL != null)
+                return foundL;
+            else if (foundR != null)
+                return foundR;
             else
                 return null;
         }
@@ -119,11 +130,14 @@ public class BinaryTreeTable<E extends Comparable<E>, T> implements Table<E, T> 
      * Delete a specific node
      * @param nodeToDel the node you want to delete
      */
-    private void delete (Node nodeToDel) {
+    private void delete(Node nodeToDel) {
         if(nodeToDel == null)
             return;
 
-        if(nodeToDel.lSon == null && nodeToDel.rSon == null) {
+        if(nodeToDel == root && nodeToDel.lSon == null && nodeToDel.rSon == null) {
+            root = null;
+        }
+        else if(nodeToDel.lSon == null && nodeToDel.rSon == null) {
             if(nodeToDel.father.lSon == nodeToDel)
                 nodeToDel.father.lSon = null;
             else if(nodeToDel.father.rSon == nodeToDel)
@@ -137,33 +151,49 @@ public class BinaryTreeTable<E extends Comparable<E>, T> implements Table<E, T> 
         }
         else if(nodeToDel.lSon == null && nodeToDel.rSon != null ) {
             nodeToDel.rSon.father = nodeToDel.father;
-            nodeToDel.father.lSon = nodeToDel.rSon;
+            nodeToDel.father.rSon = nodeToDel.rSon;
         }
         else if(nodeToDel.lSon != null && nodeToDel.rSon != null) {
-            Node theGNode = null;
-            if(nodeToDel.lSon.key.compareTo(nodeToDel.rSon.key) >= 0)
+            Node theGNode;
+            if(nodeToDel.lSon.key.compareTo(nodeToDel.rSon.key) > 0) {
                 theGNode = nodeToDel.lSon;
-            else
+            }
+            else {
                 theGNode = nodeToDel.rSon;
+            }
 
             nodeToDel.key = theGNode.key;
             nodeToDel.theValue = theGNode.theValue;
-
             delete(theGNode);
         }
     }
 
+    /**
+     * Output the balance level of each branch
+     * @return the text info
+     */
     public String balanceLevel() {
+        if(root == null) {
+            return "Arbre vide";
+        }
+
         int sizeL = sizeHeight(root.lSon, 0);
         int sizeR = sizeHeight(root.rSon, 0);
 
         String ret = "";
         ret += "\nHauteur à gauche : " + sizeL;
         ret += "\nHauteur à droite : " + sizeR;
+        ret += "\nHauteur de l'arbre : " + (sizeL > sizeR ? sizeL + 1 : sizeR + 1);
 
         return ret;
     }
 
+    /**
+     * Recursive method that find out the height of a node
+     * @param theNode the node
+     * @param currentSize the current size, init to 0
+     * @return the size height
+     */
     private int sizeHeight(Node theNode, int currentSize) {
         if(theNode == null)
             return 0;
