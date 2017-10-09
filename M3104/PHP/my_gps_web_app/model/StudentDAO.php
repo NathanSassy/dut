@@ -1,5 +1,7 @@
 <?php
 require_once('SqliteConnection.php');
+require_once("Student.php");
+
 class StudentDAO {
     private static $dao;
 
@@ -21,17 +23,18 @@ class StudentDAO {
         return $results;
     }
 
-    public final function insert(DataObject $st){
+    public final function insert(Student $st){
         if($st instanceof Student){
             $dbc = SqliteConnection::getInstance()->getConnection();
             // prepare the SQL statement
-            $query = "insert into students(login, nom, prenom) values (:l,:n,:p)";
-            $stmt = $dbc->prepare($query);
+            //$query = "insert into students(nom, prenom) values (:n,:p)";
+            $stmt = $dbc->prepare("insert into students(nom, prenom) values (:n,:p)");
+
+            echo "stml = ".$stmt."\n";
 
             // bind the paramaters
-            $stmt->bindValue(':l',$st->getLogin(),PDO::PARAM_STR);
-            $stmt->bindValue(':n',$st->getLastname(),PDO::PARAM_STR);
-            $stmt->bindValue(':p',$st->getFirstname(),PDO::PARAM_STR);
+            $stmt->bindValue(':n', $st->getLastname(), PDO::PARAM_STR);
+            $stmt->bindValue(':p', $st->getFirstname(), PDO::PARAM_STR);
 
             // execute the prepared statement
             $stmt->execute();
