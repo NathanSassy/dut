@@ -7,7 +7,7 @@ public class BinaryTreeTable<E extends Comparable<E>, T> implements Table<E, T> 
 
     @Override
     public T select(E key) {
-        return null;
+        return findNode(root, key).theValue;
     }
 
     @Override
