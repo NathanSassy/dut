@@ -1,0 +1,306 @@
+*** Création de dépôts vierges
+
+Afin de vous exercer, vous allez créer un dépôt Git simple simple-gitrepo et un dépôt Git shared-gitrepo pouvant être partagé entre plusieurs utilisateurs sur votre machine dans le répertoire /tmp.
+
+Donnez les instructions permettant de créer et d’initialiser le dépôt simple-gitrepo.
+> mkdir simple-gitrepo
+> cd simple-gitrepo/
+> git init
+Dépôt Git vide initialisé dans /home/agicquel/GIT/simple-gitrepo/.git/
+
+Donnez les instructions permettant de créer et d’initialiser le dépôt shared-gitrepo.
+> mkdir shared-gitrepo
+> cd shared-gitrepo/
+> git init --bare --shared
+Dépôt Git vide partagé initialisé dans /home/agicquel/GIT/shared-gitrepo/.git/
+
+Quelles différences remarquez vous entre les deux dépôts ?
+Tous les utilisateurs du systemes etant du meme groupe peuvent utiliser le shared-gitrepo alors que le depot simple-gitrepo peut 
+uniquement être utilisé par l'utilisateur qui l'a crée. Les droits des fichiers y sont differents et il n'y a pas de .git.
+
+
+
+
+*** Mise sous suivi de versions de fichiers existants
+
+Créez un répertoire developpements et un répertoire documentation dans le dépôt simple-gitrepo que vous avez créé dans le répertoire /tmp.
+
+Exécutez la commande git status pour connaître l’état de votre dépôt. Que remarquez vous ?
+> mkdir developpements
+> mkdir documentation
+> git status
+Sur la branche master
+
+Validation initiale
+
+rien à valider (créez/copiez des fichiers et utilisez "git add" pour les suivre)
+
+
+Créez un fichier mon_fichier.txt dans le répertoire documentation.
+> touch documentation/mon_fichier.txt
+
+Exécutez la commande git status pour connaître l’état de votre dépôt. Que remarquez vous, et que pouvez-vous en déduire par rapport à l’exécution de la commande git status précédente ?
+> git status
+Sur la branche master
+
+Validation initiale
+
+Fichiers non suivis:
+  (utilisez "git add <fichier>..." pour inclure dans ce qui sera validé)
+
+	documentation/
+
+aucune modification ajoutée à la validation mais des fichiers non suivis sont présents (utilisez "git add" pour les suivre)
+
+Ajoutez le fichier mon_fichier.txt sous le système de gestion de version Git. Vous donnerez la/les commande(s) utilisée(s).
+> git add documentation/mon_fichier.txt 
+> git status
+Sur la branche master
+
+Validation initiale
+
+Modifications qui seront validées :
+  (utilisez "git rm --cached <fichier>..." pour désindexer)
+
+	nouveau fichier : documentation/mon_fichier.txt
+
+Si vous voulez que certains fichiers soient ignorés, comme par exemple les fichiers .class ou *~, vous pouvez ajouter un fichier .gitignore à la racine de votre répertoire contenant vos fichiers sources.
+
+*~ 
+*.class
+*.jar
+target/*
+.settings/*
+.classpath
+.project
+
+Vérifiez le bon fonctionnement de votre fichier .gitignore. Vous expliquerez votre démarche pour faire cette vérification.
+> nano .gitignore
+> git add .gitignore 
+> mkdir test/
+> touch test/test.jar
+> touch test/test.class
+> git add test/*
+Les chemins suivants sont ignorés par un de vos fichiers .gitignore :
+test/test.class
+test/test.jar
+Utilisez -f si vous voulez réellement les ajouter.
+
+--> Le gitignore est bien pris en compte.
+
+
+
+*** Ajout, modification et suppression de fichiers et de répertoires et gestion des conflits
+
+Pour les projets de synthèse, il est demandé de respecter la structure de répertoires suivante:
+
+.
+|-- developpements
+|-- documents
+‘-- livrables 
+
+Le répertoire “developpements” contiendra les sources de votre logiciel. Le répertoire “documents” contiendra le source de vos différents documents (proposition de projet, rapport de spécification, etc.). Le répertoire “livrables” contiendra quant à lui les livrables fournis au client.
+Dans la suite du TP, on considère le dépôt shared-gitrepo et 2 utilisateurs : un utilisateur A et un utilisateur B. Créez à la racine de votre compte deux répertoires: userA et userB.
+
+Ouvrez un terminal dans chacun de ces répertoires, et créez une copie locale du dépôt shared-gitrepo dans chacun des répertoires userA et userB. Vous donnerez la commande que vous avez utilisée.
+
+> git clone ./shared-gitrepo/ userA
+Clonage dans 'userA'...
+warning: Vous semblez avoir cloné un dépôt vide.
+fait.
+> git clone ./shared-gitrepo/ userB
+Clonage dans 'userB'...
+warning: Vous semblez avoir cloné un dépôt vide.
+fait.
+
+
+À présent l’utilisateur userA et l’utilisateur userB disposent tous deux d’une copie locale du dépôt.
+Suivez le scénario ci-dessous:
+
+- L’utilisateur userA créé les répertoires devlpts, documents et livrables dans sa copie locale du dépôt.
+> cd ./userA/
+> mkdir documentation developpements livrables
+
+- L’utilisateur userA ajoute un document dans le répertoire documents et fait un commit.
+> touch documentation/doc.txt
+> git add documentation/doc.txt 
+> git commit -m "userA ajoute un document dans le répertoire documentation"
+[master (commit racine) fb75fe4] userA ajoute un document dans le répertoire documentation
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 documentation/doc.txt
+> git push
+Décompte des objets: 4, fait.
+Écriture des objets: 100% (4/4), 294 bytes | 294.00 KiB/s, fait.
+Total 4 (delta 0), reused 0 (delta 0)
+To /home/agicquel/GIT/./shared-gitrepo/
+ * [new branch]      master -> master
+
+- L’utilisateur userB récupéré le document déposé par userA en faisant un pull (ou un fetch).
+> git pull
+remote: Décompte des objets: 4, fait.
+remote: Total 4 (delta 0), reused 0 (delta 0)
+Dépaquetage des objets: 100% (4/4), fait.
+Depuis /home/agicquel/GIT/./shared-gitrepo
+ * [nouvelle branche] master     -> origin/master
+
+- L’utilisateur userB modifie le fichier déposé par userA.
+> echo "ajout..." >> documentation/doc.txt
+
+- L’utilisateur userB ajoute un nouveau fichier dans le répertoire developpements (attention si le répertoire n’existe pas vous devez le créer).
+> mkdir developpements/ && touch developpements/dev.txt
+
+- L’utilisateur userB affiche l’état de sa copie locale du dépôt via un git status.
+> git status
+Sur la branche master
+Votre branche est à jour avec 'origin/master'.
+Modifications qui ne seront pas validées :
+  (utilisez "git add <fichier>..." pour mettre à jour ce qui sera validé)
+  (utilisez "git checkout -- <fichier>..." pour annuler les modifications dans la copie de travail)
+
+	modifié :         documentation/doc.txt
+
+Fichiers non suivis:
+  (utilisez "git add <fichier>..." pour inclure dans ce qui sera validé)
+
+	developpements/
+
+aucune modification n'a été ajoutée à la validation (utilisez "git add" ou "git commit -a")
+
+- L’utilisateur userB fait un commit afin de propager ses modifications sur le dépôt.
+> git add ./* && git commit -m "ajout par userB" && git push
+[master ada9dfa] ajout par userB
+ 2 files changed, 1 insertion(+)
+ create mode 100644 developpements/dev.txt
+Décompte des objets: 5, fait.
+Delta compression using up to 4 threads.
+Compression des objets: 100% (2/2), fait.
+Écriture des objets: 100% (5/5), 391 bytes | 391.00 KiB/s, fait.
+Total 5 (delta 0), reused 0 (delta 0)
+To /home/agicquel/GIT/./shared-gitrepo/
+   fb75fe4..ada9dfa  master -> master
+
+- L’utilisateur userA récupère les fichiers ajoutés et modifiés par userB en faisant un pull (ou un fetch).
+> git pull
+remote: Décompte des objets: 5, fait.
+remote: Compression des objets: 100% (2/2), fait.
+remote: Total 5 (delta 0), reused 0 (delta 0)
+Dépaquetage des objets: 100% (5/5), fait.
+Depuis /home/agicquel/GIT/./shared-gitrepo
+   fb75fe4..ada9dfa  master     -> origin/master
+Mise à jour fb75fe4..ada9dfa
+Fast-forward
+ developpements/dev.txt | 0
+ documentation/doc.txt  | 1 +
+ 2 files changed, 1 insertion(+)
+ create mode 100644 developpements/dev.txt
+
+- L’utilisateur userA modifie le fichier créé par l’utilisateur B et fait un commit, puis un push.
+echo "modif de userA..." >> developpements/dev.txt 
+> git commit -m "ajout des modifs par userA"
+Sur la branche master
+Votre branche est à jour avec 'origin/master'.
+Modifications qui ne seront pas validées :
+	modifié :         developpements/dev.txt
+
+aucune modification ajoutée à la validation
+> git add ./*
+> git commit -m "ajout des modifs par userA"
+[master 6269c7c] ajout des modifs par userA
+ 1 file changed, 1 insertion(+)
+> git push
+Décompte des objets: 4, fait.
+Delta compression using up to 4 threads.
+Compression des objets: 100% (2/2), fait.
+Écriture des objets: 100% (4/4), 359 bytes | 359.00 KiB/s, fait.
+Total 4 (delta 0), reused 0 (delta 0)
+To /home/agicquel/GIT/./shared-gitrepo/
+   ada9dfa..6269c7c  master -> master
+
+- L’utilisateur userB modifie le fichier contenu dans le répertoire developpements et tente de déposer celui-ci sur le dépôt en faisant un commit.
+echo "ajout modif par userB..." >> developpements/dev.txt 
+> git add ./developpements/dev.txt 
+> git commit -m "tentative d'ajout par userB"
+[master 6fb4547] tentative d'ajout par userB
+ 1 file changed, 1 insertion(+)
+> git push
+To /home/agicquel/GIT/./shared-gitrepo/
+ ! [rejected]        master -> master (fetch first)
+error: impossible de pousser des références vers '/home/agicquel/GIT/./shared-gitrepo/'
+astuce: Les mises à jour ont été rejetées car la branche distante contient du travail que
+astuce: vous n'avez pas en local. Ceci est généralement causé par un autre dépôt poussé
+astuce: vers la même référence. Vous pourriez intégrer d'abord les changements distants
+astuce: (par exemple 'git pull ...') avant de pousser à nouveau.
+astuce: Voir la 'Note à propos des avances rapides' dans 'git push --help' pour plus d'information.
+
+Qu’observez-vous ? Trouvez une solution pour résoudre ce conflit.
+--> Il y a un conflit car on essaye d'ajout du contenu sur un fichier qui n'est pas à jour sur notre repo.
+Pour resoudre ce problème, il faut faire :
+> git pull
+remote: Décompte des objets: 4, fait.
+remote: Compression des objets: 100% (2/2), fait.
+remote: Total 4 (delta 0), reused 0 (delta 0)
+Dépaquetage des objets: 100% (4/4), fait.
+Depuis /home/agicquel/GIT/./shared-gitrepo
+   ada9dfa..6269c7c  master     -> origin/master
+Fusion automatique de developpements/dev.txt
+CONFLIT (contenu) : Conflit de fusion dans developpements/dev.txt
+La fusion automatique a échoué ; réglez les conflits et validez le résultat.
+> cat developpements/dev.txt
+<<<<<<< HEAD
+ajout modif par userB...
+=======
+modif de userA...
+>>>>>>> 6269c7c040f0e454663a714aa58d97b2dcb292bc
+
+On va remettre en forme le fichier et le re push.
+
+> nano developpements/dev.txt 
+> cat developpements/dev.txt
+ajout modif par userB...
+modif de userA...
+> git add developpements/dev.txt 
+> git commit -m "Nouvelle tentative par userB"
+[master c377dd3] Nouvelle tentative par userB
+> git push
+Décompte des objets: 8, fait.
+Delta compression using up to 4 threads.
+Compression des objets: 100% (4/4), fait.
+Écriture des objets: 100% (8/8), 744 bytes | 744.00 KiB/s, fait.
+Total 8 (delta 0), reused 0 (delta 0)
+To /home/agicquel/GIT/./shared-gitrepo/
+   6269c7c..c377dd3  master -> master
+
+
+
+*** Accès aux dépôts Git pour le projet de synthèse
+
+Pour accéder au dépôt Git de votre projet, vous devez placer la clé privée ssh que vous avez reçue par mail dans le répertoire ~/.ssh. Cette clé est unique pour chacun d’entre vous et vous permet de vous authentifier sur le serveur Git. Vous ne devez pas renommer le fichier contenant cette clé et vous devez exécuter la commande suivante afin que celle-ci soit accessible uniquement à vous. chmod 600 ~/.ssh/exxxxx
+Remplacez exxxxxx par le nom du fichier ci-joint (i.e. votre login)
+Si ce fichier est accessible à votre groupe ou à d’autres personnes, vous ne pourrez pas accéder au serveur Git (une clé privée doit être privée).
+Ensuite, vous devez créer un fichier config dans ton répertoire ~/.ssh/
+Ce fichier doit contenir ce qui suit:
+
+Host gitinfo
+Hostname iutdeptinfo.univ-ubs.fr
+User git
+Port 9418
+IdentityFile ~/.ssh/exxxxxx
+
+Remplacez exxxxxx par le nom du fichier ci-joint (i.e. votre login)
+Pour obtenir une copie locale de votre dépôt, vous devez exécuter la commande :
+
+#> git clone git@gitinfo:monprojet_mongroupe.git
+
+--> Et lorsqu'on est apprenti ?
+
+monprojet et mongroupe sont à remplacer par vos noms de projets et groupes respectifs.
+Noms des projets: appli_med appli_stage flou_capt randosm_a reco_dossards wcap_cal Noms des groupes: a b c
+Pour déposer votre premier fichier, vous pouvez vous y prendre de la manière suivante:
+
+#> cd monprojet_mongroupe
+#> touch README
+#> git add README
+#> git commit -am "Ajout du fichier README"
+#> git push origin master 
+
+
