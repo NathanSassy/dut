@@ -1,45 +1,25 @@
 package datastruct;
 
-import java.util.AbstractCollection;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Random;
+import java.security.SecureRandom;
+import java.util.*;
 
 public class Bag extends AbstractCollection {
     private int size;
     private Element sentinel;
+    private int modCount;
 
     // Bag Methods
 
     public Bag() {
         this.size = 0;
-        sentinel = new Element(sentinel, null);
+        this.modCount = 0;
+        sentinel = new Element(null, null);
+        sentinel.next = sentinel;
     }
     public Bag(Collection c) {
         this();
         addAll(c);
     }
-
-    public void test() {
-        Element e = sentinel.next;
-        while(e != sentinel) {
-            System.out.println(e.theValue);
-            e = e.next;
-        }
-    }
-
-    @Override
-    public String toString() {
-        String ret = "[";
-        Element itr = sentinel;
-        for(int i = 0; i < size+1; i++) {
-            ret += itr.theValue + ",";
-            itr = itr.next;
-        }
-        ret +="]";
-        return ret;
-    }
-
 
     // AbstractCollection Methods
 
@@ -50,6 +30,8 @@ public class Bag extends AbstractCollection {
 
     @Override
     public int size() {
+        if(size < 0)
+            size = 0;
         return size;
     }
 
@@ -58,35 +40,25 @@ public class Bag extends AbstractCollection {
         if(size >= Integer.MAX_VALUE)
             return false;
 
-        if(size == 0) {
+        if(size <= 0) {
+            if(size < 0)
+                size = 0;
             sentinel.next = new Element(sentinel, data);
-            size++;
-            return true;
+        }
+        else {
+            int index = new SecureRandom().nextInt(size);
+            Element e = sentinel;
+            for (int i = 0; i < index; i++) {
+                e = e.next;
+            }
+
+            Element next = e.next;
+            e.next = new Element(next, data);
         }
 
-        int randomIndex = new Random().nextInt(size) + 1;
-
-        Element e = sentinel;
-        for(int i = 0; i < randomIndex; i++) {
-            e = e.next;
-        }
-
-        e.next = new Element(e.next.next, data);
         size++;
-
+        modCount++;
         return true;
-    }
-
-    @Override
-    public boolean addAll(Collection c) {
-        boolean ret = true;
-        Iterator itr = c.iterator();
-        while(itr.hasNext()) {
-            boolean ok = add(itr.next());
-            if(ok) size++;
-            else ret = false;
-        }
-        return ret;
     }
 
     // Element class
@@ -107,8 +79,10 @@ public class Bag extends AbstractCollection {
     private class Itr implements Iterator {
         Element current;
         Element pastCurrent;
+        int expectedModCount;
 
         public Itr() {
+            expectedModCount = modCount;
             current = sentinel.next;
             pastCurrent = null;
         }
@@ -119,7 +93,10 @@ public class Bag extends AbstractCollection {
          * @return true if there is an element left
          */
         @Override
-        public boolean hasNext() {
+        public boolean hasNext() throws ConcurrentModificationException {
+            if(modCount != expectedModCount)
+                throw new ConcurrentModificationException("Iterator not valid");
+
             return current != sentinel;
         }
 
@@ -127,10 +104,13 @@ public class Bag extends AbstractCollection {
          * @return the next object of list
          */
         @Override
-        public Object next() {
+        public Object next() throws ConcurrentModificationException {
+            if(modCount != expectedModCount)
+                throw new ConcurrentModificationException("Iterator not valid");
+
             pastCurrent = current;
             current = current.next;
-            return current.theValue;
+            return pastCurrent.theValue;
         }
 
         /**
@@ -138,7 +118,10 @@ public class Bag extends AbstractCollection {
          * Cannot remove twice without using next.
          */
         @Override
-        public void remove() {
+        public void remove() throws ConcurrentModificationException {
+            if(modCount != expectedModCount)
+                throw new ConcurrentModificationException("Iterator not valid");
+
             if(current == pastCurrent)
                 return;
 
@@ -155,7 +138,10 @@ public class Bag extends AbstractCollection {
                 pastCurrent.next = current.next;
                 current = pastCurrent;
             }
+
             size--;
+            modCount++;
+            expectedModCount = modCount;
         }
     };
 }
