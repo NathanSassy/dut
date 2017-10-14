@@ -1,11 +1,30 @@
 import datastruct.Bag;
-
-import javax.swing.text.html.HTMLDocument;
 import java.util.*;
 
 public class BagTest {
     private static int nbTest = 0;
     private static int nbTestOK = 0;
+
+    public static void main(String[] args) {
+        System.out.println("**** Test de Bag ****\n");
+
+        System.out.println("testIsEmpty --> " + testIsEmpty());
+        System.out.println("testAdd --> " + testAdd());
+        System.out.println("testToString --> " + testToString());
+        System.out.println("testContain --> " + testContain());
+        System.out.println("testClear --> " + testClear());
+        System.out.println("testRemove --> " + testRemove());
+        System.out.println("testOperationsWithCollections --> " + testOperationsWithCollections());
+        System.out.println("testIterator --> " + testIterator());
+        System.out.println("testRandomness --> " + testRandomness());
+
+        System.out.println();
+        System.out.println("Tests succeed = " + nbTestOK + " / "
+                + nbTest + " (" + (nbTestOK/nbTest*100) +"%)");
+
+
+        System.out.println("\n*********************\n");
+    }
 
     private static String testIsEmpty() {
         nbTest++;
@@ -141,6 +160,7 @@ public class BagTest {
             bag.clear();
         }
 
+        System.out.println("\nAffichage des places de boules : ");
         for(int i = 1; i <= SIZE; i++) {
             for(int j = 1; j < placeBoule[0].length; j++) {
                 int nb = placeBoule[i][j];
@@ -149,13 +169,44 @@ public class BagTest {
                 if(nb > (target+diff) || nb < (target-diff))
                     return "Erreur avec l'aleatoire de add";
             }
-            //System.out.println("Places de la boule n° " + i + " : " + Arrays.toString(placeBoule[i]));
+            System.out.println("Places de la boule n° " + i + " : " + Arrays.toString(placeBoule[i]));
         }
+        System.out.println();
 
         nbTestOK++;
         return "OK";
     }
 
+    private static String testIterator() {
+        nbTest++;
+        Bag bag = createSimpleBag();
+        Iterator it = bag.iterator();
+
+        int ind = 0;
+        while(it.hasNext()) {
+            it.next();
+            if(ind > bag.size())
+                return "Erreur avec hasNext";
+            else
+                ind++;
+        }
+
+        int sizeBefore = bag.size();
+        it.remove();
+        it.remove();
+        if(bag.size()+1 != sizeBefore)
+            return "Erreur avec remove : 2 removes sans next";
+
+        bag.add("dataX");
+        try {
+            it.next();
+            return "Erreur avec next : iterator pas invalidé alors qu'il y a eu un add";
+        }
+        catch (ConcurrentModificationException err) {}
+
+        nbTestOK++;
+        return "OK";
+    }
 
     private static Bag createSimpleBag() {
         Bag bag = new Bag();
@@ -163,25 +214,5 @@ public class BagTest {
             bag.add("data" + i);
         }
         return bag;
-    }
-
-    public static void main(String[] args) {
-        System.out.println("**** Test de Bag ****\n");
-
-        System.out.println("testIsEmpty --> " + testIsEmpty());
-        System.out.println("testAdd --> " + testAdd());
-        System.out.println("testToString --> " + testToString());
-        System.out.println("testContain --> " + testContain());
-        System.out.println("testClear --> " + testClear());
-        System.out.println("testRemove --> " + testRemove());
-        System.out.println("testOperationsWithCollections --> " + testOperationsWithCollections());
-        System.out.println("testRandomness --> " + testRandomness());
-
-        System.out.println();
-        System.out.println("Tests succeed = " + nbTestOK + " / "
-                + nbTest + " (" + (nbTestOK/nbTest*100) +"%)");
-
-
-        System.out.println("\n*********************\n");
     }
 }
