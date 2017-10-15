@@ -1,14 +1,29 @@
 <?php
 
-require_once("StudentDAO.php");
-require_once("Student.php");
+require_once("JourneyDAO.php");
+require_once("Journey.php");
 
 function testStudentDAO() {
-    $dao = StudentDAO::getInstance();
-    $s = new Student();
-    $s->init("toto", "titi");
-    $dao->insert($s);
+    $dao = JourneyDAO::getInstance();
+    /*$journey = new Journey();
+    $journey->setDescription("toto test");
+    $dao->insert($journey);
+    */
+    $journeys = $dao->findAll();
+    foreach ($journeys as $journey) {
+        echo $journey->getId() . " | " . $journey->getDescription() . " | " . $journey->getDateCreation() . " | " . $journey->getDistance() . "\n";
+    }
 
+    $updatedJourney = $dao->find(138);
+    $updatedJourney->setDescription("updated");
+    $dao->update($updatedJourney);
+
+    $journeyById = $dao->find(49);
+    echo $journeyById->getDescription() . "\n";
+
+    $deletedJourney = new Journey();
+    $deletedJourney->setId("139");
+    $dao->delete($deletedJourney);
 }
 
 testStudentDAO();

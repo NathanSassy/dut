@@ -19,7 +19,7 @@ class SqliteConnection  {
 
     public static function getConnection() {
         try {
-            $con = new PDO("sqlite:db/gps_web_app.db");
+            $con = new PDO("sqlite:resources/gps_web_app.db");
         }
         catch(PDOException $e) {
             print "Error : " . $e->getMessage() . "<br/>";
