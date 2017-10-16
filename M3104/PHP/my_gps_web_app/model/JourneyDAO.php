@@ -45,6 +45,7 @@ class JourneyDAO {
             $stmt = $dbc->prepare("INSERT INTO Journey(description) values (:d)");
             $stmt->bindValue(':d', $journey->getDescription(), PDO::PARAM_STR);
             $stmt->execute();
+            return true;
         }
     }
 
@@ -54,6 +55,7 @@ class JourneyDAO {
             $stmt = $dbc->prepare("DELETE FROM Journey WHERE id = :journey_id");
             $stmt->bindValue(':journey_id', $journey->getId(), PDO::PARAM_INT);
             $stmt->execute();
+            return true;
         }
     }
 
@@ -65,6 +67,7 @@ class JourneyDAO {
             $stmt->bindValue(':distance', $journey->getDistance(), PDO::PARAM_STR);
             $stmt->bindValue(':id', $journey->getId(), PDO::PARAM_INT);
             $stmt->execute();
+            return true;
         }
     }
 }

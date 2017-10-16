@@ -1,6 +1,7 @@
 <?php
 
 require_once("JourneyDAO.php");
+require_once("CoordinatesDAO.php");
 require_once("Journey.php");
 
 function testStudentDAO() {
@@ -24,6 +25,12 @@ function testStudentDAO() {
     $deletedJourney = new Journey();
     $deletedJourney->setId("139");
     $dao->delete($deletedJourney);
+
+    $coordao = CoordinatesDAO::getInstance();
+    $coords = $coordao->findWithJourneyId(49);
+    echo sizeof($coords);
+
+    $coordao->getLastId();
 }
 
 testStudentDAO();
