@@ -1,6 +1,9 @@
 <?php
 require_once('SqliteConnection.php');
 require_once("Coordinates.php");
+require_once("JourneyDAO.php");
+require_once("Journey.php");
+require_once("controllers/CalculDistanceImpl.php");
 
 class CoordinatesDAO {
     private static $dao;
@@ -50,12 +53,14 @@ class CoordinatesDAO {
     public final function insert(Coordinates $coordinates){
         if($coordinates instanceof Coordinates){
             $dbc = SqliteConnection::getInstance()->getConnection();
-            $stmt = $dbc->prepare("INSERT INTO Coordinates VALUES (:journey_id, ;journey_pos, :latitude, :longitude)");
-            $stmt->bindValue(':journey_id', $coordinates->getJourneyId(), PDO::PARAM_INT);
-            $stmt->bindValue(':journey_pos', $coordinates->getJourneyPos(), PDO::PARAM_INT);
+            $dbc->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $dbc->prepare("INSERT INTO Coordinates(journey_id, journey_pos, latitude, longitude) VALUES (:journey_id, :journey_pos, :latitude, :longitude)");
+            $stmt->bindValue(':journey_id', $coordinates->getJourneyId(), PDO::PARAM_STR);
+            $stmt->bindValue(':journey_pos', $coordinates->getJourneyPos(), PDO::PARAM_STR);
             $stmt->bindValue(':latitude', $coordinates->getLatitude(), PDO::PARAM_STR);
             $stmt->bindValue(':longitude', $coordinates->getLongitude(), PDO::PARAM_STR);
             $stmt->execute();
+            $this->updateDistance($coordinates->getJourneyId());
             return true;
         }
         else {
@@ -68,15 +73,17 @@ class CoordinatesDAO {
         $query = "SELECT Count(*) FROM Coordinates";
         $stmt = $dbc->query($query);
         $result = $stmt->fetch();
-        $result[0];
+        return $result[0];
     }
 
-    public function delete(Coordinates $coordinates) {
+    public final function delete(Coordinates $coordinates) {
         if($coordinates instanceof Coordinates) {
             $dbc = SqliteConnection::getInstance()->getConnection();
             $stmt = $dbc->prepare("DELETE FROM Coordinates WHERE journey_pos = :journey_pos");
             $stmt->bindValue(':journey_pos', $coordinates->getJourneyPos(), PDO::PARAM_INT);
             $stmt->execute();
+            $c = $this->find($coordinates->getJourneyPos());
+            $this->updateDistance($c->getJourneyId());
             return true;
         }
         else {
@@ -84,7 +91,7 @@ class CoordinatesDAO {
         }
     }
 
-    public function update(Coordinates $coordinates) {
+    public final function update(Coordinates $coordinates) {
         if($coordinates instanceof Coordinates) {
             $dbc = SqliteConnection::getInstance()->getConnection();
             $stmt = $dbc->prepare("UPDATE Coordinates SET journey_pos = :journey_pos, latitude = :latitude, longitude = :longitude WHERE journey_id = :journey_id");
@@ -93,11 +100,29 @@ class CoordinatesDAO {
             $stmt->bindValue(':longitude', $coordinates->getLongitude(), PDO::PARAM_STR);
             $stmt->bindValue(':journey_id', $coordinates->getJourneyId(), PDO::PARAM_INT);
             $stmt->execute();
+            $this->updateDistance($coordinates->getJourneyId());
             return true;
         }
         else {
             return false;
         }
+    }
+
+    public final function updateDistance($id) {
+        $id = (int) $id;
+        $coords = $this->findWithJourneyId($id);
+        $latlong = array();
+        foreach ($coords as $c) {
+            $latlong[] = array($c->getLatitude(), $c->getLongitude());
+        }
+
+        $journeyDao = JourneyDAO::getInstance();
+        $journey = $journeyDao->find($id);
+
+        $calcul = new CalculDistanceImpl();
+        $distance = $calcul->calculDistanceTrajet($latlong);
+        $journey->setDistance($distance);
+        $journeyDao->update($journey);
     }
 }
 ?>

@@ -3,7 +3,7 @@
 require_once('Controller.php');
 require_once('model/CoordinatesDAO.php');
 require_once('model/Coordinates.php');
-require_once('views/CoordinatesFormView.php');
+require_once('views/CoordinatesAddView.php');
 
 class CoordinatesAddController implements Controller {
     public function handle($data) {
@@ -14,7 +14,7 @@ class CoordinatesAddController implements Controller {
         $coordinates->setLatitude($data['latitude']);
         $coordinates->setLongitude($data['longitude']);
         $ok = CoordinatesDAO::getInstance()->insert($coordinates);
-        $view = new CoordinatesAddAddView();
+        $view = new CoordinatesAddView();
         $html = $view->render($ok);
         return $html;
     }

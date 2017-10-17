@@ -36,7 +36,7 @@ function rooting($request) {
         }
         else if($page == "coordinates_form") {
             $journeyForm = new CoordinatesFormController();
-            return $journeyForm->handle("");
+            return $journeyForm->handle($request);
         }
         else if($page == "coordinates_add") {
             $journeyForm = new CoordinatesAddController();

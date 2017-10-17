@@ -8,7 +8,7 @@ require_once('views/CoordinatesFormView.php');
 class CoordinatesFormController implements Controller {
     public function handle($request) {
         $view = new CoordinatesFormView();
-        $html = $view->render();
+        $html = $view->render($request['journey_id']);
         return $html;
     }
 }

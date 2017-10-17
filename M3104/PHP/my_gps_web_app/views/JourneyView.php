@@ -8,9 +8,9 @@ class JourneyView {
             <table>
                 <tr>
                     <th>
-                        <FORM method='POST' action='http://m3104.iut-info-vannes.net/m3104_1/index.php?page=coordinate_form'>
+                        <FORM method='POST' action='http://m3104.iut-info-vannes.net/m3104_1/index.php?page=coordinates_form'>
                             <INPUT type=submit value='Ajouter une coordonne'>
-                            <INPUT type='hidden' name='journey_id' value='" . ${id} . "' />
+                            <INPUT type='hidden' name='journey_id' value='" . $id . "' />
                         </FORM>
                     </th>
                 </tr>

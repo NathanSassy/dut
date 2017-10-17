@@ -19,7 +19,7 @@ class Coordinates {
     }
 
     public function setJourneyPos($newJourneyPos) {
-        $this->$journey_pos = $newJourneyPos;
+        $this->journey_pos = $newJourneyPos;
     }
 
     public function getLatitude() {

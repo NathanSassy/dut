@@ -1,7 +1,8 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
     <head>
-        <title>Application de depot de TP</title>
-        <link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
+        <title>Gestion de trajet</title>
+        <link rel="stylesheet" type="text/css" media="all" href="resources/css/style.css" />
     </head>
 
     <body>

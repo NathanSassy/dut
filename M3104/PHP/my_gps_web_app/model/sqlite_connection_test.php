@@ -30,7 +30,8 @@ function testStudentDAO() {
     $coords = $coordao->findWithJourneyId(49);
     echo sizeof($coords);
 
-    $coordao->getLastId();
+    $lastId = $coordao->getLastId();
+    echo "\nlast id = " . $lastId . "\n";
 }
 
 testStudentDAO();
