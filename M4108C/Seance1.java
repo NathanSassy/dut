@@ -7,6 +7,15 @@ import java.util.Scanner;
  */
 public class Seance1 extends Image {
 
+
+    public Seance1(int width, int height) {
+        super(width, height);
+    }
+
+    public Seance1(Image i) {
+        super(i);
+    }
+
     public Seance1(String filename) {
         super(filename);
     }
