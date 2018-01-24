@@ -1,12 +1,13 @@
 package com.agicquel.tp2.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by agicquel on 23/01/18.
  */
 
-public class Task {
+public class Task implements Serializable {
     private String title;
     private String description;
     private int duration; // in min

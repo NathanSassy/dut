@@ -1,5 +1,7 @@
 package com.agicquel.tp2.activity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,8 +19,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class TaskListActivity extends AppCompatActivity {
+public class TaskListActivity extends AppCompatActivity implements RecyclerAdapterTask.OnItemSelectedCallback {
     // DATA
+    static final int CREATE_TASK_REQUEST = 1;
     List<Task> mTasks;
     // GUI
     private FloatingActionButton mFAB;
@@ -41,11 +44,12 @@ public class TaskListActivity extends AppCompatActivity {
         mFAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Launch new activity
+                Intent intent = new Intent(TaskListActivity.this, TaskCreateActivity.class);
+                startActivityForResult(intent, CREATE_TASK_REQUEST);
             }
         });
 
-        RecyclerAdapterTask recyclerAdapterTask = new RecyclerAdapterTask(mTasks, R.layout.row_task, null);
+        RecyclerAdapterTask recyclerAdapterTask = new RecyclerAdapterTask(mTasks, R.layout.row_task, this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(recyclerAdapterTask);
@@ -56,5 +60,28 @@ public class TaskListActivity extends AppCompatActivity {
         mRecyclerView.setFocusable(false);
 
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_CANCELED)
+            return;
+
+        if(requestCode == CREATE_TASK_REQUEST) {
+            if(resultCode == Activity.RESULT_OK){
+                Task task = (Task) data.getSerializableExtra(Task.class.getName());
+                mTasks.add(task);
+                RecyclerAdapterTask recyclerAdapterTask = new RecyclerAdapterTask(mTasks, R.layout.row_task, this);
+                mRecyclerView.setAdapter(recyclerAdapterTask);
+                mRecyclerView.invalidate();
+            }
+        }
+    }
+
+    // Callback for item in the list
+
+    @Override
+    public void onClickReceiver(int position) {
+        Task task = mTasks.get(position);
     }
 }

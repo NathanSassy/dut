@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "com.agicquel.tp2"
+        applicationId "com.agicquel.popcorntime"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
@@ -17,7 +17,6 @@ android {
         }
     }
 }
-
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
