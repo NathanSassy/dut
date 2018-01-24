@@ -2,6 +2,7 @@ package com.agicquel.tp2.activity;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ public class TaskCreateActivity extends AppCompatActivity implements View.OnClic
     private EditText mTitle;
     private EditText mDescription;
     private EditText mDate;
+    private EditText mTime;
     private EditText mDuration;
     private Button saveBtn;
     private Button cancelBtn;
@@ -34,15 +36,26 @@ public class TaskCreateActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_task_create);
 
+        mCalendar = Calendar.getInstance();
         mTitle = findViewById(R.id.create_task_title);
         mDescription = findViewById(R.id.create_task_description);
         mDate = findViewById(R.id.create_task_date);
+        mTime = findViewById(R.id.create_task_time);
         mDuration = findViewById(R.id.create_task_duration);
         saveBtn = findViewById(R.id.button_save);
         cancelBtn = findViewById(R.id.button_cancel);
 
-        mCalendar = Calendar.getInstance();
-        final DatePickerDialog.On dateDialog = new DatePickerDialog.OnDateSetListener() {
+        final TimePickerDialog.OnTimeSetListener timeDialog = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                mCalendar.set(Calendar.HOUR_OF_DAY, selectedHour);
+                mCalendar.set(Calendar.MINUTE, selectedMinute);
+                SimpleDateFormat simpleDate =  new SimpleDateFormat("HH:mm");
+                mTime.setText(simpleDate.format(mCalendar.getTime()));
+            }
+        };
+
+        final DatePickerDialog.OnDateSetListener dateDialog = new DatePickerDialog.OnDateSetListener() {
 
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -69,6 +82,18 @@ public class TaskCreateActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
+        mTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new TimePickerDialog(
+                        TaskCreateActivity.this,
+                        timeDialog,
+                        mCalendar.get(Calendar.HOUR_OF_DAY),
+                        mCalendar.get(Calendar.MINUTE),
+                        true
+                ).show();
+            }
+        });
 
         saveBtn.setOnClickListener(this);
         cancelBtn.setOnClickListener(this);
