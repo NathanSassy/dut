@@ -15,8 +15,8 @@ public class Seance2 extends Seance1 {
         super(filename);
     }
 
-    public Image seuillage(int t) {
-        Image ret = new Image(this);
+    public Seance2 seuillage(int t) {
+        Seance2 ret = new Seance2(this);
         for(int i = 0; i < ret.pixels.length; i++) {
             if(ret.pixels[i] < t)
                 ret.pixels[i] = 0;
@@ -67,12 +67,12 @@ public class Seance2 extends Seance1 {
         return t;
     }
 
-    public Image otsu() {
+    public Seance2 otsu() {
         Seance2 ret = new Seance2(this);
         return ret.seuillage(ret.getOtsuScale());
     }
 
-    public Image iterativeSelectionThresholding() {
+    public Seance2 iterativeSelectionThresholding() {
         Seance2 ret = new Seance2(this);
         double normalizedHistogram[] = ret.normalizedHistogram();
         int intScaleNew = normalizedHistogram.length / 2;
@@ -98,48 +98,129 @@ public class Seance2 extends Seance1 {
         return ret.seuillage(intScale);
     }
 
-    public Image otsuZone(int pixel, int size) {
-        Seance2 image = new Seance2(size * 2, size * 2);
-        int fp = pixel - (size/2) - (this.width * (size / 2));
-        int lp = pixel + (size/2) + (this.width * (size / 2));
+    public Seance2 otsu(int s) {
+        Seance2 image = new Seance2(this.width, this.height);
+        Seance2 input = new Seance2(this);
+        Seance2 ret = new Seance2(this);
+        long sum = 0;
+        int x1, y1, x2, y2;
+        int count = 0;
+        int index = 0;
+        int s2 = s/2;
 
-        System.out.println("image size = " + image.pixels.length);
-        System.out.println("this size = " + this.pixels.length);
+        for(int i = 0; i < image.width; i++) {
+            sum = 0;
 
-        System.out.println("fp = " + fp);
-        System.out.println("lp = " + lp);
+            for(int j = 0; j < image.height; j++) {
+                index = j*image.width+i;
+
+                sum += input.pixels[index];
+                if(i==0)
+                    image.pixels[index] = (int) sum;
+                else
+                    image.pixels[index] = (int) (image.pixels[index-1] + sum);
 
 
-        for(int i = 0; i < image.pixels.length; i++) {
-            image.pixels[i] = fp
+            }
         }
 
+        for (int i=0; i<image.width; i++) {
+            for (int j=0; j<image.height; j++) {
+                index = j*image.width+i;
 
-        /*for(int i = 0; i < size; i++) {
-            for(int j = 0; j < size; j++) {
-                int p = fp + i + j * this.width;
-                if(p > 0 && p < this.pixels.length)
-                    image.pixels[i + image.width * j] = this.pixels[j];
+                // set the SxS region
+                x1=i-s2; x2=i+s2;
+                y1=j-s2; y2=j+s2;
+
+                // check the border
+                if (x1 < 0) x1 = 0;
+                if (x2 >= image.width) x2 = image.width-1;
+                if (y1 < 0) y1 = 0;
+                if (y2 >= image.height) y2 = image.height-1;
+
+                count = (x2-x1)*(y2-y1);
+
+                // I(x,y)=s(x2,y2)-s(x1,y2)-s(x2,y1)+s(x1,x1)
+                sum = image.pixels[y2*image.width+x2] -
+                        image.pixels[y1*image.width+x2] -
+                        image.pixels[y2*image.width+x1] +
+                        image.pixels[y1*image.width+x1];
+
+                if ((long)(input.pixels[index]*count) < (long)(sum))
+                    ret.pixels[index] = 0;
                 else
-                    image.pixels[i + image.width * j] = -1;
+                    ret.pixels[index] = 255;
             }
-        }*/
+        }
 
+        return ret;
+    }
 
+    public Seance2 erosion(int n) {
+        Seance2 ret = new Seance2(this);
+        int map[] = new int[ret.pixels.length];
 
-        /*for(int i = fp; (i-fp) < image.pixels.length; i++) {
-            System.out.println("i = " + i);
-            System.out.println("i - fp = " + (i - fp));
+        for(int y = 0; y < ret.getHeight(); y++){
+            for(int x = 0; x < ret.getWidth(); x++){
 
-            if(i > 0 && i < this.pixels.length)
-                image.pixels[i - fp] = this.pixels[i];
-            else
-                image.pixels[i - fp] = -1;
-        }*/
+                map[x+y*ret.width] = ret.getValue(x, y);
 
-        image.display();
+                for(int ty = y - n; ty <= y + n; ty++) {
+                    for (int tx = x - n; tx <= x + n; tx++) {
+                        if(
+                            ty >= 0 && ty < ret.getHeight() // y
+                            && tx >= 0 && tx < ret.getWidth() // x
+                            && ret.getValue(tx, ty) < map[x+y*ret.width]) { // min
+                            map[x+y*ret.width] = ret.getValue(tx, ty);
+                        }
+                    }
+                }
+            }
+        }
 
-        return new Seance2(this).seuillage(image.getOtsuScale());
+        System.arraycopy(map, 0, ret.pixels, 0, ret.pixels.length);
+        return ret;
+    }
+
+    public Seance2 dilatation(int n) {
+        Seance2 ret = new Seance2(this);
+        int map[] = new int[ret.pixels.length];
+
+        for(int y = 0; y < ret.getHeight(); y++){
+            for(int x = 0; x < ret.getWidth(); x++){
+                map[x+y*ret.width] = ret.getValue(x, y);
+
+                for(int ty = y - n; ty <= y + n; ty++) {
+                    for (int tx = x - n; tx <= x + n; tx++) {
+                        if(
+                            ty >= 0 && ty < ret.getHeight() // y
+                            && tx >= 0 && tx < ret.getWidth() // x
+                            && ret.getValue(tx, ty) > map[x+y*ret.width]) { // max
+                            map[x+y*ret.width] = ret.getValue(tx, ty);
+                        }
+                    }
+                }
+            }
+        }
+
+        System.arraycopy(map, 0, ret.pixels, 0, ret.pixels.length);
+        return ret;
+    }
+
+    public Seance2 erosion3x3() {
+        return new Seance2(this).erosion(3);
+    }
+
+    public Seance2 dilatation3x3() {
+        return new Seance2(this).dilatation(3);
+    }
+
+    public Seance2 ouverture() {
+        return new Seance2(this).erosion3x3().dilatation3x3();
+    }
+
+    public Seance2 fermeture() {
+        return new Seance2(this).dilatation3x3().erosion3x3();
     }
 
     public static void main(String[] args) {
@@ -166,7 +247,26 @@ public class Seance2 extends Seance1 {
                 break;
             case 3:
                 Seance2 image31 = new Seance2("img/coins.png");
-                image31.otsuZone(image31.pixels.length/2, 50).display();
+                image31.otsu(10).display();
+                image31.otsu().display();
+                break;
+            case 4:
+                Seance2 image41 = new Seance2("img/golfe2ndg.jpg");
+                image41.otsu().display();
+                image41.otsu().erosion3x3().display();
+                image41.otsu().dilatation3x3().display();
+                break;
+            case 5:
+                Seance2 image51 = new Seance2("img/golfe2ndg.jpg");
+                image51.otsu().display();
+                image51.otsu().erosion(6).display();
+                image51.otsu().dilatation(6).display();
+                break;
+            case 7:
+                Seance2 imgae71 = new Seance2("img/golfe2ndg.jpg");
+                imgae71.display();
+                imgae71.ouverture().display();
+                imgae71.fermeture().display();
                 break;
         }
     }
