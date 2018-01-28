@@ -223,6 +223,56 @@ public class Seance2 extends Seance1 {
         return new Seance2(this).dilatation3x3().erosion3x3();
     }
 
+    public Seance2 cheapeauHautDeFormeOuverture() {
+        Seance2 ret = new Seance2(this);
+        Image o = ret.ouverture();
+
+        for(int i = 0; i < ret.pixels.length; i++) {
+            ret.pixels[i] = ret.pixels[i] - o.pixels[i];
+            if(ret.pixels[i] < 0) ret.pixels[i] = 0;
+        }
+
+        return ret;
+    }
+
+    public Seance2 cheapeauHautDeFormeFermeture() {
+        Seance2 ret = new Seance2(this);
+        Image f = ret.fermeture();
+
+        for(int i = 0; i < ret.pixels.length; i++) {
+            ret.pixels[i] = f.pixels[i] - ret.pixels[i];
+            if(ret.pixels[i] < 0) ret.pixels[i] = 0;
+        }
+
+        return ret;
+    }
+
+    public Seance2 gradientMorphologique() {
+        Seance2 ret = this.ouverture();
+        Image e = this.erosion3x3();
+
+        for(int i = 0; i < ret.pixels.length; i++) {
+            ret.pixels[i] -= e.pixels[i];
+            if(ret.pixels[i] < 0) ret.pixels[i] = 0;
+        }
+
+        return ret;
+    }
+
+    public Seance2 laplacientMorphologique() {
+        Seance2 ret = new Seance2(this);
+        Image e = ret.erosion3x3();
+        Image d = ret.dilatation3x3();
+
+        for(int i = 0; i < ret.pixels.length; i++) {
+            ret.pixels[i] = e.pixels[i] + d.pixels[i] - 2 * ret.pixels[i];
+            if(ret.pixels[i] < 0) ret.pixels[i] = 0;
+            else if(ret.pixels[i] > 255) ret.pixels[i] = 255;
+        }
+
+        return ret;
+    }
+
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
         System.out.println("Entrez le n° de l'exercice à tester (1-9): ");
@@ -267,6 +317,10 @@ public class Seance2 extends Seance1 {
                 imgae71.display();
                 imgae71.ouverture().display();
                 imgae71.fermeture().display();
+                imgae71.cheapeauHautDeFormeOuverture().display();
+                imgae71.cheapeauHautDeFormeFermeture().display();
+                imgae71.gradientMorphologique().display();
+                imgae71.laplacientMorphologique().display();
                 break;
         }
     }
