@@ -1,5 +1,5 @@
 import java.lang.reflect.Array;
-import java.util.Scanner;
+import java.util.*;
 
 public class Seance2 extends Seance1 {
 
@@ -273,6 +273,60 @@ public class Seance2 extends Seance1 {
         return ret;
     }
 
+    public Seance2 etiquetteObjet() {
+        Seance2 ret = new Seance2(this);
+        Seance2 map = new Seance2(this);
+        Arrays.fill(map.pixels, 0);
+        int etiquette = 0;
+
+        for(int y = 0; y < ret.getHeight(); y++){
+            for(int x = 0; x < ret.getWidth(); x++){
+                if(ret.getValue(x, y) == 255 && map.getValue(x, y) == 0) {
+                    etiquette++;
+                    diffuser(x, y, etiquette, ret, map);
+                }
+            }
+        }
+
+        return map;
+    }
+
+    private void diffuser(int x, int y, int etiquette, Seance2 img, Seance2 map) {
+        if(map.getValue(x, y) != 0) return;
+
+        map.setValue(x, y, etiquette);
+        for(int ty = y - 1; ty <= y + 1; ty++) {
+            for (int tx = x - 1; tx <= x + 1; tx++) {
+                if(
+                        ty >= 0 && ty < img.getHeight() // y
+                        && tx >= 0 && tx < img.getWidth() // x
+                        && img.getValue(tx, ty) == 255) {
+                    diffuser(tx, ty, etiquette, img, map);
+                }
+            }
+        }
+    }
+
+    public Seance2 etiquetteObjet2() {
+        Seance2 ret = new Seance2(this);
+        Seance2 mapEtiquette = ret.etiquetteObjet();
+        HashMap<Integer, Integer> tab = new HashMap<>();
+
+        int max = Arrays.stream(mapEtiquette.pixels).max().getAsInt();
+        for(int i = 0; i < max; i++)
+            tab.put(i, i);
+
+        /*for(int y = 0; y < ret.getHeight(); y++){
+            for(int x = 0; x < ret.getWidth(); x++){
+                if(ret.getValue(x, y) == 255 && map.getValue(x, y) == 0) {
+                    etiquette++;
+                    diffuser(x, y, etiquette, ret, map);
+                }
+            }
+        }*/
+        return null;
+    }
+
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
         System.out.println("Entrez le n° de l'exercice à tester (1-9): ");
@@ -321,6 +375,14 @@ public class Seance2 extends Seance1 {
                 imgae71.cheapeauHautDeFormeFermeture().display();
                 imgae71.gradientMorphologique().display();
                 imgae71.laplacientMorphologique().display();
+                break;
+            case 8:
+                Seance2 image81 = new Seance2("img/coins.png");
+                image81.seuillage(100).erosion3x3().display();
+                image81.seuillage(100).erosion3x3().etiquetteObjet().displayColor();
+                break;
+            case 9:
+                Seance2 image91 = new Seance2("img/coins.png");
                 break;
         }
     }
