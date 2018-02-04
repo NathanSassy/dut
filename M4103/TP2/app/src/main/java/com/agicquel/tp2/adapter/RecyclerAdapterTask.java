@@ -78,7 +78,7 @@ public class RecyclerAdapterTask extends RecyclerView.Adapter<RecyclerAdapterTas
         holder.itemView.setTag(position);
         holder.mTitle.setText(task.getTitle());
         holder.mDescription.setText(task.getDescription());
-        holder.mDuration.setText(task.getDuration() + " min");
+        holder.mDuration.setText(task.getDuration() / 60 + "h" + task.getDuration()%60 + "min");
         holder.mDate.setText(new SimpleDateFormat("dd/MM/yyyy HH:mm").format(task.getDate()));
 
         holder.mCardView.setOnClickListener(new View.OnClickListener() {

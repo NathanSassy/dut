@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">TP2</string>
+
+    <string name="app_undo">Annuler</string>
+
+    <string name="list_task">Liste des tâches</string>
+    <string name="create_task">Création d\'une tâches</string>
+    <string name="change_task">Modificaton d\'une tâches</string>
+
+    <string name="task_created">Tâche créée</string>
+    <string name="task_deleted">Tâche supprimée</string>
+    <string name="task_restored">La tâche a été restaurée!</string>
+    <string name="task_changed">Tâche modifiée</string>
+
 </resources>

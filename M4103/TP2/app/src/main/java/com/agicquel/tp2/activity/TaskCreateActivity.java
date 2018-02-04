@@ -2,10 +2,17 @@ package com.agicquel.tp2.activity;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RectShape;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -20,9 +27,18 @@ import java.util.Calendar;
 
 public class TaskCreateActivity extends AppCompatActivity implements View.OnClickListener{
     // Data
-    Calendar mCalendar;
+    static final String TASK_STATUS = "TASK_STATUS";
+    static final String TASK_OLD = "TASK_OLD";
+    static final String TASK_CREATED = "TASK_CREATED";
+    static final String TASK_CHANGED = "TASK_CHANGED";
+    static final String TASK_DELETED = "TASK_DELETED";
+    private boolean isChanged = false;
+    private Calendar mCalendar;
+    private int duration;
+    private Task modTask = null;
 
     // GUI
+    private Drawable originalDrawable;
     private EditText mTitle;
     private EditText mDescription;
     private EditText mDate;
@@ -30,6 +46,7 @@ public class TaskCreateActivity extends AppCompatActivity implements View.OnClic
     private EditText mDuration;
     private Button saveBtn;
     private Button cancelBtn;
+    private Button deleteBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +61,10 @@ public class TaskCreateActivity extends AppCompatActivity implements View.OnClic
         mDuration = findViewById(R.id.create_task_duration);
         saveBtn = findViewById(R.id.button_save);
         cancelBtn = findViewById(R.id.button_cancel);
+        deleteBtn = findViewById(R.id.button_delete);
+
+        deleteBtn.setVisibility(View.GONE);
+        originalDrawable = mTitle.getBackground();
 
         final TimePickerDialog.OnTimeSetListener timeDialog = new TimePickerDialog.OnTimeSetListener() {
             @Override
@@ -68,8 +89,15 @@ public class TaskCreateActivity extends AppCompatActivity implements View.OnClic
             }
         };
 
-        mDate.setOnClickListener(new View.OnClickListener() {
+        final TimePickerDialog.OnTimeSetListener durationDialog = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
+                duration = selectedHour * 60 + selectedMinute;
+                mDuration.setText(selectedHour + "h " + selectedMinute + "min");
+            }
+        };
 
+        mDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 new DatePickerDialog(
@@ -95,8 +123,85 @@ public class TaskCreateActivity extends AppCompatActivity implements View.OnClic
             }
         });
 
+
+        mDuration.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new TimePickerDialog(
+                        TaskCreateActivity.this,
+                        durationDialog,
+                        0,
+                        0,
+                        true
+                ).show();
+            }
+        });
+
         saveBtn.setOnClickListener(this);
         cancelBtn.setOnClickListener(this);
+        deleteBtn.setOnClickListener(this);
+
+        if(getIntent().getExtras() != null) modTask = (Task) getIntent().getExtras().getSerializable(Task.class.getName());
+        if(modTask != null) {
+            isChanged = true;
+            deleteBtn.setVisibility(View.VISIBLE);
+            duration = modTask.getDuration();
+            mCalendar = Calendar.getInstance();
+            mCalendar.setTime(modTask.getDate());
+
+            mTitle.setText(modTask.getTitle());
+            mDescription.setText(modTask.getDescription());
+            SimpleDateFormat simpleDate =  new SimpleDateFormat("dd/MM/yyyy");
+            mDate.setText(simpleDate.format(modTask.getDate()));
+            simpleDate = new SimpleDateFormat("HH:mm");
+            mTime.setText(simpleDate.format(modTask.getDate()));;
+            mDuration.setText(modTask.getDuration() / 60 + "h" + modTask.getDuration()%60 + " min");
+        }
+
+        if(isChanged)
+            getSupportActionBar().setTitle(getString(R.string.change_task));
+        else
+            getSupportActionBar().setTitle(getString(R.string.create_task));
+
+    }
+
+    private boolean checkInput() {
+        boolean valid = true;
+
+        if(mTitle.getText().toString().isEmpty())
+            mTitle.setBackgroundResource(R.drawable.edittext_bg_wrong);
+        else
+            mTitle.setBackgroundDrawable(originalDrawable);
+
+        if(mDescription.getText().toString().isEmpty()) {
+            mDescription.setBackgroundResource(R.drawable.edittext_bg_wrong);
+            valid = false;
+        }
+        else
+            mTitle.setBackgroundDrawable(originalDrawable);
+
+        if(mDuration.getText().toString().isEmpty()) {
+            mDuration.setBackgroundResource(R.drawable.edittext_bg_wrong);
+            valid = false;
+        }
+        else
+            mTitle.setBackgroundDrawable(originalDrawable);
+
+        if(mDate.getText().toString().isEmpty()) {
+            mDate.setBackgroundResource(R.drawable.edittext_bg_wrong);
+            valid = false;
+        }
+        else
+            mTitle.setBackgroundDrawable(originalDrawable);
+
+        if(mTime.getText().toString().isEmpty()) {
+            mTime.setBackgroundResource(R.drawable.edittext_bg_wrong);
+            valid = false;
+        }
+        else
+            mTitle.setBackgroundDrawable(originalDrawable);
+
+        return valid;
     }
 
     @Override
@@ -104,14 +209,24 @@ public class TaskCreateActivity extends AppCompatActivity implements View.OnClic
         Intent returnIntent = new Intent();
         switch(view.getId()) {
             case R.id.button_save:
-                Task task = new Task(mTitle.getText().toString(), mDescription.getText().toString(), 30, mCalendar.getTime());
+                if(!checkInput()) return;
 
-                returnIntent.putExtra(task.getClass().getName(), task);
+                Task task = new Task(mTitle.getText().toString(), mDescription.getText().toString(), duration, mCalendar.getTime());
+                returnIntent.putExtra(Task.class.getName(), task);
+                String status = isChanged ? TASK_CHANGED : TASK_CREATED;
+                returnIntent.putExtra(TASK_STATUS, status);
+                if(isChanged) returnIntent.putExtra(TASK_OLD, modTask);
                 setResult(Activity.RESULT_OK,returnIntent);
-
                 break;
+
             case R.id.button_cancel:
                 setResult(Activity.RESULT_CANCELED, returnIntent);
+                break;
+
+            case R.id.button_delete:
+                returnIntent.putExtra(TASK_OLD, modTask);
+                returnIntent.putExtra(TASK_STATUS, TASK_DELETED);
+                setResult(Activity.RESULT_OK,returnIntent);
                 break;
         }
         finish();
