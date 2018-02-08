@@ -307,24 +307,98 @@ public class Seance2 extends Seance1 {
         }
     }
 
-    public Seance2 etiquetteObjet2() {
-        Seance2 ret = new Seance2(this);
-        Seance2 mapEtiquette = ret.etiquetteObjet();
-        HashMap<Integer, Integer> tab = new HashMap<>();
+    public Image etiquetteObjet2() {
+        Image ret = new Image(this.width, this.height);
+        HashMap<Integer, Integer> tab = new HashMap<>();//new int[100];
+        int etiquette = 0;
 
-        int max = Arrays.stream(mapEtiquette.pixels).max().getAsInt();
-        for(int i = 0; i < max; i++)
-            tab.put(i, i);
-
-        /*for(int y = 0; y < ret.getHeight(); y++){
-            for(int x = 0; x < ret.getWidth(); x++){
-                if(ret.getValue(x, y) == 255 && map.getValue(x, y) == 0) {
-                    etiquette++;
-                    diffuser(x, y, etiquette, ret, map);
+        for(int i = 0; i < this.width; i++) {
+            for(int j = 0; j < this.height; j++) {
+                if(this.getValue(i, j) == 255 && ret.getValue(i, j) == 0) {
+                    int nbEtiq = 0;
+                    int min = 100;
+                    if(i-1 >= 0 && j-1 >= 0) {
+                        if(this.getValue(i-1,j-1) != 0) {
+                            nbEtiq ++;
+                            if(ret.getValue(i-1, j-1) < min) {
+                                min = ret.getValue(i-1, j-1);
+                            }
+                        }
+                    }
+                    if(i-1 >= 0 && j+1 < this.getHeight()) {
+                        if(this.getValue(i-1,j+1) != 0) {
+                            nbEtiq ++;
+                            if(ret.getValue(i-1, j+1) < min) {
+                                min = ret.getValue(i-1, j+1);
+                            }
+                        }
+                    }
+                    if(i-1 >= 0) {
+                        if(this.getValue(i-1,j) != 0) {
+                            nbEtiq ++;
+                            if(ret.getValue(i-1, j) < min) {
+                                min = ret.getValue(i-1, j);
+                            }
+                        }
+                    }
+                    if(j-1 >= 0) {
+                        if(this.getValue(i,j-1) != 0) {
+                            nbEtiq ++;
+                            if(ret.getValue(i, j-1) < min) {
+                                min = ret.getValue(i, j-1);
+                            }
+                        }
+                    }
+                    if(nbEtiq != 0) {
+                        ret.setValue(i, j, min);
+                        if(i-1 >= 0 && j-1 >= 0) {
+                            if(this.getValue(i-1,j-1) != 0) {
+                                tab.put(ret.getValue(i-1, j-1), min);
+                            }
+                        }
+                        if(i-1 >= 0 && j+1 < this.getHeight()) {
+                            if(this.getValue(i-1,j+1) != 0) {
+                                tab.put(ret.getValue(i-1, j+1), min);
+                            }
+                        }
+                        if(i-1 >= 0) {
+                            if(this.getValue(i-1,j) != 0) {
+                                tab.put(ret.getValue(i-1, j), min);
+                            }
+                        }
+                        if(j-1 >= 0) {
+                            if(this.getValue(i,j-1) != 0) {
+                                tab.put(ret.getValue(i, j-1), min);
+                            }
+                        }
+                    }
+                    else {
+                        etiquette++;
+                        ret.setValue(i, j, etiquette);
+                        tab.put(etiquette, etiquette);
+                    }
                 }
             }
-        }*/
-        return null;
+        }
+        for(int i=99; i >= 0; i--) {
+            simpl(i,tab);
+        }
+        for(int i = 0; i < this.width; i++) {
+            for(int j = 0; j < this.height; j++) {
+                int val = tab.get(ret.getValue(i, j)) != null ? tab.get(ret.getValue(i, j)) : 0;
+                ret.setValue(i, j, val);
+            }
+        }
+        return ret;
+    }
+
+    public int simpl(int i, HashMap<Integer, Integer> tab) {
+        int ret = i;
+        if(tab.get(i) != null && tab.get(i) != i) {
+            ret = simpl(tab.get(i),tab);
+            tab.put(i, ret);
+        }
+        return ret;
     }
 
     public static void main(String[] args) {
@@ -383,6 +457,7 @@ public class Seance2 extends Seance1 {
                 break;
             case 9:
                 Seance2 image91 = new Seance2("img/coins.png");
+                image91.seuillage(100).etiquetteObjet2().displayColor();
                 break;
         }
     }
