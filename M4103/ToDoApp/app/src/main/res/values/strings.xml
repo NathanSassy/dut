@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">ToDoApp</string>
+    <string name="app_undo">Annuler</string>
+
+    <string name="list_task">Liste des tâches</string>
+    <string name="create_task">Création d\'une tâches</string>
+    <string name="change_task">Modificaton d\'une tâches</string>
+    <string name="link_task">Lien de la tâche</string>
+    <string name="task_search">Rechercher une tâche</string>
+
+    <string name="context">Contexte</string>
+    <string name="link">Lien</string>
+    <string name="description">Description</string>
+
+    <string name="task_created">Tâche créée</string>
+    <string name="task_deleted">Tâche supprimée</string>
+    <string name="task_restored">La tâche a été restaurée!</string>
+    <string name="task_changed">Tâche modifiée</string>
+
+</resources>

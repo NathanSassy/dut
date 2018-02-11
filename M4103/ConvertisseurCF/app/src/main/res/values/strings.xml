@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ConvertisseurCF</string>
+    <string name="app_err_novalue">Insérer une valeur à convertir</string>
+    <string name="app_err_nounit">Sélectionnez une unité</string>
+    <string name="celsius">C° : </string>
+    <string name="fahrenheit">F : </string>
+    <string name="value">Valeur :</string>
+    <string name="convert">Convertir</string>
+    <string name="title">Convertisseur C° / F</string>
+</resources>
