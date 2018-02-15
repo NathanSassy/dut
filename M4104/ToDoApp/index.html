@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <title>Todo App</title>        
+        
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="css/materialize.min.css" />
+        
+        <!-- Compiled and minified JavaScript -->
+        <script type="text/javascript" src="lib/materialize.min.js"></script>
+       
+        <script type="text/javascript" src="js/angular/angular.js"></script>
+        <script type="text/javascript" src="js/angular/angular-route.js"></script>
+        <script type="text/javascript" src="js/angular/angular-resource.js"></script>
+
+        <link rel="stylesheet" href="css/custom.css" />
+        <script type="text/javascript" src="js/app.js"></script>
+        <script type="text/javascript" src="js/controllers/todoController.js"></script>
+
+    </head>
+    
+
+   <body ng-app="ToDoApp" ng-controller="ToDoAppController">
+
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="#!" class="brand-logo">Logo</a>
+                    <ul class="right hide-on-med-and-down">
+                    <li><a class="waves-effect waves-light btn-large" ng-href="#!/add">Ajouter une tache</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+        <div ng-view></div>
+            
+    </body>
+</html>
