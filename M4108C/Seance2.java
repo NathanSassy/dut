@@ -28,7 +28,7 @@ public class Seance2 extends Seance1 {
 
     public int getOtsuScale() {
         Seance2 ret = new Seance2(this);
-        double normalizedHistogram[] = ret.normalizedHistogram();
+        int normalizedHistogram[] = ret.normalizedHistogram();
         int n = ret.width * ret.height;
         double bestVariance = 0;
         int t = 0;
@@ -74,7 +74,7 @@ public class Seance2 extends Seance1 {
 
     public Seance2 iterativeSelectionThresholding() {
         Seance2 ret = new Seance2(this);
-        double normalizedHistogram[] = ret.normalizedHistogram();
+        int normalizedHistogram[] = ret.normalizedHistogram();
         int intScaleNew = normalizedHistogram.length / 2;
         int intScale = 0;
         int n = ret.width * ret.height;

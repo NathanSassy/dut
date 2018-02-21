@@ -1,0 +1,16 @@
+<div class="container" data-ng-init="initAddView()">
+
+    <form class="todo-form">
+            <input type="text" data-ng-model="taskTitle" placeholder="Titre.." />
+            <input type="text" data-ng-model="taskDescription" placeholder="Description.." />
+            <input type="date" data-ng-model="taskDate" placeholder="Date.." />
+            <input type="time" data-ng-model="taskDuration" placeholder="Durée.." />
+            <input type="text" data-ng-model="taskContext" placeholder="Contexte.." />
+            <input type="url" data-ng-model="taskURL" placeholder="URL.." />
+            
+            <button class="waves-effect waves-light btn red darken-4" type="button" ng-click="backToList()">Retour</button>
+			<input class="waves-effect waves-light btn" ng-show="showAddButton" ng-click="addTask('add')" type="submit" value="Ajouter"/>
+            <input class="waves-effect waves-light btn" ng-show="showModifyButton" ng-click="addTask('modify')" type="submit" value="Modifier" />
+    </form>
+
+</div>

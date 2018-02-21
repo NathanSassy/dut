@@ -69,7 +69,11 @@ public class Image
     // accesseur en lecture
     public int getValue(int x, int y)
     {
-        return pixels[x+y*width];
+        try {
+            return pixels[x+y*width];
+        }catch (Exception e){
+            return -1;
+        }
     }
 
     // accesseur en écriture

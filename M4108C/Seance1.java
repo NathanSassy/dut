@@ -164,13 +164,14 @@ public class Seance1 extends Image {
 
     /**
      * @return histogramme des niveaux de gris normalisés
-     */    public double[] normalizedHistogram() {
+     */
+    public int[] normalizedHistogram() {
         int histogram[] = this.histogram();
-        double[] normalizedHistogram = new double[256];
+        int[] normalizedHistogram = new int[256];
         int numberOfPixels = this.height * this.width;
 
         for (int n = 0; n < 256; n++)
-            normalizedHistogram[n] = 1.0 * histogram[n] / numberOfPixels;
+            normalizedHistogram[n] = histogram[n] / numberOfPixels;
 
         return normalizedHistogram;
     }
