@@ -1,13 +1,16 @@
 <ul id="task-list" class="collection task">
-    <li ng-repeat="task in tasks" class="collection-item task">
-        <span class="title">{{task.title}}</span>
-        <p>
-        	{{task.duration}} <br>
-        	{{task.date}} <br>
-        	{{task.description}} <br>
-        	{{task.context}} <br>
-        	{{task.link}} <br>
-        	<br>
-        </p>
+    <li class="collection-item " ng-repeat="task in tasks" ng-dblclick="taskAddView('modify', task)">
+		<span class="title">
+			<strong>{{task.title}}</strong>
+		</span>
+
+		<a href="#!" ng-click="removeTask(task)" class="secondary-content"><i class="material-icons">close</i></a>
+		<p>
+			Date : {{task.date}}<br>
+			Durée : {{task.duration}}<br>
+			Description : {{task.description}}<br>
+			Contexte : {{task.context}}<br>
+			Url : <a href="{{task.url}}">{{task.url}}</a>
+		</p>
     </li>
 </ul>

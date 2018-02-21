@@ -18,6 +18,8 @@
         <script type="text/javascript" src="js/app.js"></script>
         <script type="text/javascript" src="js/controllers/todoController.js"></script>
 
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     </head>
     
 
@@ -26,9 +28,9 @@
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper">
-                    <a href="#!" class="brand-logo">Logo</a>
+                    <a href="#!/list" class="brand-logo"><i class="material-icons">apps</i>ToDoApp</a>
                     <ul class="right hide-on-med-and-down">
-                    <li><a class="waves-effect waves-light btn-large" ng-href="#!/add">Ajouter une tache</a></li>
+                    <li><a class="waves-effect waves-light btn" ng-click="taskAddView('add')">Ajouter une tache</a></l>
                     </ul>
                 </div>
             </nav>

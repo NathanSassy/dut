@@ -1,4 +1,3 @@
-// Le point d’entré de l’application
 var app = angular.module('ToDoApp', ['ngRoute', 'ngResource'])
     .config(function ($routeProvider) {
         'use strict';

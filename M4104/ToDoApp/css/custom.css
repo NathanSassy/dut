@@ -5,6 +5,14 @@
     margin-right: auto;
 }
 
+.nav-wrapper {
+  background-color: #3F51B5;
+}
+
 .title {
-	color: blue;
+	color: #303F9F;
+}
+
+a {
+    color: #FF4081;
 }
