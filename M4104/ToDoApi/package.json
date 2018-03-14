@@ -1,0 +1,16 @@
+{
+  "name": "todoapi",
+  "version": "1.0.0",
+  "description": "API for TodoApp",
+  "main": "index.js",
+  "scripts": {
+    "test": "bash ./scripts/testApi.sh",
+    "start" : "node ./app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.0.10"
+  }
+}

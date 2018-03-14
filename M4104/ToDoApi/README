@@ -1,0 +1,8 @@
+TP TodoAPI
+Antoine Gicquel - Groupe D
+
+Pour lancer le serveur :
+# npm start
+
+Pour effectuer la série de test (le serveur doit être lancé) :
+# npm test
