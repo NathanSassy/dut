@@ -2,11 +2,11 @@
 module.exports = function(app) {
   var taskController = require('../controllers/TaskController');
 
-  app.route('/tasks')
+  app.route('/api/tasks')
     .get(taskController.getAllTasks)
     .post(taskController.addtask);
 
-  app.route('/tasks/:taskId')
+  app.route('/api/tasks/:taskId')
     .get(taskController.getTask)
     .put(taskController.updateTask)
     .delete(taskController.deleteTask);
