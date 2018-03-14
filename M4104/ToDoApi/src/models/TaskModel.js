@@ -10,7 +10,7 @@ var TaskSchema = new Schema(
     "duree": Number
 },
 {
-    collection: 'tododbs'
+    collection: 'agicquel'
 });
 
 module.exports = mongoose.model('Tasks', TaskSchema);
