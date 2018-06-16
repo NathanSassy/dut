@@ -30,6 +30,8 @@ M3103 : Algorithmique avancée
 
 M3104 : Développement Web côté serveur
 
+M3105 : Conception et programmation objets avancées
+
 M3301 : Production d'applications Java
 
 # Semestre 4
