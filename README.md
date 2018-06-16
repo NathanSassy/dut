@@ -32,6 +32,8 @@ M3104 : Développement Web côté serveur
 
 M3105 : Conception et programmation objets avancées
 
+M3106 : Bases de données avancées 
+
 M3301 : Production d'applications Java
 
 # Semestre 4
